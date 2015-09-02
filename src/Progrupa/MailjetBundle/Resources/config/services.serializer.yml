@@ -1,0 +1,10 @@
+services:
+    mailjet.date_time_deserialization_handler:
+        class: Progrupa\MailjetBundle\Mailjet\Serializer\DateTimeHandler
+        tags:
+            - {name: "mailjet.serializer.subscribing_handler"}
+
+    mailjet.date_nullifier:
+        class: Progrupa\MailjetBundle\Mailjet\Serializer\DateNullifier
+        tags:
+            - {name: "mailjet.serializer.event_subscriber"}

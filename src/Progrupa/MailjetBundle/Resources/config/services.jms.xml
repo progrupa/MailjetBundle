@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mailjet.serializer.metadata.file_locator.class">Metadata\Driver\FileLocator</parameter>
+        <parameter key="mailjet.serializer.metadata.annotation_driver.class">JMS\Serializer\Metadata\Driver\AnnotationDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.chain_driver.class">Metadata\Driver\DriverChain</parameter>
+        <parameter key="mailjet.serializer.metadata.yaml_driver.class">JMS\Serializer\Metadata\Driver\YamlDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.xml_driver.class">JMS\Serializer\Metadata\Driver\XmlDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.php_driver.class">JMS\Serializer\Metadata\Driver\PhpDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.doctrine_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrineTypeDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.doctrine_phpcr_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver</parameter>
+        <parameter key="mailjet.serializer.metadata.lazy_loading_driver.class">Metadata\Driver\LazyLoadingDriver</parameter>
+
+        <parameter key="mailjet.serializer.metadata.metadata_factory.class">Metadata\MetadataFactory</parameter>
+        <parameter key="mailjet.serializer.metadata.cache.file_cache.class">Metadata\Cache\FileCache</parameter>
+
+        <parameter key="mailjet.serializer.event_dispatcher.class">JMS\Serializer\EventDispatcher\LazyEventDispatcher</parameter>
+
+        <parameter key="mailjet.serializer.camel_case_naming_strategy.class">JMS\Serializer\Naming\CamelCaseNamingStrategy</parameter>
+        <parameter key="mailjet.serializer.serialized_name_annotation_strategy.class">JMS\Serializer\Naming\SerializedNameAnnotationStrategy</parameter>
+        <parameter key="mailjet.serializer.cache_naming_strategy.class">JMS\Serializer\Naming\CacheNamingStrategy</parameter>
+
+        <parameter key="mailjet.serializer.doctrine_object_constructor.class">JMS\Serializer\Construction\DoctrineObjectConstructor</parameter>
+        <parameter key="mailjet.serializer.unserialize_object_constructor.class">JMS\Serializer\Construction\UnserializeObjectConstructor</parameter>
+
+        <parameter key="mailjet.serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
+
+        <parameter key="mailjet.serializer.serializer.class">JMS\Serializer\Serializer</parameter>
+
+        <parameter key="mailjet.serializer.twig_extension.class">JMS\Serializer\Twig\SerializerExtension</parameter>
+        <parameter key="mailjet.serializer.templating.helper.class">JMS\SerializerBundle\Templating\SerializerHelper</parameter>
+
+        <parameter key="mailjet.serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
+        <parameter key="mailjet.serializer.json_serialization_visitor.options" type="collection"></parameter>
+        <parameter key="mailjet.serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
+        <parameter key="mailjet.serializer.xml_serialization_visitor.class">JMS\Serializer\XmlSerializationVisitor</parameter>
+        <parameter key="mailjet.serializer.xml_deserialization_visitor.class">JMS\Serializer\XmlDeserializationVisitor</parameter>
+        <parameter key="mailjet.serializer.xml_deserialization_visitor.doctype_whitelist" type="collection"></parameter>
+        <parameter key="mailjet.serializer.yaml_serialization_visitor.class">JMS\Serializer\YamlSerializationVisitor</parameter>
+        
+        <parameter key="mailjet.serializer.handler_registry.class">JMS\Serializer\Handler\LazyHandlerRegistry</parameter>
+
+        <parameter key="mailjet.serializer.datetime_handler.class">JMS\Serializer\Handler\DateHandler</parameter>
+        <parameter key="mailjet.serializer.array_collection_handler.class">JMS\Serializer\Handler\ArrayCollectionHandler</parameter>
+        <parameter key="mailjet.serializer.php_collection_handler.class">JMS\Serializer\Handler\PhpCollectionHandler</parameter>
+        <parameter key="mailjet.serializer.form_error_handler.class">JMS\Serializer\Handler\FormErrorHandler</parameter>
+        <parameter key="mailjet.serializer.constraint_violation_handler.class">JMS\Serializer\Handler\ConstraintViolationHandler</parameter>
+    </parameters>
+
+    <services>
+        <!-- Event Dispatcher -->
+        <service id="mailjet.serializer.event_dispatcher" class="%mailjet.serializer.event_dispatcher.class%" public="false">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <!-- Handlers -->
+        <service id="mailjet.serializer.handler_registry" class="%mailjet.serializer.handler_registry.class%">
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="mailjet.serializer.datetime_handler" class="%mailjet.serializer.datetime_handler.class%">
+            <tag name="mailjet.serializer.subscribing_handler" />
+        </service>
+        <service id="mailjet.serializer.array_collection_handler" class="%mailjet.serializer.array_collection_handler.class%">
+            <tag name="mailjet.serializer.subscribing_handler" />
+        </service>
+        <service id="mailjet.serializer.php_collection_handler" class="%mailjet.serializer.php_collection_handler.class%">
+            <tag name="mailjet.serializer.subscribing_handler" />
+        </service>
+        <service id="mailjet.serializer.form_error_handler" class="%mailjet.serializer.form_error_handler.class%">
+            <argument type="service" id="translator" />
+            <tag name="mailjet.serializer.subscribing_handler" />
+        </service>
+        <service id="mailjet.serializer.constraint_violation_handler" class="%mailjet.serializer.constraint_violation_handler.class%">
+            <tag name="mailjet.serializer.subscribing_handler" />
+        </service>
+            
+        <!-- Metadata Drivers -->
+        <service id="mailjet.serializer.metadata.file_locator" class="%mailjet.serializer.metadata.file_locator.class%" public="false">
+            <argument type="collection" /><!-- Namespace Prefixes mapping to Directories -->
+        </service>
+        <service id="mailjet.serializer.metadata.yaml_driver" class="%mailjet.serializer.metadata.yaml_driver.class%" public="false">
+            <argument type="service" id="mailjet.serializer.metadata.file_locator" />
+        </service>
+        <service id="mailjet.serializer.metadata.xml_driver" class="%mailjet.serializer.metadata.xml_driver.class%" public="false">
+            <argument type="service" id="mailjet.serializer.metadata.file_locator" />
+        </service>
+        <service id="mailjet.serializer.metadata.php_driver" class="%mailjet.serializer.metadata.php_driver.class%" public="false">
+            <argument type="service" id="mailjet.serializer.metadata.file_locator" />
+        </service>
+        <service id="mailjet.serializer.metadata.annotation_driver" class="%mailjet.serializer.metadata.annotation_driver.class%" public="false">
+            <argument type="service" id="annotation_reader" />
+        </service>
+        <service id="mailjet.serializer.metadata.chain_driver" class="%mailjet.serializer.metadata.chain_driver.class%" public="false">
+            <argument type="collection">
+                <argument type="service" id="mailjet.serializer.metadata.yaml_driver" />
+                <argument type="service" id="mailjet.serializer.metadata.xml_driver" />
+                <argument type="service" id="mailjet.serializer.metadata.php_driver" />
+                <argument type="service" id="mailjet.serializer.metadata.annotation_driver" />
+            </argument>
+        </service>
+        <service id="mailjet.serializer.metadata.lazy_loading_driver" class="%mailjet.serializer.metadata.lazy_loading_driver.class%" public="false">
+            <argument type="service" id="service_container" />
+            <argument>mailjet.serializer.metadata_driver</argument>
+        </service>
+        <service id="mailjet.serializer.metadata_driver" alias="mailjet.serializer.metadata.chain_driver" />
+
+        <!-- Metadata Factory -->
+        <service id="mailjet.serializer.metadata.cache.file_cache" class="%mailjet.serializer.metadata.cache.file_cache.class%" public="false">
+            <argument type="string">/tmp</argument>
+        </service>
+        <service id="mailjet.serializer.metadata.cache" alias="mailjet.serializer.metadata.cache.file_cache" public="false" />
+        <service id="mailjet.serializer.metadata_factory" class="%mailjet.serializer.metadata.metadata_factory.class%" public="false">
+            <argument type="service" id="mailjet.serializer.metadata.lazy_loading_driver" />
+            <argument>Metadata\ClassHierarchyMetadata</argument>
+            <call method="setCache">
+                <argument type="service" id="mailjet.serializer.metadata.cache" on-invalid="ignore" />
+            </call>
+        </service>
+
+        <!-- Exclusion Strategies -->
+        <service id="mailjet.serializer.version_exclusion_strategy"
+                 class="%mailjet.serializer.version_exclusion_strategy.class%"
+                 public="false"
+                 abstract="true" />
+
+        <!-- Naming Strategies -->
+        <service id="mailjet.serializer.camel_case_naming_strategy" class="%mailjet.serializer.camel_case_naming_strategy.class%" public="false" />
+        <service id="mailjet.serializer.serialized_name_annotation_strategy" class="%mailjet.serializer.serialized_name_annotation_strategy.class%" public="false">
+            <argument type="service" id="mailjet.serializer.camel_case_naming_strategy" />
+        </service>
+        <service id="mailjet.serializer.cache_naming_strategy" class="%mailjet.serializer.cache_naming_strategy.class%" public="false" />
+        <service id="mailjet.serializer.naming_strategy" alias="mailjet.serializer.serialized_name_annotation_strategy" public="false" />
+
+        <!-- Object Constructors -->
+        <service id="mailjet.serializer.unserialize_object_constructor" class="%mailjet.serializer.unserialize_object_constructor.class%" public="false" />
+        <service id="mailjet.serializer.object_constructor" alias="mailjet.serializer.unserialize_object_constructor" public="false" />
+
+        <!-- Serializer -->
+        <service id="mailjet.serializer.serializer" class="%mailjet.serializer.serializer.class%" public="false">
+            <argument type="service" id="mailjet.serializer.metadata_factory" />
+            <argument type="service" id="mailjet.serializer.handler_registry" />
+            <argument type="service" id="mailjet.serializer.object_constructor" />
+            <argument type="collection" /><!-- Serialization Visitors -->
+            <argument type="collection" /><!-- Deserialization Visitors -->
+            <argument type="service" id="mailjet.serializer.event_dispatcher" />
+        </service>
+        <service id="mailjet.serializer" alias="mailjet.serializer.serializer" /><!-- Preferred Alias -->
+        <service id="serializer" alias="mailjet.serializer.serializer" /><!-- Here for BC, may be disabled in the config -->
+
+        <!-- Twig Extension -->
+        <service id="mailjet.serializer.twig_extension.serializer" class="%mailjet.serializer.twig_extension.class%" public="false">
+            <argument type="service" id="mailjet.serializer" />
+            <tag name="twig.extension" />
+        </service>
+
+        <!-- PHP templating helper -->
+        <service id="mailjet.serializer.templating.helper.serializer" class="%mailjet.serializer.templating.helper.class%">
+            <argument type="service" id="mailjet.serializer" />
+            <tag name="templating.helper" alias="mailjet.serializer" />
+        </service>
+
+        <!-- Visitors -->
+        <service id="mailjet.serializer.json_serialization_visitor" class="%mailjet.serializer.json_serialization_visitor.class%">
+            <argument type="service" id="mailjet.serializer.naming_strategy" />
+            <call method="setOptions">
+                <argument>%mailjet.serializer.json_serialization_visitor.options%</argument>
+            </call>
+            <tag name="mailjet.serializer.serialization_visitor" format="json" />
+        </service>
+        <service id="mailjet.serializer.json_deserialization_visitor" class="%mailjet.serializer.json_deserialization_visitor.class%">
+            <argument type="service" id="mailjet.serializer.naming_strategy" />
+            <argument type="service" id="mailjet.serializer.object_constructor" />
+            <tag name="mailjet.serializer.deserialization_visitor" format="json" />
+        </service>
+        <service id="mailjet.serializer.array_serialization_visitor" class="Progrupa\MailjetBundle\Mailjet\Serializer\ArraySerializerVisitor">
+            <argument type="service" id="mailjet.serializer.naming_strategy" />
+            <tag name="mailjet.serializer.serialization_visitor" format="array" />
+        </service>
+        <service id="mailjet.serializer.array_deserialization_visitor" class="Progrupa\MailjetBundle\Mailjet\Serializer\ArrayDeserializerVisitor">
+            <argument type="service" id="mailjet.serializer.naming_strategy" />
+            <argument type="service" id="mailjet.serializer.object_constructor" />
+            <tag name="mailjet.serializer.deserialization_visitor" format="array" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,8 @@
+progrupa_mailjet:
+    resource: "@ProgrupaMailjetBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

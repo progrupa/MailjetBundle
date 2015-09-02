@@ -1,0 +1,43 @@
+services:
+    mailjet.api.send:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Send
+        arguments: [@mailjet.send_client, @mailjet.serializer.serializer]
+
+    mailjet.api.apikey:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Apikey
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.api.campaign:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Campaign
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.api.contact:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Contact
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.api.contactslist:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Contactslist
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.api.listrecipient:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Listrecipient
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.api.newsletter:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Newsletter
+        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+
+    mailjet.client:
+        class: GuzzleHttp\Client
+        arguments:
+            options:
+                base_uri: 'http://api.mailjet.com/v3/REST/'
+                auth: ['d355fa1dc93774e2691498bfdc400d84', '5279bdc6e1538db5f51337b8329d88ca']
+                headers: {Content-Type: 'application/json'}
+
+    mailjet.send_client:
+        class: GuzzleHttp\Client
+        arguments:
+            options:
+                base_uri: 'http://api.mailjet.com/v3/'
+                auth: ['d355fa1dc93774e2691498bfdc400d84', '5279bdc6e1538db5f51337b8329d88ca']
