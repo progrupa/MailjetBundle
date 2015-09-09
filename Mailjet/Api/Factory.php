@@ -2,6 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
+use GuzzleHttp\ClientInterface;
+use JMS\Serializer\SerializerInterface;
 
 class Factory
 {
