@@ -2,6 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Controller;
 
+use Progrupa\MailjetBundle\Mailjet\Model\Contact;
+use Progrupa\MailjetBundle\Mailjet\Model\Contactslist;
 use Progrupa\MailjetBundle\Mailjet\Model\SendEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -43,7 +45,7 @@ class DefaultController extends Controller
      */
     public function contactsListsAction()
     {
-        $lists = $this->get('mailjet.api.contactslist')->getList();
+        $lists = $this->get('mailjet.api.factory')->create(Contactslist::class)->getList();
 
         return array(
             'result' => $lists
@@ -56,7 +58,7 @@ class DefaultController extends Controller
      */
     public function contactsAction()
     {
-        $lists = $this->get('mailjet.api.contact')->getList();
+        $lists = $this->get('mailjet.api.factory')->create(Contact::class)->getList();
 
         return array(
             'result' => $lists

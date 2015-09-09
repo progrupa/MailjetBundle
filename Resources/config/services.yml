@@ -3,28 +3,8 @@ services:
         class: Progrupa\MailjetBundle\Mailjet\Api\Send
         arguments: [@mailjet.send_client, @mailjet.serializer.serializer]
 
-    mailjet.api.apikey:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Apikey
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
-
-    mailjet.api.campaign:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Campaign
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
-
-    mailjet.api.contact:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Contact
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
-
-    mailjet.api.contactslist:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Contactslist
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
-
-    mailjet.api.listrecipient:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Listrecipient
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
-
-    mailjet.api.newsletter:
-        class: Progrupa\MailjetBundle\Mailjet\Api\Newsletter
+    mailjet.api.factory:
+        class: Progrupa\MailjetBundle\Mailjet\Api\Factory
         arguments: [@mailjet.client, @mailjet.serializer.serializer]
 
     mailjet.client:
