@@ -1,119 +1,54 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Metasender Model
  *
  * Definition of send domains authorized to send mails for an API Key
  */
-class Metasender implements ModelInterface
+class Metasender extends AbstractModel
 {
-
-    /**
-     * Timestamp when object was created in database
-     */
-    protected $CreatedAt = null;
+    public static function getResource()
+    {
+        return 'metasender';
+    }
 
     /**
      * User provided readable description of the domain
+     * @Type("string")
+     * @SerializedName("Description")
      */
     protected $Description = null;
 
     /**
      * The email address (lowercase), which may consist of a wildcard (*) in the local
      * part.
+     * @Type("string")
+     * @SerializedName("Email")
      */
     protected $Email = null;
 
     /**
      * Filename expected on the domain name webserver, used for verifying the domain,
      * in case of a catch-all address.
+     * @Type("string")
+     * @SerializedName("Filename")
      */
     protected $Filename = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Is the domain authorized to send mails through Mailjet.
+     * @Type("boolean")
+     * @SerializedName("IsEnabled")
      */
     protected $IsEnabled = false;
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Metasender
-     */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
-    {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
-     */
-    public function getCreatedAt()
-    {
-        return $this->CreatedAt;
-    }
-
-    /**
-     * Sets the User provided readable description of the domain
-     *
-     * @param string
-     * @return Metasender
-     */
-    public function setDescription($Description = null)
-    {
-        $this->Description = $Description;
-        return $this;
-    }
-
-    /**
-     * Gets the User provided readable description of the domain
-     *
-     * @return string
+     * @return mixed
      */
     public function getDescription()
     {
@@ -121,23 +56,15 @@ class Metasender implements ModelInterface
     }
 
     /**
-     * Sets the The email address (lowercase), which may consist of a wildcard (*) in
-     * the local part.
-     *
-     * @param string
-     * @return Metasender
+     * @param mixed $Description
      */
-    public function setEmail($Email)
+    public function setDescription($Description)
     {
-        $this->Email = $Email;
-        return $this;
+        $this->Description = $Description;
     }
 
     /**
-     * Gets the The email address (lowercase), which may consist of a wildcard (*) in
-     * the local part.
-     *
-     * @return string
+     * @return mixed
      */
     public function getEmail()
     {
@@ -145,23 +72,15 @@ class Metasender implements ModelInterface
     }
 
     /**
-     * Sets the Filename expected on the domain name webserver, used for verifying the
-     * domain, in case of a catch-all address.
-     *
-     * @param string
-     * @return Metasender
+     * @param mixed $Email
      */
-    public function setFilename($Filename = null)
+    public function setEmail($Email)
     {
-        $this->Filename = $Filename;
-        return $this;
+        $this->Email = $Email;
     }
 
     /**
-     * Gets the Filename expected on the domain name webserver, used for verifying the
-     * domain, in case of a catch-all address.
-     *
-     * @return string
+     * @return mixed
      */
     public function getFilename()
     {
@@ -169,49 +88,26 @@ class Metasender implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Metasender
+     * @param mixed $Filename
      */
-    public function setID($ID = null)
+    public function setFilename($Filename)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Filename = $Filename;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Is the domain authorized to send mails through Mailjet.
-     *
-     * @param bool
-     * @return Metasender
-     */
-    public function setIsEnabled($IsEnabled = null)
-    {
-        $this->IsEnabled = $IsEnabled;
-        return $this;
-    }
-
-    /**
-     * Gets the Is the domain authorized to send mails through Mailjet.
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsEnabled()
     {
         return $this->IsEnabled;
     }
 
-
+    /**
+     * @param mixed $IsEnabled
+     */
+    public function setIsEnabled($IsEnabled)
+    {
+        $this->IsEnabled = $IsEnabled;
+    }
 }
-

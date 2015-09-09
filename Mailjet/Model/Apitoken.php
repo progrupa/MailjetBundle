@@ -1,135 +1,137 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Apitoken Model
  *
  * Access token for API
  */
-class Apitoken implements ModelInterface
+class Apitoken extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'apitoken';
+    }
+
+    /**
+     * @Type("string")
+     * @SerializedName("ACL")
+     */
+    protected $ACL = null;
 
     /**
      * Access rights of this token, in serialized PHP.
+     * @Type("string")
+     * @SerializedName("AllowedAccess")
      */
     protected $AllowedAccess = null;
 
     /**
      * Reference to API Key to which this token belongs.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
+     * Reference to API Key to which this token belongs.
+     * @Type("string")
+     * @SerializedName("APIKeyALT")
+     */
+    protected $APIKeyALT = null;
+
+    /**
      * Last registered IP address for this token.
+     * @Type("string")
+     * @SerializedName("CatchedIp")
      */
     protected $CatchedIp = null;
 
     /**
-     * Timestamp when object was created in database
-     */
-    protected $CreatedAt = null;
-
-    /**
      * Timestamp of first use of this token.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("FirstUsedAt")
      */
     protected $FirstUsedAt = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Is this token still active
+     * @Type("boolean")
+     * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Language (locale) for this token.
+     * @Type("string")
+     * @SerializedName("Lang")
      */
     protected $Lang = null;
 
     /**
      * Timestamp of last use of this token.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("LastUsedAt")
      */
     protected $LastUsedAt = null;
 
     /**
      * Payload for this token.
+     * @Type("string")
+     * @SerializedName("SentData")
      */
     protected $SentData = null;
 
     /**
      * Timezone to use for this token.
+     * @Type("string")
+     * @SerializedName("Timezone")
      */
     protected $Timezone = null;
 
     /**
      * Unique identifier for this token, to be used by user.
+     * @Type("string")
+     * @SerializedName("Token")
      */
     protected $Token = null;
 
     /**
      * Type of token
+     * @Type("string")
+     * @SerializedName("TokenType")
      */
     protected $TokenType = null;
 
     /**
      * Period during which token is considered valid.
+     * @Type("integer")
+     * @SerializedName("ValidFor")
      */
     protected $ValidFor = null;
 
     /**
-     * Sets the Access rights of this token, in serialized PHP.
-     *
-     * @param string
-     * @return Apitoken
+     * @return mixed
      */
-    public function setAllowedAccess($AllowedAccess)
+    public function getACL()
     {
-        $this->AllowedAccess = $AllowedAccess;
-        return $this;
+        return $this->ACL;
     }
 
     /**
-     * Gets the Access rights of this token, in serialized PHP.
-     *
-     * @return string
+     * @param mixed $ACL
+     */
+    public function setACL($ACL)
+    {
+        $this->ACL = $ACL;
+    }
+
+    /**
+     * @return mixed
      */
     public function getAllowedAccess()
     {
@@ -137,21 +139,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Reference to API Key to which this token belongs.
-     *
-     * @param int
-     * @return Apitoken
+     * @param mixed $AllowedAccess
      */
-    public function setAPIKeyID($APIKeyID)
+    public function setAllowedAccess($AllowedAccess)
     {
-        $this->APIKeyID = $APIKeyID;
-        return $this;
+        $this->AllowedAccess = $AllowedAccess;
     }
 
     /**
-     * Gets the Reference to API Key to which this token belongs.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKeyID()
     {
@@ -159,21 +155,31 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Last registered IP address for this token.
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $APIKeyID
      */
-    public function setCatchedIp($CatchedIp = null)
+    public function setAPIKeyID($APIKeyID)
     {
-        $this->CatchedIp = $CatchedIp;
-        return $this;
+        $this->APIKeyID = $APIKeyID;
     }
 
     /**
-     * Gets the Last registered IP address for this token.
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getAPIKeyALT()
+    {
+        return $this->APIKeyALT;
+    }
+
+    /**
+     * @param mixed $APIKeyALT
+     */
+    public function setAPIKeyALT($APIKeyALT)
+    {
+        $this->APIKeyALT = $APIKeyALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getCatchedIp()
     {
@@ -181,43 +187,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Apitoken
+     * @param mixed $CatchedIp
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setCatchedIp($CatchedIp)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->CatchedIp = $CatchedIp;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
-     */
-    public function getCreatedAt()
-    {
-        return $this->CreatedAt;
-    }
-
-    /**
-     * Sets the Timestamp of first use of this token.
-     *
-     * @param \Datetime
-     * @return Apitoken
-     */
-    public function setFirstUsedAt(\Datetime $FirstUsedAt = null)
-    {
-        $this->FirstUsedAt = $FirstUsedAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp of first use of this token.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getFirstUsedAt()
     {
@@ -225,43 +203,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Apitoken
+     * @param mixed $FirstUsedAt
      */
-    public function setID($ID = null)
+    public function setFirstUsedAt($FirstUsedAt)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->FirstUsedAt = $FirstUsedAt;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Is this token still active
-     *
-     * @param bool
-     * @return Apitoken
-     */
-    public function setIsActive($IsActive = null)
-    {
-        $this->IsActive = $IsActive;
-        return $this;
-    }
-
-    /**
-     * Gets the Is this token still active
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsActive()
     {
@@ -269,21 +219,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Language (locale) for this token.
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $IsActive
      */
-    public function setLang($Lang = null)
+    public function setIsActive($IsActive)
     {
-        $this->Lang = $Lang;
-        return $this;
+        $this->IsActive = $IsActive;
     }
 
     /**
-     * Gets the Language (locale) for this token.
-     *
-     * @return string
+     * @return mixed
      */
     public function getLang()
     {
@@ -291,21 +235,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last use of this token.
-     *
-     * @param \Datetime
-     * @return Apitoken
+     * @param mixed $Lang
      */
-    public function setLastUsedAt(\Datetime $LastUsedAt = null)
+    public function setLang($Lang)
     {
-        $this->LastUsedAt = $LastUsedAt;
-        return $this;
+        $this->Lang = $Lang;
     }
 
     /**
-     * Gets the Timestamp of last use of this token.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getLastUsedAt()
     {
@@ -313,21 +251,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Payload for this token.
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $LastUsedAt
      */
-    public function setSentData($SentData = null)
+    public function setLastUsedAt($LastUsedAt)
     {
-        $this->SentData = $SentData;
-        return $this;
+        $this->LastUsedAt = $LastUsedAt;
     }
 
     /**
-     * Gets the Payload for this token.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSentData()
     {
@@ -335,21 +267,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Timezone to use for this token.
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $SentData
      */
-    public function setTimezone($Timezone = null)
+    public function setSentData($SentData)
     {
-        $this->Timezone = $Timezone;
-        return $this;
+        $this->SentData = $SentData;
     }
 
     /**
-     * Gets the Timezone to use for this token.
-     *
-     * @return string
+     * @return mixed
      */
     public function getTimezone()
     {
@@ -357,21 +283,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Unique identifier for this token, to be used by user.
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $Timezone
      */
-    public function setToken($Token = null)
+    public function setTimezone($Timezone)
     {
-        $this->Token = $Token;
-        return $this;
+        $this->Timezone = $Timezone;
     }
 
     /**
-     * Gets the Unique identifier for this token, to be used by user.
-     *
-     * @return string
+     * @return mixed
      */
     public function getToken()
     {
@@ -379,21 +299,15 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Type of token
-     *
-     * @param string
-     * @return Apitoken
+     * @param mixed $Token
      */
-    public function setTokenType($TokenType)
+    public function setToken($Token)
     {
-        $this->TokenType = $TokenType;
-        return $this;
+        $this->Token = $Token;
     }
 
     /**
-     * Gets the Type of token
-     *
-     * @return string
+     * @return mixed
      */
     public function getTokenType()
     {
@@ -401,27 +315,26 @@ class Apitoken implements ModelInterface
     }
 
     /**
-     * Sets the Period during which token is considered valid.
-     *
-     * @param int
-     * @return Apitoken
+     * @param mixed $TokenType
      */
-    public function setValidFor($ValidFor = null)
+    public function setTokenType($TokenType)
     {
-        $this->ValidFor = $ValidFor;
-        return $this;
+        $this->TokenType = $TokenType;
     }
 
     /**
-     * Gets the Period during which token is considered valid.
-     *
-     * @return int
+     * @return mixed
      */
     public function getValidFor()
     {
         return $this->ValidFor;
     }
 
-
+    /**
+     * @param mixed $ValidFor
+     */
+    public function setValidFor($ValidFor)
+    {
+        $this->ValidFor = $ValidFor;
+    }
 }
-

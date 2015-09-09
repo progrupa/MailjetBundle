@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Preferences Model
@@ -41,43 +12,48 @@ namespace Mailjet\Model;
  */
 class Preferences implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'preferences';
+    }
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Name of preference
+     * @Type("string")
+     * @SerializedName("Key")
      */
     protected $Key = null;
 
     /**
-     * User for which this is the preference
+     * ID reference to User
+     * @Type("integer")
+     * @SerializedName("UserID")
      */
     protected $UserID = null;
 
     /**
+     * Value of the Email field of the related User resource
+     * @Type("string")
+     * @SerializedName("UserALT")
+     */
+    protected $UserALT = null;
+
+    /**
      * Value of preference
+     * @Type("string")
+     * @SerializedName("Value")
      */
     protected $Value = null;
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Preferences
-     */
-    public function setID($ID = null)
-    {
-        $this->ID = $ID;
-        return $this;
-    }
-
-    /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -85,21 +61,15 @@ class Preferences implements ModelInterface
     }
 
     /**
-     * Sets the Name of preference
-     *
-     * @param string
-     * @return Preferences
+     * @param mixed $ID
      */
-    public function setKey($Key)
+    public function setID($ID)
     {
-        $this->Key = $Key;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Name of preference
-     *
-     * @return string
+     * @return mixed
      */
     public function getKey()
     {
@@ -107,21 +77,15 @@ class Preferences implements ModelInterface
     }
 
     /**
-     * Sets the User for which this is the preference
-     *
-     * @param int
-     * @return Preferences
+     * @param mixed $Key
      */
-    public function setUserID($UserID)
+    public function setKey($Key)
     {
-        $this->UserID = $UserID;
-        return $this;
+        $this->Key = $Key;
     }
 
     /**
-     * Gets the User for which this is the preference
-     *
-     * @return int
+     * @return mixed
      */
     public function getUserID()
     {
@@ -129,27 +93,42 @@ class Preferences implements ModelInterface
     }
 
     /**
-     * Sets the Value of preference
-     *
-     * @param string
-     * @return Preferences
+     * @param mixed $UserID
      */
-    public function setValue($Value = null)
+    public function setUserID($UserID)
     {
-        $this->Value = $Value;
-        return $this;
+        $this->UserID = $UserID;
     }
 
     /**
-     * Gets the Value of preference
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getUserALT()
+    {
+        return $this->UserALT;
+    }
+
+    /**
+     * @param mixed $UserALT
+     */
+    public function setUserALT($UserALT)
+    {
+        $this->UserALT = $UserALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getValue()
     {
         return $this->Value;
     }
 
-
+    /**
+     * @param mixed $Value
+     */
+    public function setValue($Value)
+    {
+        $this->Value = $Value;
+    }
 }
-

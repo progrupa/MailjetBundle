@@ -1,12 +1,9 @@
 <?php
+
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use \Datetime;
-use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
-use Mailjet\Type\TCustomStatus;
-use Mailjet\Type\TRunLevel;
 
 /**
  * Apikey Model
@@ -15,6 +12,10 @@ use Mailjet\Type\TRunLevel;
  */
 class Apikey extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'apikey';
+    }
 
     /**
      * @Type("string")

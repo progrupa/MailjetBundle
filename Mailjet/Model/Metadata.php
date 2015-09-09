@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use Mailjet\Type\TResourceOps;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Metadata Model
@@ -43,69 +12,123 @@ use Mailjet\Type\TResourceOps;
  */
 class Metadata implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'metadata';
+    }
+
+    /**
+     * A list of the supported actions
+     * @Type("array")
+     * @SerializedName("Actions")
+     */
+    protected $Actions = null;
+
+    /**
+     * Current API version
+     * @Type("string")
+     * @SerializedName("APIVersion")
+     */
+    protected $APIVersion = null;
 
     /**
      * Description of resource.
+     * @Type("string")
+     * @SerializedName("Description")
      */
     protected $Description = null;
 
     /**
      * Applicable filters for this resource
+     * @Type("array")
+     * @SerializedName("Filters")
      */
     protected $Filters = null;
 
     /**
      * Is the resource inherently read-only
+     * @Type("boolean")
+     * @SerializedName("IsReadOnly")
      */
     protected $IsReadOnly = false;
 
     /**
      * Unique name of the resource
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * List of allowed operations in private API
+     * @Type("array")
+     * @SerializedName("PrivateOperations")
      */
     protected $PrivateOperations = null;
 
     /**
      * List of properties for this resource.
+     * @Type("array")
+     * @SerializedName("Properties")
      */
     protected $Properties = null;
 
     /**
      * List of allowed operations in public API
+     * @Type("array")
+     * @SerializedName("PublicOperations")
      */
     protected $PublicOperations = null;
 
     /**
      * Information about the fields on which a list of this resource can be sorted.
+     * @Type("array")
+     * @SerializedName("SortInfo")
      */
     protected $SortInfo = null;
 
     /**
      * Name of the property which can be used as an alternative unique key in the URL
      * (other than the ID)
+     * @Type("string")
+     * @SerializedName("UniqueKey")
      */
     protected $UniqueKey = null;
 
     /**
-     * Sets the Description of resource.
-     *
-     * @param string
-     * @return Metadata
+     * @return mixed
      */
-    public function setDescription($Description = null)
+    public function getActions()
     {
-        $this->Description = $Description;
-        return $this;
+        return $this->Actions;
     }
 
     /**
-     * Gets the Description of resource.
-     *
-     * @return string
+     * @param mixed $Actions
+     */
+    public function setActions($Actions)
+    {
+        $this->Actions = $Actions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAPIVersion()
+    {
+        return $this->APIVersion;
+    }
+
+    /**
+     * @param mixed $APIVersion
+     */
+    public function setAPIVersion($APIVersion)
+    {
+        $this->APIVersion = $APIVersion;
+    }
+
+    /**
+     * @return mixed
      */
     public function getDescription()
     {
@@ -113,21 +136,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the Applicable filters for this resource
-     *
-     * @param int
-     * @return Metadata
+     * @param mixed $Description
      */
-    public function setFilters($Filters = null)
+    public function setDescription($Description)
     {
-        $this->Filters = $Filters;
-        return $this;
+        $this->Description = $Description;
     }
 
     /**
-     * Gets the Applicable filters for this resource
-     *
-     * @return int
+     * @return mixed
      */
     public function getFilters()
     {
@@ -135,21 +152,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the Is the resource inherently read-only
-     *
-     * @param bool
-     * @return Metadata
+     * @param mixed $Filters
      */
-    public function setIsReadOnly($IsReadOnly = null)
+    public function setFilters($Filters)
     {
-        $this->IsReadOnly = $IsReadOnly;
-        return $this;
+        $this->Filters = $Filters;
     }
 
     /**
-     * Gets the Is the resource inherently read-only
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsReadOnly()
     {
@@ -157,21 +168,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the Unique name of the resource
-     *
-     * @param string
-     * @return Metadata
+     * @param mixed $IsReadOnly
      */
-    public function setName($Name = null)
+    public function setIsReadOnly($IsReadOnly)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->IsReadOnly = $IsReadOnly;
     }
 
     /**
-     * Gets the Unique name of the resource
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -179,21 +184,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the List of allowed operations in private API
-     *
-     * @param TResourceOps
-     * @return Metadata
+     * @param mixed $Name
      */
-    public function setPrivateOperations(TResourceOps $PrivateOperations = null)
+    public function setName($Name)
     {
-        $this->PrivateOperations = $PrivateOperations;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the List of allowed operations in private API
-     *
-     * @return TResourceOps
+     * @return mixed
      */
     public function getPrivateOperations()
     {
@@ -201,21 +200,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the List of properties for this resource.
-     *
-     * @param int
-     * @return Metadata
+     * @param mixed $PrivateOperations
      */
-    public function setProperties($Properties = null)
+    public function setPrivateOperations($PrivateOperations)
     {
-        $this->Properties = $Properties;
-        return $this;
+        $this->PrivateOperations = $PrivateOperations;
     }
 
     /**
-     * Gets the List of properties for this resource.
-     *
-     * @return int
+     * @return mixed
      */
     public function getProperties()
     {
@@ -223,21 +216,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the List of allowed operations in public API
-     *
-     * @param TResourceOps
-     * @return Metadata
+     * @param mixed $Properties
      */
-    public function setPublicOperations(TResourceOps $PublicOperations = null)
+    public function setProperties($Properties)
     {
-        $this->PublicOperations = $PublicOperations;
-        return $this;
+        $this->Properties = $Properties;
     }
 
     /**
-     * Gets the List of allowed operations in public API
-     *
-     * @return TResourceOps
+     * @return mixed
      */
     public function getPublicOperations()
     {
@@ -245,23 +232,15 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the Information about the fields on which a list of this resource can be
-     * sorted.
-     *
-     * @param int
-     * @return Metadata
+     * @param mixed $PublicOperations
      */
-    public function setSortInfo($SortInfo = null)
+    public function setPublicOperations($PublicOperations)
     {
-        $this->SortInfo = $SortInfo;
-        return $this;
+        $this->PublicOperations = $PublicOperations;
     }
 
     /**
-     * Gets the Information about the fields on which a list of this resource can be
-     * sorted.
-     *
-     * @return int
+     * @return mixed
      */
     public function getSortInfo()
     {
@@ -269,29 +248,26 @@ class Metadata implements ModelInterface
     }
 
     /**
-     * Sets the Name of the property which can be used as an alternative unique key in
-     * the URL (other than the ID)
-     *
-     * @param string
-     * @return Metadata
+     * @param mixed $SortInfo
      */
-    public function setUniqueKey($UniqueKey = null)
+    public function setSortInfo($SortInfo)
     {
-        $this->UniqueKey = $UniqueKey;
-        return $this;
+        $this->SortInfo = $SortInfo;
     }
 
     /**
-     * Gets the Name of the property which can be used as an alternative unique key in
-     * the URL (other than the ID)
-     *
-     * @return string
+     * @return mixed
      */
     public function getUniqueKey()
     {
         return $this->UniqueKey;
     }
 
-
+    /**
+     * @param mixed $UniqueKey
+     */
+    public function setUniqueKey($UniqueKey)
+    {
+        $this->UniqueKey = $UniqueKey;
+    }
 }
-

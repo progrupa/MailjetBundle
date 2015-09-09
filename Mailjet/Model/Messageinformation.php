@@ -1,125 +1,108 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Messageinformation Model
  *
  * API Key campaign/message information.
  */
-class Messageinformation implements ModelInterface
+class Messageinformation extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'messageinformation';
+    }
 
     /**
      * reference to Campaign to which message belongs.
+     * @Type("integer")
+     * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
+     * reference to Campaign to which message belongs.
+     * @Type("string")
+     * @SerializedName("CampaignALT")
+     */
+    protected $CampaignALT = null;
+
+    /**
      * Number of click track requests.
+     * @Type("integer")
+     * @SerializedName("ClickTrackedCount")
      */
     protected $ClickTrackedCount = null;
 
     /**
      * Reference to contact to which message was sent.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
-     * Timestamp when object was created in database
+     * Reference to contact to which message was sent.
+     * @Type("string")
+     * @SerializedName("ContactALT")
      */
-    protected $CreatedAt = null;
-
-    /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
+    protected $ContactALT = null;
 
     /**
      * Size of the message.
+     * @Type("integer")
+     * @SerializedName("MessageSize")
      */
     protected $MessageSize = null;
 
     /**
      * Number of open track requests.
+     * @Type("integer")
+     * @SerializedName("OpenTrackedCount")
      */
     protected $OpenTrackedCount = null;
 
     /**
      * Number of messages waiting in send queue
+     * @Type("integer")
+     * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Timestamp indicating when last message was sent for the campaign.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("SendEndAt")
      */
     protected $SendEndAt = null;
 
     /**
      * Number of actual sent attempts.
+     * @Type("integer")
+     * @SerializedName("SentCount")
      */
     protected $SentCount = null;
 
     /**
      * Matched spam assassin rules.
+     * @Type("int")
+     * @SerializedName("SpamAssassinRules")
      */
-    protected $SpamAssassinRuleListID = null;
+    protected $SpamAssassinRules = null;
 
     /**
      * Spam assassin score for this message.
+     * @Type("float")
+     * @SerializedName("SpamAssassinScore")
      */
     protected $SpamAssassinScore = null;
 
     /**
-     * Sets the reference to Campaign to which message belongs.
-     *
-     * @param int
-     * @return Messageinformation
-     */
-    public function setCampaignID($CampaignID = null)
-    {
-        $this->CampaignID = $CampaignID;
-        return $this;
-    }
-
-    /**
-     * Gets the reference to Campaign to which message belongs.
-     *
-     * @return int
+     * @return mixed
      */
     public function getCampaignID()
     {
@@ -127,21 +110,31 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Number of click track requests.
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $CampaignID
      */
-    public function setClickTrackedCount($ClickTrackedCount = null)
+    public function setCampaignID($CampaignID)
     {
-        $this->ClickTrackedCount = $ClickTrackedCount;
-        return $this;
+        $this->CampaignID = $CampaignID;
     }
 
     /**
-     * Gets the Number of click track requests.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getCampaignALT()
+    {
+        return $this->CampaignALT;
+    }
+
+    /**
+     * @param mixed $CampaignALT
+     */
+    public function setCampaignALT($CampaignALT)
+    {
+        $this->CampaignALT = $CampaignALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getClickTrackedCount()
     {
@@ -149,21 +142,15 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Reference to contact to which message was sent.
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $ClickTrackedCount
      */
-    public function setContactID($ContactID = null)
+    public function setClickTrackedCount($ClickTrackedCount)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->ClickTrackedCount = $ClickTrackedCount;
     }
 
     /**
-     * Gets the Reference to contact to which message was sent.
-     *
-     * @return int
+     * @return mixed
      */
     public function getContactID()
     {
@@ -171,65 +158,31 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Messageinformation
+     * @param mixed $ContactID
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setContactID($ContactID)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
+     * @return mixed
      */
-    public function getCreatedAt()
+    public function getContactALT()
     {
-        return $this->CreatedAt;
+        return $this->ContactALT;
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $ContactALT
      */
-    public function setID($ID = null)
+    public function setContactALT($ContactALT)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ContactALT = $ContactALT;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Size of the message.
-     *
-     * @param int
-     * @return Messageinformation
-     */
-    public function setMessageSize($MessageSize = null)
-    {
-        $this->MessageSize = $MessageSize;
-        return $this;
-    }
-
-    /**
-     * Gets the Size of the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getMessageSize()
     {
@@ -237,21 +190,15 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Number of open track requests.
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $MessageSize
      */
-    public function setOpenTrackedCount($OpenTrackedCount = null)
+    public function setMessageSize($MessageSize)
     {
-        $this->OpenTrackedCount = $OpenTrackedCount;
-        return $this;
+        $this->MessageSize = $MessageSize;
     }
 
     /**
-     * Gets the Number of open track requests.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenTrackedCount()
     {
@@ -259,21 +206,15 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages waiting in send queue
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $OpenTrackedCount
      */
-    public function setQueuedCount($QueuedCount = null)
+    public function setOpenTrackedCount($OpenTrackedCount)
     {
-        $this->QueuedCount = $QueuedCount;
-        return $this;
+        $this->OpenTrackedCount = $OpenTrackedCount;
     }
 
     /**
-     * Gets the Number of messages waiting in send queue
-     *
-     * @return int
+     * @return mixed
      */
     public function getQueuedCount()
     {
@@ -281,21 +222,15 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp indicating when last message was sent for the campaign.
-     *
-     * @param \Datetime
-     * @return Messageinformation
+     * @param mixed $QueuedCount
      */
-    public function setSendEndAt(\Datetime $SendEndAt = null)
+    public function setQueuedCount($QueuedCount)
     {
-        $this->SendEndAt = $SendEndAt;
-        return $this;
+        $this->QueuedCount = $QueuedCount;
     }
 
     /**
-     * Gets the Timestamp indicating when last message was sent for the campaign.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getSendEndAt()
     {
@@ -303,21 +238,15 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Number of actual sent attempts.
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $SendEndAt
      */
-    public function setSentCount($SentCount = null)
+    public function setSendEndAt($SendEndAt)
     {
-        $this->SentCount = $SentCount;
-        return $this;
+        $this->SendEndAt = $SendEndAt;
     }
 
     /**
-     * Gets the Number of actual sent attempts.
-     *
-     * @return int
+     * @return mixed
      */
     public function getSentCount()
     {
@@ -325,49 +254,42 @@ class Messageinformation implements ModelInterface
     }
 
     /**
-     * Sets the Matched spam assassin rules.
-     *
-     * @param int
-     * @return Messageinformation
+     * @param mixed $SentCount
      */
-    public function setSpamAssassinRuleListID($SpamAssassinRuleListID = null)
+    public function setSentCount($SentCount)
     {
-        $this->SpamAssassinRuleListID = $SpamAssassinRuleListID;
-        return $this;
+        $this->SentCount = $SentCount;
     }
 
     /**
-     * Gets the Matched spam assassin rules.
-     *
-     * @return int
+     * @return mixed
      */
-    public function getSpamAssassinRuleListID()
+    public function getSpamAssassinRules()
     {
-        return $this->SpamAssassinRuleListID;
+        return $this->SpamAssassinRules;
     }
 
     /**
-     * Sets the Spam assassin score for this message.
-     *
-     * @param string
-     * @return Messageinformation
+     * @param mixed $SpamAssassinRules
      */
-    public function setSpamAssassinScore($SpamAssassinScore = null)
+    public function setSpamAssassinRules($SpamAssassinRules)
     {
-        $this->SpamAssassinScore = $SpamAssassinScore;
-        return $this;
+        $this->SpamAssassinRules = $SpamAssassinRules;
     }
 
     /**
-     * Gets the Spam assassin score for this message.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSpamAssassinScore()
     {
         return $this->SpamAssassinScore;
     }
 
-
+    /**
+     * @param mixed $SpamAssassinScore
+     */
+    public function setSpamAssassinScore($SpamAssassinScore)
+    {
+        $this->SpamAssassinScore = $SpamAssassinScore;
+    }
 }
-

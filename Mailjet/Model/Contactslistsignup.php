@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Contactslistsignup Model
@@ -41,83 +12,111 @@ namespace Mailjet\Model;
  */
 class Contactslistsignup implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'contactslistsignup';
+    }
 
     /**
      * Timestamp when signup confirmation was registered.
+     * @Type("integer")
+     * @SerializedName("ConfirmAt")
      */
     protected $ConfirmAt = null;
 
     /**
      * IP address detected during signup confirmation.
+     * @Type("string")
+     * @SerializedName("ConfirmIp")
      */
     protected $ConfirmIp = null;
 
     /**
-     * Teference to Contact to be signed up.
+     * Reference to Contact to be signed up.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
+     * Value of the Email field of the related Contact resource
+     * @Type("string")
+     * @SerializedName("ContactALT")
+     */
+    protected $ContactALT = null;
+
+    /**
      * Email address to be signed up.
+     * @Type("string")
+     * @SerializedName("Email")
      */
     protected $Email = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Contact list to which contact will be subscribed.
+     * @Type("integer")
+     * @SerializedName("ListID")
      */
     protected $ListID = null;
 
     /**
-     * Reference to recipient to which contact corresponds.
+     * Value of the Address field of the related ContactsList resource
+     * @Type("string")
+     * @SerializedName("ListALT")
      */
-    protected $RecipientID = null;
+    protected $ListALT = null;
+
+    /**
+     * Reference to recipient to which contact corresponds.
+     * @Type("integer")
+     * @SerializedName("Recipient")
+     */
+    protected $Recipient = null;
 
     /**
      * Timestamp of sign up registration.
+     * @Type("integer")
+     * @SerializedName("SignupAt")
      */
     protected $SignupAt = null;
 
     /**
      * IP address detected during signup registration.
+     * @Type("string")
+     * @SerializedName("SignupIp")
      */
     protected $SignupIp = null;
 
     /**
      * Unique confirmation key needed for confirmation.
+     * @Type("string")
+     * @SerializedName("SignupKey")
      */
     protected $SignupKey = null;
 
     /**
      * Where did the signup request come from.
+     * @Type("string")
+     * @SerializedName("Source")
      */
     protected $Source = null;
 
     /**
      * ID of signup request entity (usually widget ID).
+     * @Type("integer")
+     * @SerializedName("SourceId")
      */
     protected $SourceId = null;
 
     /**
-     * Sets the Timestamp when signup confirmation was registered.
-     *
-     * @param int
-     * @return Contactslistsignup
-     */
-    public function setConfirmAt($ConfirmAt = null)
-    {
-        $this->ConfirmAt = $ConfirmAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp when signup confirmation was registered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getConfirmAt()
     {
@@ -125,21 +124,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the IP address detected during signup confirmation.
-     *
-     * @param string
-     * @return Contactslistsignup
+     * @param mixed $ConfirmAt
      */
-    public function setConfirmIp($ConfirmIp = null)
+    public function setConfirmAt($ConfirmAt)
     {
-        $this->ConfirmIp = $ConfirmIp;
-        return $this;
+        $this->ConfirmAt = $ConfirmAt;
     }
 
     /**
-     * Gets the IP address detected during signup confirmation.
-     *
-     * @return string
+     * @return mixed
      */
     public function getConfirmIp()
     {
@@ -147,21 +140,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Teference to Contact to be signed up.
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $ConfirmIp
      */
-    public function setContactID($ContactID = null)
+    public function setConfirmIp($ConfirmIp)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->ConfirmIp = $ConfirmIp;
     }
 
     /**
-     * Gets the Teference to Contact to be signed up.
-     *
-     * @return int
+     * @return mixed
      */
     public function getContactID()
     {
@@ -169,21 +156,31 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Email address to be signed up.
-     *
-     * @param string
-     * @return Contactslistsignup
+     * @param mixed $ContactID
      */
-    public function setEmail($Email)
+    public function setContactID($ContactID)
     {
-        $this->Email = $Email;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Email address to be signed up.
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getContactALT()
+    {
+        return $this->ContactALT;
+    }
+
+    /**
+     * @param mixed $ContactALT
+     */
+    public function setContactALT($ContactALT)
+    {
+        $this->ContactALT = $ContactALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getEmail()
     {
@@ -191,21 +188,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $Email
      */
-    public function setID($ID = null)
+    public function setEmail($Email)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Email = $Email;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -213,21 +204,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Contact list to which contact will be subscribed.
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $ID
      */
-    public function setListID($ListID)
+    public function setID($ID)
     {
-        $this->ListID = $ListID;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Contact list to which contact will be subscribed.
-     *
-     * @return int
+     * @return mixed
      */
     public function getListID()
     {
@@ -235,43 +220,47 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Reference to recipient to which contact corresponds.
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $ListID
      */
-    public function setRecipientID($RecipientID = null)
+    public function setListID($ListID)
     {
-        $this->RecipientID = $RecipientID;
-        return $this;
+        $this->ListID = $ListID;
     }
 
     /**
-     * Gets the Reference to recipient to which contact corresponds.
-     *
-     * @return int
+     * @return mixed
      */
-    public function getRecipientID()
+    public function getListALT()
     {
-        return $this->RecipientID;
+        return $this->ListALT;
     }
 
     /**
-     * Sets the Timestamp of sign up registration.
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $ListALT
      */
-    public function setSignupAt($SignupAt = null)
+    public function setListALT($ListALT)
     {
-        $this->SignupAt = $SignupAt;
-        return $this;
+        $this->ListALT = $ListALT;
     }
 
     /**
-     * Gets the Timestamp of sign up registration.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getRecipient()
+    {
+        return $this->Recipient;
+    }
+
+    /**
+     * @param mixed $Recipient
+     */
+    public function setRecipient($Recipient)
+    {
+        $this->Recipient = $Recipient;
+    }
+
+    /**
+     * @return mixed
      */
     public function getSignupAt()
     {
@@ -279,21 +268,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the IP address detected during signup registration.
-     *
-     * @param string
-     * @return Contactslistsignup
+     * @param mixed $SignupAt
      */
-    public function setSignupIp($SignupIp = null)
+    public function setSignupAt($SignupAt)
     {
-        $this->SignupIp = $SignupIp;
-        return $this;
+        $this->SignupAt = $SignupAt;
     }
 
     /**
-     * Gets the IP address detected during signup registration.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSignupIp()
     {
@@ -301,21 +284,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Unique confirmation key needed for confirmation.
-     *
-     * @param string
-     * @return Contactslistsignup
+     * @param mixed $SignupIp
      */
-    public function setSignupKey($SignupKey = null)
+    public function setSignupIp($SignupIp)
     {
-        $this->SignupKey = $SignupKey;
-        return $this;
+        $this->SignupIp = $SignupIp;
     }
 
     /**
-     * Gets the Unique confirmation key needed for confirmation.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSignupKey()
     {
@@ -323,21 +300,15 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the Where did the signup request come from.
-     *
-     * @param string
-     * @return Contactslistsignup
+     * @param mixed $SignupKey
      */
-    public function setSource($Source)
+    public function setSignupKey($SignupKey)
     {
-        $this->Source = $Source;
-        return $this;
+        $this->SignupKey = $SignupKey;
     }
 
     /**
-     * Gets the Where did the signup request come from.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSource()
     {
@@ -345,27 +316,26 @@ class Contactslistsignup implements ModelInterface
     }
 
     /**
-     * Sets the ID of signup request entity (usually widget ID).
-     *
-     * @param int
-     * @return Contactslistsignup
+     * @param mixed $Source
      */
-    public function setSourceId($SourceId = null)
+    public function setSource($Source)
     {
-        $this->SourceId = $SourceId;
-        return $this;
+        $this->Source = $Source;
     }
 
     /**
-     * Gets the ID of signup request entity (usually widget ID).
-     *
-     * @return int
+     * @return mixed
      */
     public function getSourceId()
     {
         return $this->SourceId;
     }
 
-
+    /**
+     * @param mixed $SourceId
+     */
+    public function setSourceId($SourceId)
+    {
+        $this->SourceId = $SourceId;
+    }
 }
-

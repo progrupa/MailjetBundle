@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use Mailjet\Type\TMessageEventType;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Messagehistory Model
@@ -43,38 +12,71 @@ use Mailjet\Type\TMessageEventType;
  */
 class Messagehistory implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'messagehistory';
+    }
+
+    /**
+     * More details for the message
+     * @Type("string")
+     * @SerializedName("Comment")
+     */
+    protected $Comment = null;
 
     /**
      * Timestamp when event was registered.
+     * @Type("integer")
+     * @SerializedName("EventAt")
      */
     protected $EventAt = null;
 
     /**
      * Type of event
+     * Allowed values:
+     * - sent
+     * - opened
+     * - clicked
+     * - bounced
+     * - blocked
+     * - unsub
+     * @Type("string")
+     * @SerializedName("EventType")
      */
     protected $EventType = 'sent';
 
     /**
+     * The state of the message
+     * @Type("string")
+     * @SerializedName("State")
+     */
+    protected $State = null;
+
+    /**
      * Useragent used to trigger the event (when applicable)
+     * @Type("string")
+     * @SerializedName("Useragent")
      */
     protected $Useragent = null;
 
     /**
-     * Sets the Timestamp when event was registered.
-     *
-     * @param int
-     * @return Messagehistory
+     * @return mixed
      */
-    public function setEventAt($EventAt = null)
+    public function getComment()
     {
-        $this->EventAt = $EventAt;
-        return $this;
+        return $this->Comment;
     }
 
     /**
-     * Gets the Timestamp when event was registered.
-     *
-     * @return int
+     * @param mixed $Comment
+     */
+    public function setComment($Comment)
+    {
+        $this->Comment = $Comment;
+    }
+
+    /**
+     * @return mixed
      */
     public function getEventAt()
     {
@@ -82,21 +84,15 @@ class Messagehistory implements ModelInterface
     }
 
     /**
-     * Sets the Type of event
-     *
-     * @param TMessageEventType
-     * @return Messagehistory
+     * @param mixed $EventAt
      */
-    public function setEventType(TMessageEventType $EventType = null)
+    public function setEventAt($EventAt)
     {
-        $this->EventType = $EventType;
-        return $this;
+        $this->EventAt = $EventAt;
     }
 
     /**
-     * Gets the Type of event
-     *
-     * @return TMessageEventType
+     * @return mixed
      */
     public function getEventType()
     {
@@ -104,27 +100,42 @@ class Messagehistory implements ModelInterface
     }
 
     /**
-     * Sets the Useragent used to trigger the event (when applicable)
-     *
-     * @param string
-     * @return Messagehistory
+     * @param mixed $EventType
      */
-    public function setUseragent($Useragent = null)
+    public function setEventType($EventType)
     {
-        $this->Useragent = $Useragent;
-        return $this;
+        $this->EventType = $EventType;
     }
 
     /**
-     * Gets the Useragent used to trigger the event (when applicable)
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->State;
+    }
+
+    /**
+     * @param mixed $State
+     */
+    public function setState($State)
+    {
+        $this->State = $State;
+    }
+
+    /**
+     * @return mixed
      */
     public function getUseragent()
     {
         return $this->Useragent;
     }
 
-
+    /**
+     * @param mixed $Useragent
+     */
+    public function setUseragent($Useragent)
+    {
+        $this->Useragent = $Useragent;
+    }
 }
-

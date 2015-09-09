@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Messagestatistics Model
@@ -41,98 +12,118 @@ namespace Mailjet\Model;
  */
 class Messagestatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'messagestatistics';
+    }
 
     /**
      * Average delay (in seconds) between the open and click.
+     * @Type("float")
+     * @SerializedName("AverageClickDelay")
      */
     protected $AverageClickDelay = null;
 
     /**
-     *
+     * Average number of times a click was registered for a message.
+     * @Type("float")
+     * @SerializedName("AverageClickedCount")
      */
     protected $AverageClickedCount = null;
 
     /**
-     *
+     * Average delay between message delivery and first message open.
+     * @Type("float")
+     * @SerializedName("AverageOpenDelay")
      */
     protected $AverageOpenDelay = null;
 
     /**
      * Average number of times a recipient opens the message.
+     * @Type("float")
+     * @SerializedName("AverageOpenedCount")
      */
     protected $AverageOpenedCount = null;
 
     /**
      * Number of blocked messages.
+     * @Type("integer")
+     * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
+     * @Type("integer")
+     * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of distinct campaigns
+     * @Type("integer")
+     * @SerializedName("CampaignCount")
      */
     protected $CampaignCount = null;
 
     /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
+     * @Type("integer")
+     * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Number of message open registrations.
+     * @Type("integer")
+     * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
+     * @Type("integer")
+     * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
+     * @Type("integer")
+     * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
+     * @Type("integer")
+     * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
      * Number of transactional mails.
+     * @Type("integer")
+     * @SerializedName("TransactionalCount")
      */
     protected $TransactionalCount = null;
 
     /**
      * Number of registered unsubscribe requests.
+     * @Type("integer")
+     * @SerializedName("UnsubscribedCount")
      */
     protected $UnsubscribedCount = null;
 
     /**
-     * Sets the Average delay (in seconds) between the open and click.
-     *
-     * @param int
-     * @return Messagestatistics
-     */
-    public function setAverageClickDelay($AverageClickDelay = null)
-    {
-        $this->AverageClickDelay = $AverageClickDelay;
-        return $this;
-    }
-
-    /**
-     * Gets the Average delay (in seconds) between the open and click.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAverageClickDelay()
     {
@@ -140,21 +131,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the 
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $AverageClickDelay
      */
-    public function setAverageClickedCount($AverageClickedCount = null)
+    public function setAverageClickDelay($AverageClickDelay)
     {
-        $this->AverageClickedCount = $AverageClickedCount;
-        return $this;
+        $this->AverageClickDelay = $AverageClickDelay;
     }
 
     /**
-     * Gets the 
-     *
-     * @return int
+     * @return mixed
      */
     public function getAverageClickedCount()
     {
@@ -162,21 +147,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the 
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $AverageClickedCount
      */
-    public function setAverageOpenDelay($AverageOpenDelay = null)
+    public function setAverageClickedCount($AverageClickedCount)
     {
-        $this->AverageOpenDelay = $AverageOpenDelay;
-        return $this;
+        $this->AverageClickedCount = $AverageClickedCount;
     }
 
     /**
-     * Gets the 
-     *
-     * @return int
+     * @return mixed
      */
     public function getAverageOpenDelay()
     {
@@ -184,21 +163,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Average number of times a recipient opens the message.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $AverageOpenDelay
      */
-    public function setAverageOpenedCount($AverageOpenedCount = null)
+    public function setAverageOpenDelay($AverageOpenDelay)
     {
-        $this->AverageOpenedCount = $AverageOpenedCount;
-        return $this;
+        $this->AverageOpenDelay = $AverageOpenDelay;
     }
 
     /**
-     * Gets the Average number of times a recipient opens the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAverageOpenedCount()
     {
@@ -206,21 +179,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of blocked messages.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $AverageOpenedCount
      */
-    public function setBlockedCount($BlockedCount = null)
+    public function setAverageOpenedCount($AverageOpenedCount)
     {
-        $this->BlockedCount = $BlockedCount;
-        return $this;
+        $this->AverageOpenedCount = $AverageOpenedCount;
     }
 
     /**
-     * Gets the Number of blocked messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBlockedCount()
     {
@@ -228,21 +195,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of bounced messages.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $BlockedCount
      */
-    public function setBouncedCount($BouncedCount = null)
+    public function setBlockedCount($BlockedCount)
     {
-        $this->BouncedCount = $BouncedCount;
-        return $this;
+        $this->BlockedCount = $BlockedCount;
     }
 
     /**
-     * Gets the Number of bounced messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBouncedCount()
     {
@@ -250,21 +211,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of distinct campaigns
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $BouncedCount
      */
-    public function setCampaignCount($CampaignCount = null)
+    public function setBouncedCount($BouncedCount)
     {
-        $this->CampaignCount = $CampaignCount;
-        return $this;
+        $this->BouncedCount = $BouncedCount;
     }
 
     /**
-     * Gets the Number of distinct campaigns
-     *
-     * @return int
+     * @return mixed
      */
     public function getCampaignCount()
     {
@@ -272,21 +227,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $CampaignCount
      */
-    public function setClickedCount($ClickedCount = null)
+    public function setCampaignCount($CampaignCount)
     {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
+        $this->CampaignCount = $CampaignCount;
     }
 
     /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -294,21 +243,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages delivered to their destination.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $ClickedCount
      */
-    public function setDeliveredCount($DeliveredCount = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->DeliveredCount = $DeliveredCount;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the Number of messages delivered to their destination.
-     *
-     * @return int
+     * @return mixed
      */
     public function getDeliveredCount()
     {
@@ -316,21 +259,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of message open registrations.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $DeliveredCount
      */
-    public function setOpenedCount($OpenedCount = null)
+    public function setDeliveredCount($DeliveredCount)
     {
-        $this->OpenedCount = $OpenedCount;
-        return $this;
+        $this->DeliveredCount = $DeliveredCount;
     }
 
     /**
-     * Gets the Number of message open registrations.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenedCount()
     {
@@ -338,21 +275,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Total number of messages processed by Mailjet
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $OpenedCount
      */
-    public function setProcessedCount($ProcessedCount = null)
+    public function setOpenedCount($OpenedCount)
     {
-        $this->ProcessedCount = $ProcessedCount;
-        return $this;
+        $this->OpenedCount = $OpenedCount;
     }
 
     /**
-     * Gets the Total number of messages processed by Mailjet
-     *
-     * @return int
+     * @return mixed
      */
     public function getProcessedCount()
     {
@@ -360,21 +291,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages waiting in send queue
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $ProcessedCount
      */
-    public function setQueuedCount($QueuedCount = null)
+    public function setProcessedCount($ProcessedCount)
     {
-        $this->QueuedCount = $QueuedCount;
-        return $this;
+        $this->ProcessedCount = $ProcessedCount;
     }
 
     /**
-     * Gets the Number of messages waiting in send queue
-     *
-     * @return int
+     * @return mixed
      */
     public function getQueuedCount()
     {
@@ -382,21 +307,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of spam complaints
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $QueuedCount
      */
-    public function setSpamComplaintCount($SpamComplaintCount = null)
+    public function setQueuedCount($QueuedCount)
     {
-        $this->SpamComplaintCount = $SpamComplaintCount;
-        return $this;
+        $this->QueuedCount = $QueuedCount;
     }
 
     /**
-     * Gets the Number of spam complaints
-     *
-     * @return int
+     * @return mixed
      */
     public function getSpamComplaintCount()
     {
@@ -404,21 +323,15 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of transactional mails.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $SpamComplaintCount
      */
-    public function setTransactionalCount($TransactionalCount = null)
+    public function setSpamComplaintCount($SpamComplaintCount)
     {
-        $this->TransactionalCount = $TransactionalCount;
-        return $this;
+        $this->SpamComplaintCount = $SpamComplaintCount;
     }
 
     /**
-     * Gets the Number of transactional mails.
-     *
-     * @return int
+     * @return mixed
      */
     public function getTransactionalCount()
     {
@@ -426,27 +339,26 @@ class Messagestatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered unsubscribe requests.
-     *
-     * @param int
-     * @return Messagestatistics
+     * @param mixed $TransactionalCount
      */
-    public function setUnsubscribedCount($UnsubscribedCount = null)
+    public function setTransactionalCount($TransactionalCount)
     {
-        $this->UnsubscribedCount = $UnsubscribedCount;
-        return $this;
+        $this->TransactionalCount = $TransactionalCount;
     }
 
     /**
-     * Gets the Number of registered unsubscribe requests.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUnsubscribedCount()
     {
         return $this->UnsubscribedCount;
     }
 
-
+    /**
+     * @param mixed $UnsubscribedCount
+     */
+    public function setUnsubscribedCount($UnsubscribedCount)
+    {
+        $this->UnsubscribedCount = $UnsubscribedCount;
+    }
 }
-

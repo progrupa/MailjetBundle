@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Myprofile Model
@@ -43,128 +12,167 @@ use \Datetime;
  */
 class Myprofile implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'myprofile';
+    }
 
     /**
      * City part of address
-     */
+     * @Type("string")
+     * @SerializedName("AddressCity")
+	 */
     protected $AddressCity = null;
 
     /**
      * Country part of address
-     */
+     * @Type("string")
+     * @SerializedName("AddressCountry")
+	 */
     protected $AddressCountry = null;
 
     /**
      * Postal code of address (ZIP)
-     */
+     * @Type("string")
+     * @SerializedName("AddressPostalCode")
+	 */
     protected $AddressPostalCode = null;
 
     /**
      * Street and house number
-     */
+     * @Type("string")
+     * @SerializedName("AddressStreet")
+	 */
     protected $AddressStreet = null;
 
     /**
      * Billing email address
-     */
+     * @Type("string")
+     * @SerializedName("BillingEmail")
+	 */
     protected $BillingEmail = null;
 
     /**
      * User's birthday
-     */
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("BirthdayAt")
+	 */
     protected $BirthdayAt = null;
 
     /**
      * Name of the company
-     */
+     * @Type("string")
+     * @SerializedName("CompanyName")
+	 */
     protected $CompanyName = null;
 
     /**
      * EU name of the company
-     */
+     * @Type("string")
+     * @SerializedName("CompanyNameEu")
+	 */
     protected $CompanyNameEu = null;
 
     /**
      * Contact telephone
-     */
+     * @Type("string")
+     * @SerializedName("ContactPhone")
+	 */
     protected $ContactPhone = null;
 
     /**
      * Estimated volume of messages
-     */
+     * @Type("integer")
+     * @SerializedName("EstimatedVolume")
+	 */
     protected $EstimatedVolume = null;
 
     /**
      * ?
-     */
+     * @Type("string")
+     * @SerializedName("Features")
+	 */
     protected $Features = null;
 
     /**
      * Contact person's first name
-     */
+     * @Type("string")
+     * @SerializedName("Firstname")
+	 */
     protected $Firstname = null;
 
     /**
      * Unique numerical ID for this object
-     */
+     * @Type("integer")
+     * @SerializedName("ID")
+	 */
     protected $ID = null;
 
     /**
      * Industry in which user works.
-     */
+     * @Type("string")
+     * @SerializedName("Industry")
+	 */
     protected $Industry = null;
 
     /**
      * Contact person's last name
-     */
+     * @Type("string")
+     * @SerializedName("Lastname")
+	 */
     protected $Lastname = null;
 
     /**
      * Reference to user
-     */
+     * @Type("integer")
+     * @SerializedName("UserID")
+	 */
     protected $UserID = null;
 
     /**
+     * Reference to user
+     * @Type("string")
+     * @SerializedName("UserALT")
+	 */
+    protected $UserALT = null;
+
+    /**
      * VAT rate for this user.
-     */
+     * @Type("float")
+     * @SerializedName("VAT")
+	 */
     protected $VAT = null;
 
     /**
      * User supplied VAT number.
-     */
+     * @Type("string")
+     * @SerializedName("VATNumber")
+	 */
     protected $VATNumber = null;
 
     /**
      * Status of VAT number checking.
-     */
+     * @Type("string")
+     * @SerializedName("VATNumberStatus")
+	 */
     protected $VATNumberStatus = null;
 
     /**
      * Mailjet determined VAT number
-     */
+     * @Type("string")
+     * @SerializedName("VATNumberTrusted")
+	 */
     protected $VATNumberTrusted = null;
 
     /**
      * URL of user's website
-     */
+     * @Type("string")
+     * @SerializedName("Website")
+	 */
     protected $Website = null;
 
     /**
-     * Sets the City part of address
-     *
-     * @param string
-     * @return Myprofile
-     */
-    public function setAddressCity($AddressCity = null)
-    {
-        $this->AddressCity = $AddressCity;
-        return $this;
-    }
-
-    /**
-     * Gets the City part of address
-     *
-     * @return string
+     * @return mixed
      */
     public function getAddressCity()
     {
@@ -172,21 +180,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Country part of address
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $AddressCity
      */
-    public function setAddressCountry($AddressCountry = null)
+    public function setAddressCity($AddressCity)
     {
-        $this->AddressCountry = $AddressCountry;
-        return $this;
+        $this->AddressCity = $AddressCity;
     }
 
     /**
-     * Gets the Country part of address
-     *
-     * @return string
+     * @return mixed
      */
     public function getAddressCountry()
     {
@@ -194,21 +196,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Postal code of address (ZIP)
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $AddressCountry
      */
-    public function setAddressPostalCode($AddressPostalCode = null)
+    public function setAddressCountry($AddressCountry)
     {
-        $this->AddressPostalCode = $AddressPostalCode;
-        return $this;
+        $this->AddressCountry = $AddressCountry;
     }
 
     /**
-     * Gets the Postal code of address (ZIP)
-     *
-     * @return string
+     * @return mixed
      */
     public function getAddressPostalCode()
     {
@@ -216,21 +212,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Street and house number
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $AddressPostalCode
      */
-    public function setAddressStreet($AddressStreet = null)
+    public function setAddressPostalCode($AddressPostalCode)
     {
-        $this->AddressStreet = $AddressStreet;
-        return $this;
+        $this->AddressPostalCode = $AddressPostalCode;
     }
 
     /**
-     * Gets the Street and house number
-     *
-     * @return string
+     * @return mixed
      */
     public function getAddressStreet()
     {
@@ -238,21 +228,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Billing email address
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $AddressStreet
      */
-    public function setBillingEmail($BillingEmail = null)
+    public function setAddressStreet($AddressStreet)
     {
-        $this->BillingEmail = $BillingEmail;
-        return $this;
+        $this->AddressStreet = $AddressStreet;
     }
 
     /**
-     * Gets the Billing email address
-     *
-     * @return string
+     * @return mixed
      */
     public function getBillingEmail()
     {
@@ -260,21 +244,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the User's birthday
-     *
-     * @param \Datetime
-     * @return Myprofile
+     * @param mixed $BillingEmail
      */
-    public function setBirthdayAt(\Datetime $BirthdayAt = null)
+    public function setBillingEmail($BillingEmail)
     {
-        $this->BirthdayAt = $BirthdayAt;
-        return $this;
+        $this->BillingEmail = $BillingEmail;
     }
 
     /**
-     * Gets the User's birthday
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getBirthdayAt()
     {
@@ -282,21 +260,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Name of the company
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $BirthdayAt
      */
-    public function setCompanyName($CompanyName = null)
+    public function setBirthdayAt($BirthdayAt)
     {
-        $this->CompanyName = $CompanyName;
-        return $this;
+        $this->BirthdayAt = $BirthdayAt;
     }
 
     /**
-     * Gets the Name of the company
-     *
-     * @return string
+     * @return mixed
      */
     public function getCompanyName()
     {
@@ -304,21 +276,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the EU name of the company
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $CompanyName
      */
-    public function setCompanyNameEu($CompanyNameEu = null)
+    public function setCompanyName($CompanyName)
     {
-        $this->CompanyNameEu = $CompanyNameEu;
-        return $this;
+        $this->CompanyName = $CompanyName;
     }
 
     /**
-     * Gets the EU name of the company
-     *
-     * @return string
+     * @return mixed
      */
     public function getCompanyNameEu()
     {
@@ -326,21 +292,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Contact telephone
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $CompanyNameEu
      */
-    public function setContactPhone($ContactPhone = null)
+    public function setCompanyNameEu($CompanyNameEu)
     {
-        $this->ContactPhone = $ContactPhone;
-        return $this;
+        $this->CompanyNameEu = $CompanyNameEu;
     }
 
     /**
-     * Gets the Contact telephone
-     *
-     * @return string
+     * @return mixed
      */
     public function getContactPhone()
     {
@@ -348,21 +308,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Estimated volume of messages
-     *
-     * @param int
-     * @return Myprofile
+     * @param mixed $ContactPhone
      */
-    public function setEstimatedVolume($EstimatedVolume = null)
+    public function setContactPhone($ContactPhone)
     {
-        $this->EstimatedVolume = $EstimatedVolume;
-        return $this;
+        $this->ContactPhone = $ContactPhone;
     }
 
     /**
-     * Gets the Estimated volume of messages
-     *
-     * @return int
+     * @return mixed
      */
     public function getEstimatedVolume()
     {
@@ -370,21 +324,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the ?
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $EstimatedVolume
      */
-    public function setFeatures($Features = null)
+    public function setEstimatedVolume($EstimatedVolume)
     {
-        $this->Features = $Features;
-        return $this;
+        $this->EstimatedVolume = $EstimatedVolume;
     }
 
     /**
-     * Gets the ?
-     *
-     * @return string
+     * @return mixed
      */
     public function getFeatures()
     {
@@ -392,21 +340,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Contact person's first name
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $Features
      */
-    public function setFirstname($Firstname = null)
+    public function setFeatures($Features)
     {
-        $this->Firstname = $Firstname;
-        return $this;
+        $this->Features = $Features;
     }
 
     /**
-     * Gets the Contact person's first name
-     *
-     * @return string
+     * @return mixed
      */
     public function getFirstname()
     {
@@ -414,21 +356,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Myprofile
+     * @param mixed $Firstname
      */
-    public function setID($ID = null)
+    public function setFirstname($Firstname)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Firstname = $Firstname;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -436,21 +372,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Industry in which user works.
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $ID
      */
-    public function setIndustry($Industry = null)
+    public function setID($ID)
     {
-        $this->Industry = $Industry;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Industry in which user works.
-     *
-     * @return string
+     * @return mixed
      */
     public function getIndustry()
     {
@@ -458,21 +388,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Contact person's last name
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $Industry
      */
-    public function setLastname($Lastname = null)
+    public function setIndustry($Industry)
     {
-        $this->Lastname = $Lastname;
-        return $this;
+        $this->Industry = $Industry;
     }
 
     /**
-     * Gets the Contact person's last name
-     *
-     * @return string
+     * @return mixed
      */
     public function getLastname()
     {
@@ -480,21 +404,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Reference to user
-     *
-     * @param int
-     * @return Myprofile
+     * @param mixed $Lastname
      */
-    public function setUserID($UserID = null)
+    public function setLastname($Lastname)
     {
-        $this->UserID = $UserID;
-        return $this;
+        $this->Lastname = $Lastname;
     }
 
     /**
-     * Gets the Reference to user
-     *
-     * @return int
+     * @return mixed
      */
     public function getUserID()
     {
@@ -502,21 +420,31 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the VAT rate for this user.
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $UserID
      */
-    public function setVAT($VAT = null)
+    public function setUserID($UserID)
     {
-        $this->VAT = $VAT;
-        return $this;
+        $this->UserID = $UserID;
     }
 
     /**
-     * Gets the VAT rate for this user.
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getUserALT()
+    {
+        return $this->UserALT;
+    }
+
+    /**
+     * @param mixed $UserALT
+     */
+    public function setUserALT($UserALT)
+    {
+        $this->UserALT = $UserALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getVAT()
     {
@@ -524,21 +452,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the User supplied VAT number.
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $VAT
      */
-    public function setVATNumber($VATNumber = null)
+    public function setVAT($VAT)
     {
-        $this->VATNumber = $VATNumber;
-        return $this;
+        $this->VAT = $VAT;
     }
 
     /**
-     * Gets the User supplied VAT number.
-     *
-     * @return string
+     * @return mixed
      */
     public function getVATNumber()
     {
@@ -546,21 +468,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Status of VAT number checking.
-     *
-     * @param int
-     * @return Myprofile
+     * @param mixed $VATNumber
      */
-    public function setVATNumberStatus($VATNumberStatus = null)
+    public function setVATNumber($VATNumber)
     {
-        $this->VATNumberStatus = $VATNumberStatus;
-        return $this;
+        $this->VATNumber = $VATNumber;
     }
 
     /**
-     * Gets the Status of VAT number checking.
-     *
-     * @return int
+     * @return mixed
      */
     public function getVATNumberStatus()
     {
@@ -568,21 +484,15 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the Mailjet determined VAT number
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $VATNumberStatus
      */
-    public function setVATNumberTrusted($VATNumberTrusted = null)
+    public function setVATNumberStatus($VATNumberStatus)
     {
-        $this->VATNumberTrusted = $VATNumberTrusted;
-        return $this;
+        $this->VATNumberStatus = $VATNumberStatus;
     }
 
     /**
-     * Gets the Mailjet determined VAT number
-     *
-     * @return string
+     * @return mixed
      */
     public function getVATNumberTrusted()
     {
@@ -590,27 +500,26 @@ class Myprofile implements ModelInterface
     }
 
     /**
-     * Sets the URL of user's website
-     *
-     * @param string
-     * @return Myprofile
+     * @param mixed $VATNumberTrusted
      */
-    public function setWebsite($Website = null)
+    public function setVATNumberTrusted($VATNumberTrusted)
     {
-        $this->Website = $Website;
-        return $this;
+        $this->VATNumberTrusted = $VATNumberTrusted;
     }
 
     /**
-     * Gets the URL of user's website
-     *
-     * @return string
+     * @return mixed
      */
     public function getWebsite()
     {
         return $this->Website;
     }
 
-
+    /**
+     * @param mixed $Website
+     */
+    public function setWebsite($Website)
+    {
+        $this->Website = $Website;
+    }
 }
-

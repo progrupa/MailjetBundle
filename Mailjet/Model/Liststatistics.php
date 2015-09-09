@@ -1,146 +1,122 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Liststatistics Model
  *
  * API Key campaign/message/click statistics grouped by contacts list.
  */
-class Liststatistics implements ModelInterface
+class Liststatistics extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'liststatistics';
+    }
 
     /**
      * Number of active list members
+     * @Type("integer")
+     * @SerializedName("ActiveCount")
      */
     protected $ActiveCount = null;
 
     /**
-     * Number of registered unsubscribe requests. (only calculated when CalcActiveUnsub
-     * filter is active)
+     * Number of registered unsubscribe requests. (only calculated when CalcActiveUnsub filter is active)
+     * @Type("integer")
+     * @SerializedName("ActiveUnsubscribedCount")
      */
     protected $ActiveUnsubscribedCount = null;
 
     /**
      * List address
+     * @Type("string")
+     * @SerializedName("Address")
      */
     protected $Address = null;
 
     /**
      * Number of blocked messages.
+     * @Type("integer")
+     * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
+     * @Type("integer")
+     * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
-     * Timestamp when object was created in database
-     */
-    protected $CreatedAt = null;
-
-    /**
      * Number of messages delivered to their destination.
+     * @Type("integer")
+     * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Is the list Deleted or not ?
+     * @Type("boolean")
+     * @SerializedName("IsDeleted")
      */
     protected $IsDeleted = false;
 
     /**
      * Timestamp of last registered activity for this contactlist
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * List name
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Number of message open registrations.
+     * @Type("integer")
+     * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Number of spam complaints
+     * @Type("integer")
+     * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
      * Number of subscribers
+     * @Type("integer")
+     * @SerializedName("SubscriberCount")
      */
     protected $SubscriberCount = null;
 
     /**
      * Number of registered unsubscribe requests.
+     * @Type("integer")
+     * @SerializedName("UnsubscribedCount")
      */
     protected $UnsubscribedCount = null;
 
     /**
-     * Sets the Number of active list members
-     *
-     * @param int
-     * @return Liststatistics
-     */
-    public function setActiveCount($ActiveCount = null)
-    {
-        $this->ActiveCount = $ActiveCount;
-        return $this;
-    }
-
-    /**
-     * Gets the Number of active list members
-     *
-     * @return int
+     * @return mixed
      */
     public function getActiveCount()
     {
@@ -148,23 +124,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered unsubscribe requests. (only calculated when
-     * CalcActiveUnsub filter is active)
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $ActiveCount
      */
-    public function setActiveUnsubscribedCount($ActiveUnsubscribedCount = null)
+    public function setActiveCount($ActiveCount)
     {
-        $this->ActiveUnsubscribedCount = $ActiveUnsubscribedCount;
-        return $this;
+        $this->ActiveCount = $ActiveCount;
     }
 
     /**
-     * Gets the Number of registered unsubscribe requests. (only calculated when
-     * CalcActiveUnsub filter is active)
-     *
-     * @return int
+     * @return mixed
      */
     public function getActiveUnsubscribedCount()
     {
@@ -172,21 +140,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the List address
-     *
-     * @param string
-     * @return Liststatistics
+     * @param mixed $ActiveUnsubscribedCount
      */
-    public function setAddress($Address = null)
+    public function setActiveUnsubscribedCount($ActiveUnsubscribedCount)
     {
-        $this->Address = $Address;
-        return $this;
+        $this->ActiveUnsubscribedCount = $ActiveUnsubscribedCount;
     }
 
     /**
-     * Gets the List address
-     *
-     * @return string
+     * @return mixed
      */
     public function getAddress()
     {
@@ -194,21 +156,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of blocked messages.
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $Address
      */
-    public function setBlockedCount($BlockedCount = null)
+    public function setAddress($Address)
     {
-        $this->BlockedCount = $BlockedCount;
-        return $this;
+        $this->Address = $Address;
     }
 
     /**
-     * Gets the Number of blocked messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBlockedCount()
     {
@@ -216,21 +172,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of bounced messages.
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $BlockedCount
      */
-    public function setBouncedCount($BouncedCount = null)
+    public function setBlockedCount($BlockedCount)
     {
-        $this->BouncedCount = $BouncedCount;
-        return $this;
+        $this->BlockedCount = $BlockedCount;
     }
 
     /**
-     * Gets the Number of bounced messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBouncedCount()
     {
@@ -238,21 +188,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $BouncedCount
      */
-    public function setClickedCount($ClickedCount = null)
+    public function setBouncedCount($BouncedCount)
     {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
+        $this->BouncedCount = $BouncedCount;
     }
 
     /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -260,43 +204,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Liststatistics
+     * @param mixed $ClickedCount
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
-     */
-    public function getCreatedAt()
-    {
-        return $this->CreatedAt;
-    }
-
-    /**
-     * Sets the Number of messages delivered to their destination.
-     *
-     * @param int
-     * @return Liststatistics
-     */
-    public function setDeliveredCount($DeliveredCount = null)
-    {
-        $this->DeliveredCount = $DeliveredCount;
-        return $this;
-    }
-
-    /**
-     * Gets the Number of messages delivered to their destination.
-     *
-     * @return int
+     * @return mixed
      */
     public function getDeliveredCount()
     {
@@ -304,43 +220,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $DeliveredCount
      */
-    public function setID($ID = null)
+    public function setDeliveredCount($DeliveredCount)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->DeliveredCount = $DeliveredCount;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Is the list Deleted or not ?
-     *
-     * @param bool
-     * @return Liststatistics
-     */
-    public function setIsDeleted($IsDeleted = null)
-    {
-        $this->IsDeleted = $IsDeleted;
-        return $this;
-    }
-
-    /**
-     * Gets the Is the list Deleted or not ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsDeleted()
     {
@@ -348,21 +236,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last registered activity for this contactlist
-     *
-     * @param \Datetime
-     * @return Liststatistics
+     * @param mixed $IsDeleted
      */
-    public function setLastActivityAt(\Datetime $LastActivityAt = null)
+    public function setIsDeleted($IsDeleted)
     {
-        $this->LastActivityAt = $LastActivityAt;
-        return $this;
+        $this->IsDeleted = $IsDeleted;
     }
 
     /**
-     * Gets the Timestamp of last registered activity for this contactlist
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getLastActivityAt()
     {
@@ -370,21 +252,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the List name
-     *
-     * @param string
-     * @return Liststatistics
+     * @param mixed $LastActivityAt
      */
-    public function setName($Name = null)
+    public function setLastActivityAt($LastActivityAt)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->LastActivityAt = $LastActivityAt;
     }
 
     /**
-     * Gets the List name
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -392,21 +268,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of message open registrations.
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $Name
      */
-    public function setOpenedCount($OpenedCount = null)
+    public function setName($Name)
     {
-        $this->OpenedCount = $OpenedCount;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the Number of message open registrations.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenedCount()
     {
@@ -414,21 +284,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of spam complaints
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $OpenedCount
      */
-    public function setSpamComplaintCount($SpamComplaintCount = null)
+    public function setOpenedCount($OpenedCount)
     {
-        $this->SpamComplaintCount = $SpamComplaintCount;
-        return $this;
+        $this->OpenedCount = $OpenedCount;
     }
 
     /**
-     * Gets the Number of spam complaints
-     *
-     * @return int
+     * @return mixed
      */
     public function getSpamComplaintCount()
     {
@@ -436,21 +300,15 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of subscribers
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $SpamComplaintCount
      */
-    public function setSubscriberCount($SubscriberCount = null)
+    public function setSpamComplaintCount($SpamComplaintCount)
     {
-        $this->SubscriberCount = $SubscriberCount;
-        return $this;
+        $this->SpamComplaintCount = $SpamComplaintCount;
     }
 
     /**
-     * Gets the Number of subscribers
-     *
-     * @return int
+     * @return mixed
      */
     public function getSubscriberCount()
     {
@@ -458,27 +316,27 @@ class Liststatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered unsubscribe requests.
-     *
-     * @param int
-     * @return Liststatistics
+     * @param mixed $SubscriberCount
      */
-    public function setUnsubscribedCount($UnsubscribedCount = null)
+    public function setSubscriberCount($SubscriberCount)
     {
-        $this->UnsubscribedCount = $UnsubscribedCount;
-        return $this;
+        $this->SubscriberCount = $SubscriberCount;
     }
 
     /**
-     * Gets the Number of registered unsubscribe requests.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUnsubscribedCount()
     {
         return $this->UnsubscribedCount;
     }
 
+    /**
+     * @param mixed $UnsubscribedCount
+     */
+    public function setUnsubscribedCount($UnsubscribedCount)
+    {
+        $this->UnsubscribedCount = $UnsubscribedCount;
+    }
 
 }
-

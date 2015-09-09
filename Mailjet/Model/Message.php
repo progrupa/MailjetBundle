@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Message Model
@@ -43,158 +12,181 @@ use \Datetime;
  */
 class Message implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'message';
+    }
 
     /**
      * Timestamp indicated when the message arrived at Mailjet
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("APIKeyID")
      */
     protected $ArrivedAt = null;
 
     /**
      * Number of attachments detected in the message.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $AttachmentCount = null;
 
     /**
      * Number of attempts made to deliver the message.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $AttemptCount = null;
 
     /**
      * Reference to campaign in which this message is delivered.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $CampaignID = null;
 
     /**
-     * ?
+     * Reference to campaign in which this message is delivered.
+     * @Type("string")
+     * @SerializedName("APIKeyID")
      */
-    protected $CheckString = null;
+    protected $CampaignALT = null;
 
     /**
      * Reference to contact to which message was sent.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $ContactID = null;
 
     /**
+     * Reference to contact to which message was sent.
+     * @Type("string")
+     * @SerializedName("APIKeyID")
+     */
+    protected $ContactALT = null;
+
+    /**
      * Delay between arrival and delivery [?]
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $Delay = null;
 
     /**
      * Reference to destination domain
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
-    protected $DestinationID = null;
-
-    /**
-     * Reference to DSM information for domain.
-     */
-    protected $Dsn = null;
+    protected $Destination = null;
 
     /**
      * Time spent processing the text of the message (milliseconds)
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $FilterTime = null;
 
     /**
      * Reference to the sender of the message.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $FromID = null;
 
     /**
+     * Reference to the sender of the message.
+     * @Type("string")
+     * @SerializedName("APIKeyID")
+     */
+    protected $FromALT = null;
+
+    /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $ID = null;
 
     /**
      * Was click tracking requested for this message ?
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $IsClickTracked = false;
 
     /**
      * Did the message contain a HTML part ?
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $IsHTMLPartIncluded = false;
 
     /**
      * Was open tracking requested for this message ?
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $IsOpenTracked = false;
 
     /**
      * Did the message contain a text part ?
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $IsTextPartIncluded = false;
 
     /**
      * Was unsubscription tracking requested for this message ?
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $IsUnsubTracked = false;
 
     /**
      * Size of the message (in bytes)
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $MessageSize = null;
 
     /**
-     * Subscription plan used to send the message.
-     */
-    protected $PlanSubscriptionID = null;
-
-    /**
-     * IP pool used to send the message.
-     */
-    protected $PoolIPId = null;
-
-    /**
-     * Postfix Queue ID for this message.
-     */
-    protected $PostfixQid = null;
-
-    /**
      * Spam assassin score for this message.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $SpamassassinScore = null;
 
     /**
      * Matched spam assassin rules.
+     * @Type("string")
+     * @SerializedName("APIKeyID")
      */
     protected $SpamassRules = null;
 
     /**
      * Current state of the message.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $StateID = null;
 
     /**
      * Is the state of the message permanent (i.e. will no longer change)
+     * @Type("boolean")
+     * @SerializedName("APIKeyID")
      */
     protected $StatePermanent = false;
 
     /**
      * Status of the message.
+     * @Type("string")
+     * @SerializedName("APIKeyID")
      */
     protected $Status = null;
 
     /**
-     * Timestamp when the message information was last changed.
-     */
-    protected $UpdatedAt = null;
-
-    /**
-     * Sets the Timestamp indicated when the message arrived at Mailjet
-     *
-     * @param \Datetime
-     * @return Message
-     */
-    public function setArrivedAt(\Datetime $ArrivedAt = null)
-    {
-        $this->ArrivedAt = $ArrivedAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp indicated when the message arrived at Mailjet
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getArrivedAt()
     {
@@ -202,21 +194,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Number of attachments detected in the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $ArrivedAt
      */
-    public function setAttachmentCount($AttachmentCount = null)
+    public function setArrivedAt($ArrivedAt)
     {
-        $this->AttachmentCount = $AttachmentCount;
-        return $this;
+        $this->ArrivedAt = $ArrivedAt;
     }
 
     /**
-     * Gets the Number of attachments detected in the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAttachmentCount()
     {
@@ -224,21 +210,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Number of attempts made to deliver the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $AttachmentCount
      */
-    public function setAttemptCount($AttemptCount = null)
+    public function setAttachmentCount($AttachmentCount)
     {
-        $this->AttemptCount = $AttemptCount;
-        return $this;
+        $this->AttachmentCount = $AttachmentCount;
     }
 
     /**
-     * Gets the Number of attempts made to deliver the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAttemptCount()
     {
@@ -246,21 +226,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Reference to campaign in which this message is delivered.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $AttemptCount
      */
-    public function setCampaignID($CampaignID)
+    public function setAttemptCount($AttemptCount)
     {
-        $this->CampaignID = $CampaignID;
-        return $this;
+        $this->AttemptCount = $AttemptCount;
     }
 
     /**
-     * Gets the Reference to campaign in which this message is delivered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getCampaignID()
     {
@@ -268,43 +242,31 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the ?
-     *
-     * @param string
-     * @return Message
+     * @param mixed $CampaignID
      */
-    public function setCheckString($CheckString = null)
+    public function setCampaignID($CampaignID)
     {
-        $this->CheckString = $CheckString;
-        return $this;
+        $this->CampaignID = $CampaignID;
     }
 
     /**
-     * Gets the ?
-     *
-     * @return string
+     * @return mixed
      */
-    public function getCheckString()
+    public function getCampaignALT()
     {
-        return $this->CheckString;
+        return $this->CampaignALT;
     }
 
     /**
-     * Sets the Reference to contact to which message was sent.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $CampaignALT
      */
-    public function setContactID($ContactID)
+    public function setCampaignALT($CampaignALT)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->CampaignALT = $CampaignALT;
     }
 
     /**
-     * Gets the Reference to contact to which message was sent.
-     *
-     * @return int
+     * @return mixed
      */
     public function getContactID()
     {
@@ -312,21 +274,31 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Delay between arrival and delivery [?]
-     *
-     * @param string
-     * @return Message
+     * @param mixed $ContactID
      */
-    public function setDelay($Delay = null)
+    public function setContactID($ContactID)
     {
-        $this->Delay = $Delay;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Delay between arrival and delivery [?]
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getContactALT()
+    {
+        return $this->ContactALT;
+    }
+
+    /**
+     * @param mixed $ContactALT
+     */
+    public function setContactALT($ContactALT)
+    {
+        $this->ContactALT = $ContactALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getDelay()
     {
@@ -334,65 +306,31 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Reference to destination domain
-     *
-     * @param int
-     * @return Message
+     * @param mixed $Delay
      */
-    public function setDestinationID($DestinationID)
+    public function setDelay($Delay)
     {
-        $this->DestinationID = $DestinationID;
-        return $this;
+        $this->Delay = $Delay;
     }
 
     /**
-     * Gets the Reference to destination domain
-     *
-     * @return int
+     * @return mixed
      */
-    public function getDestinationID()
+    public function getDestination()
     {
-        return $this->DestinationID;
+        return $this->Destination;
     }
 
     /**
-     * Sets the Reference to DSM information for domain.
-     *
-     * @param string
-     * @return Message
+     * @param mixed $Destination
      */
-    public function setDsn($Dsn = null)
+    public function setDestination($Destination)
     {
-        $this->Dsn = $Dsn;
-        return $this;
+        $this->Destination = $Destination;
     }
 
     /**
-     * Gets the Reference to DSM information for domain.
-     *
-     * @return string
-     */
-    public function getDsn()
-    {
-        return $this->Dsn;
-    }
-
-    /**
-     * Sets the Time spent processing the text of the message (milliseconds)
-     *
-     * @param int
-     * @return Message
-     */
-    public function setFilterTime($FilterTime = null)
-    {
-        $this->FilterTime = $FilterTime;
-        return $this;
-    }
-
-    /**
-     * Gets the Time spent processing the text of the message (milliseconds)
-     *
-     * @return int
+     * @return mixed
      */
     public function getFilterTime()
     {
@@ -400,21 +338,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Reference to the sender of the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $FilterTime
      */
-    public function setFromID($FromID)
+    public function setFilterTime($FilterTime)
     {
-        $this->FromID = $FromID;
-        return $this;
+        $this->FilterTime = $FilterTime;
     }
 
     /**
-     * Gets the Reference to the sender of the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getFromID()
     {
@@ -422,21 +354,31 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Message
+     * @param mixed $FromID
      */
-    public function setID($ID = null)
+    public function setFromID($FromID)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->FromID = $FromID;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getFromALT()
+    {
+        return $this->FromALT;
+    }
+
+    /**
+     * @param mixed $FromALT
+     */
+    public function setFromALT($FromALT)
+    {
+        $this->FromALT = $FromALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getID()
     {
@@ -444,21 +386,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Was click tracking requested for this message ?
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $ID
      */
-    public function setIsClickTracked($IsClickTracked = null)
+    public function setID($ID)
     {
-        $this->IsClickTracked = $IsClickTracked;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Was click tracking requested for this message ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsClickTracked()
     {
@@ -466,21 +402,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Did the message contain a HTML part ?
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $IsClickTracked
      */
-    public function setIsHTMLPartIncluded($IsHTMLPartIncluded = null)
+    public function setIsClickTracked($IsClickTracked)
     {
-        $this->IsHTMLPartIncluded = $IsHTMLPartIncluded;
-        return $this;
+        $this->IsClickTracked = $IsClickTracked;
     }
 
     /**
-     * Gets the Did the message contain a HTML part ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsHTMLPartIncluded()
     {
@@ -488,21 +418,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Was open tracking requested for this message ?
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $IsHTMLPartIncluded
      */
-    public function setIsOpenTracked($IsOpenTracked = null)
+    public function setIsHTMLPartIncluded($IsHTMLPartIncluded)
     {
-        $this->IsOpenTracked = $IsOpenTracked;
-        return $this;
+        $this->IsHTMLPartIncluded = $IsHTMLPartIncluded;
     }
 
     /**
-     * Gets the Was open tracking requested for this message ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsOpenTracked()
     {
@@ -510,21 +434,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Did the message contain a text part ?
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $IsOpenTracked
      */
-    public function setIsTextPartIncluded($IsTextPartIncluded = null)
+    public function setIsOpenTracked($IsOpenTracked)
     {
-        $this->IsTextPartIncluded = $IsTextPartIncluded;
-        return $this;
+        $this->IsOpenTracked = $IsOpenTracked;
     }
 
     /**
-     * Gets the Did the message contain a text part ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsTextPartIncluded()
     {
@@ -532,21 +450,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Was unsubscription tracking requested for this message ?
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $IsTextPartIncluded
      */
-    public function setIsUnsubTracked($IsUnsubTracked = null)
+    public function setIsTextPartIncluded($IsTextPartIncluded)
     {
-        $this->IsUnsubTracked = $IsUnsubTracked;
-        return $this;
+        $this->IsTextPartIncluded = $IsTextPartIncluded;
     }
 
     /**
-     * Gets the Was unsubscription tracking requested for this message ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsUnsubTracked()
     {
@@ -554,21 +466,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Size of the message (in bytes)
-     *
-     * @param int
-     * @return Message
+     * @param mixed $IsUnsubTracked
      */
-    public function setMessageSize($MessageSize = null)
+    public function setIsUnsubTracked($IsUnsubTracked)
     {
-        $this->MessageSize = $MessageSize;
-        return $this;
+        $this->IsUnsubTracked = $IsUnsubTracked;
     }
 
     /**
-     * Gets the Size of the message (in bytes)
-     *
-     * @return int
+     * @return mixed
      */
     public function getMessageSize()
     {
@@ -576,87 +482,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Subscription plan used to send the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $MessageSize
      */
-    public function setPlanSubscriptionID($PlanSubscriptionID)
+    public function setMessageSize($MessageSize)
     {
-        $this->PlanSubscriptionID = $PlanSubscriptionID;
-        return $this;
+        $this->MessageSize = $MessageSize;
     }
 
     /**
-     * Gets the Subscription plan used to send the message.
-     *
-     * @return int
-     */
-    public function getPlanSubscriptionID()
-    {
-        return $this->PlanSubscriptionID;
-    }
-
-    /**
-     * Sets the IP pool used to send the message.
-     *
-     * @param int
-     * @return Message
-     */
-    public function setPoolIPId($PoolIPId = null)
-    {
-        $this->PoolIPId = $PoolIPId;
-        return $this;
-    }
-
-    /**
-     * Gets the IP pool used to send the message.
-     *
-     * @return int
-     */
-    public function getPoolIPId()
-    {
-        return $this->PoolIPId;
-    }
-
-    /**
-     * Sets the Postfix Queue ID for this message.
-     *
-     * @param string
-     * @return Message
-     */
-    public function setPostfixQid($PostfixQid = null)
-    {
-        $this->PostfixQid = $PostfixQid;
-        return $this;
-    }
-
-    /**
-     * Gets the Postfix Queue ID for this message.
-     *
-     * @return string
-     */
-    public function getPostfixQid()
-    {
-        return $this->PostfixQid;
-    }
-
-    /**
-     * Sets the Spam assassin score for this message.
-     *
-     * @param string
-     * @return Message
-     */
-    public function setSpamassassinScore($SpamassassinScore = null)
-    {
-        $this->SpamassassinScore = $SpamassassinScore;
-        return $this;
-    }
-
-    /**
-     * Gets the Spam assassin score for this message.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSpamassassinScore()
     {
@@ -664,21 +498,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Matched spam assassin rules.
-     *
-     * @param string
-     * @return Message
+     * @param mixed $SpamassassinScore
      */
-    public function setSpamassRules($SpamassRules = null)
+    public function setSpamassassinScore($SpamassassinScore)
     {
-        $this->SpamassRules = $SpamassRules;
-        return $this;
+        $this->SpamassassinScore = $SpamassassinScore;
     }
 
     /**
-     * Gets the Matched spam assassin rules.
-     *
-     * @return string
+     * @return mixed
      */
     public function getSpamassRules()
     {
@@ -686,21 +514,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Current state of the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $SpamassRules
      */
-    public function setStateID($StateID = null)
+    public function setSpamassRules($SpamassRules)
     {
-        $this->StateID = $StateID;
-        return $this;
+        $this->SpamassRules = $SpamassRules;
     }
 
     /**
-     * Gets the Current state of the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getStateID()
     {
@@ -708,21 +530,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Is the state of the message permanent (i.e. will no longer change)
-     *
-     * @param bool
-     * @return Message
+     * @param mixed $StateID
      */
-    public function setStatePermanent($StatePermanent = null)
+    public function setStateID($StateID)
     {
-        $this->StatePermanent = $StatePermanent;
-        return $this;
+        $this->StateID = $StateID;
     }
 
     /**
-     * Gets the Is the state of the message permanent (i.e. will no longer change)
-     *
-     * @return bool
+     * @return mixed
      */
     public function getStatePermanent()
     {
@@ -730,21 +546,15 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Status of the message.
-     *
-     * @param int
-     * @return Message
+     * @param mixed $StatePermanent
      */
-    public function setStatus($Status = null)
+    public function setStatePermanent($StatePermanent)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->StatePermanent = $StatePermanent;
     }
 
     /**
-     * Gets the Status of the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getStatus()
     {
@@ -752,27 +562,10 @@ class Message implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when the message information was last changed.
-     *
-     * @param \Datetime
-     * @return Message
+     * @param mixed $Status
      */
-    public function setUpdatedAt(\Datetime $UpdatedAt = null)
+    public function setStatus($Status)
     {
-        $this->UpdatedAt = $UpdatedAt;
-        return $this;
+        $this->Status = $Status;
     }
-
-    /**
-     * Gets the Timestamp when the message information was last changed.
-     *
-     * @return \Datetime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->UpdatedAt;
-    }
-
-
 }
-

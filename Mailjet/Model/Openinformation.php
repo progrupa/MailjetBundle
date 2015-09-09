@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Openinformation Model
@@ -43,58 +12,83 @@ use \Datetime;
  */
 class Openinformation implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'openinformation';
+    }
 
     /**
      * Timestamp indicating when the message arrived.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("ArrivedAt")
      */
     protected $ArrivedAt = null;
 
     /**
      * Reference to Campaign in which message is sent
+     * @Type("integer")
+     * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
+     * Reference to Campaign in which message is sent
+     * @Type("string")
+     * @SerializedName("CampaignALT")
+     */
+    protected $CampaignALT = null;
+
+    /**
      * Reference to contact to which message was sent.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
+     * Reference to contact to which message was sent.
+     * @Type("string")
+     * @SerializedName("ContactALT")
+     */
+    protected $ContactALT = null;
+
+    /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("MessageID")
      */
     protected $MessageID = null;
 
     /**
      * Timestamp when message open registration was received.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("OpenedAt")
      */
     protected $OpenedAt = null;
 
     /**
      * Useragent used to view the message.
+     * @Type("string")
+     * @SerializedName("UserAgent")
      */
     protected $UserAgent = null;
 
     /**
-     * Sets the Timestamp indicating when the message arrived.
-     *
-     * @param \Datetime
-     * @return Openinformation
+     * Useragent used to view the message.
+     * @Type("string")
+     * @SerializedName("UserAgentFull")
      */
-    public function setArrivedAt(\Datetime $ArrivedAt = null)
-    {
-        $this->ArrivedAt = $ArrivedAt;
-        return $this;
-    }
+    protected $UserAgentFull = null;
 
     /**
-     * Gets the Timestamp indicating when the message arrived.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getArrivedAt()
     {
@@ -102,21 +96,15 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Reference to Campaign in which message is sent
-     *
-     * @param int
-     * @return Openinformation
+     * @param mixed $ArrivedAt
      */
-    public function setCampaignID($CampaignID)
+    public function setArrivedAt($ArrivedAt)
     {
-        $this->CampaignID = $CampaignID;
-        return $this;
+        $this->ArrivedAt = $ArrivedAt;
     }
 
     /**
-     * Gets the Reference to Campaign in which message is sent
-     *
-     * @return int
+     * @return mixed
      */
     public function getCampaignID()
     {
@@ -124,21 +112,31 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Reference to contact to which message was sent.
-     *
-     * @param int
-     * @return Openinformation
+     * @param mixed $CampaignID
      */
-    public function setContactID($ContactID)
+    public function setCampaignID($CampaignID)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->CampaignID = $CampaignID;
     }
 
     /**
-     * Gets the Reference to contact to which message was sent.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getCampaignALT()
+    {
+        return $this->CampaignALT;
+    }
+
+    /**
+     * @param mixed $CampaignALT
+     */
+    public function setCampaignALT($CampaignALT)
+    {
+        $this->CampaignALT = $CampaignALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getContactID()
     {
@@ -146,21 +144,31 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Openinformation
+     * @param mixed $ContactID
      */
-    public function setID($ID = null)
+    public function setContactID($ContactID)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getContactALT()
+    {
+        return $this->ContactALT;
+    }
+
+    /**
+     * @param mixed $ContactALT
+     */
+    public function setContactALT($ContactALT)
+    {
+        $this->ContactALT = $ContactALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getID()
     {
@@ -168,21 +176,15 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Openinformation
+     * @param mixed $ID
      */
-    public function setMessageID($MessageID = null)
+    public function setID($ID)
     {
-        $this->MessageID = $MessageID;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getMessageID()
     {
@@ -190,21 +192,15 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when message open registration was received.
-     *
-     * @param \Datetime
-     * @return Openinformation
+     * @param mixed $MessageID
      */
-    public function setOpenedAt(\Datetime $OpenedAt = null)
+    public function setMessageID($MessageID)
     {
-        $this->OpenedAt = $OpenedAt;
-        return $this;
+        $this->MessageID = $MessageID;
     }
 
     /**
-     * Gets the Timestamp when message open registration was received.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getOpenedAt()
     {
@@ -212,27 +208,42 @@ class Openinformation implements ModelInterface
     }
 
     /**
-     * Sets the Useragent used to view the message.
-     *
-     * @param int
-     * @return Openinformation
+     * @param mixed $OpenedAt
      */
-    public function setUserAgent($UserAgent = null)
+    public function setOpenedAt($OpenedAt)
     {
-        $this->UserAgent = $UserAgent;
-        return $this;
+        $this->OpenedAt = $OpenedAt;
     }
 
     /**
-     * Gets the Useragent used to view the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUserAgent()
     {
         return $this->UserAgent;
     }
 
+    /**
+     * @param mixed $UserAgent
+     */
+    public function setUserAgent($UserAgent)
+    {
+        $this->UserAgent = $UserAgent;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getUserAgentFull()
+    {
+        return $this->UserAgentFull;
+    }
+
+    /**
+     * @param mixed $UserAgentFull
+     */
+    public function setUserAgentFull($UserAgentFull)
+    {
+        $this->UserAgentFull = $UserAgentFull;
+    }
 }
-

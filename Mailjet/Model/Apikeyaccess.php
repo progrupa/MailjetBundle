@@ -1,125 +1,115 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Apikeyaccess Model
  *
  * Access rights description on API keys for subaccounts/users
  */
-class Apikeyaccess implements ModelInterface
+class Apikeyaccess extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'apikeyaccess';
+    }
 
     /**
      * JSON describing access rights.
+     * @Type("string")
+     * @SerializedName("AllowedAccess")
      */
     protected $AllowedAccess = null;
 
     /**
      * API key for which the rights are descibed.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
-     * Timestamp when object was created in database
+     * API key for which the rights are descibed.
+     * @Type("string")
+     * @SerializedName("APIKeyALT")
      */
-    protected $CreatedAt = null;
+    protected $APIKeyALT = null;
 
     /**
      * Custom name for this set of rights
+     * @Type("string")
+     * @SerializedName("CustomName")
      */
     protected $CustomName = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Is this object active (rights enforced) or not
+     * @Type("boolean")
+     * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Timestamp of last registered activity for this API Key
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * Reference to Real user
+     * @Type("integer")
+     * @SerializedName("RealUserID")
      */
     protected $RealUserID = null;
 
     /**
+     * Reference to Real user
+     * @Type("string")
+     * @SerializedName("RealUserALT")
+     */
+    protected $RealUserALT = null;
+
+    /**
      * Reference to subaccount
+     * @Type("integer")
+     * @SerializedName("SubaccountID")
      */
     protected $SubaccountID = null;
 
     /**
      * Unique Token used to retrieve these access rights.
+     * @Type("string")
+     * @SerializedName("Token")
      */
     protected $Token = null;
 
     /**
      * Timestamp when object was last updated in database.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("UpdatedAt")
      */
     protected $UpdatedAt = null;
 
     /**
      * Reference to user for whom access is described.
+     * @Type("integer")
+     * @SerializedName("UserID")
      */
     protected $UserID = null;
 
     /**
-     * Sets the JSON describing access rights.
-     *
-     * @param string
-     * @return Apikeyaccess
+     * Reference to user for whom access is described.
+     * @Type("string")
+     * @SerializedName("UserALT")
      */
-    public function setAllowedAccess($AllowedAccess = null)
-    {
-        $this->AllowedAccess = $AllowedAccess;
-        return $this;
-    }
+    protected $UserALT = null;
 
     /**
-     * Gets the JSON describing access rights.
-     *
-     * @return string
+     * @return mixed
      */
     public function getAllowedAccess()
     {
@@ -127,21 +117,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the API key for which the rights are descibed.
-     *
-     * @param int
-     * @return Apikeyaccess
+     * @param mixed $AllowedAccess
      */
-    public function setAPIKeyID($APIKeyID)
+    public function setAllowedAccess($AllowedAccess)
     {
-        $this->APIKeyID = $APIKeyID;
-        return $this;
+        $this->AllowedAccess = $AllowedAccess;
     }
 
     /**
-     * Gets the API key for which the rights are descibed.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKeyID()
     {
@@ -149,43 +133,31 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Apikeyaccess
+     * @param mixed $APIKeyID
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setAPIKeyID($APIKeyID)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->APIKeyID = $APIKeyID;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
+     * @return mixed
      */
-    public function getCreatedAt()
+    public function getAPIKeyALT()
     {
-        return $this->CreatedAt;
+        return $this->APIKeyALT;
     }
 
     /**
-     * Sets the Custom name for this set of rights
-     *
-     * @param string
-     * @return Apikeyaccess
+     * @param mixed $APIKeyALT
      */
-    public function setCustomName($CustomName = null)
+    public function setAPIKeyALT($APIKeyALT)
     {
-        $this->CustomName = $CustomName;
-        return $this;
+        $this->APIKeyALT = $APIKeyALT;
     }
 
     /**
-     * Gets the Custom name for this set of rights
-     *
-     * @return string
+     * @return mixed
      */
     public function getCustomName()
     {
@@ -193,43 +165,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Apikeyaccess
+     * @param mixed $CustomName
      */
-    public function setID($ID = null)
+    public function setCustomName($CustomName)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->CustomName = $CustomName;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Is this object active (rights enforced) or not
-     *
-     * @param bool
-     * @return Apikeyaccess
-     */
-    public function setIsActive($IsActive = null)
-    {
-        $this->IsActive = $IsActive;
-        return $this;
-    }
-
-    /**
-     * Gets the Is this object active (rights enforced) or not
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsActive()
     {
@@ -237,21 +181,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last registered activity for this API Key
-     *
-     * @param \Datetime
-     * @return Apikeyaccess
+     * @param mixed $IsActive
      */
-    public function setLastActivityAt(\Datetime $LastActivityAt = null)
+    public function setIsActive($IsActive)
     {
-        $this->LastActivityAt = $LastActivityAt;
-        return $this;
+        $this->IsActive = $IsActive;
     }
 
     /**
-     * Gets the Timestamp of last registered activity for this API Key
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getLastActivityAt()
     {
@@ -259,21 +197,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Reference to Real user
-     *
-     * @param int
-     * @return Apikeyaccess
+     * @param mixed $LastActivityAt
      */
-    public function setRealUserID($RealUserID = null)
+    public function setLastActivityAt($LastActivityAt)
     {
-        $this->RealUserID = $RealUserID;
-        return $this;
+        $this->LastActivityAt = $LastActivityAt;
     }
 
     /**
-     * Gets the Reference to Real user
-     *
-     * @return int
+     * @return mixed
      */
     public function getRealUserID()
     {
@@ -281,21 +213,31 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Reference to subaccount
-     *
-     * @param int
-     * @return Apikeyaccess
+     * @param mixed $RealUserID
      */
-    public function setSubaccountID($SubaccountID = null)
+    public function setRealUserID($RealUserID)
     {
-        $this->SubaccountID = $SubaccountID;
-        return $this;
+        $this->RealUserID = $RealUserID;
     }
 
     /**
-     * Gets the Reference to subaccount
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getRealUserALT()
+    {
+        return $this->RealUserALT;
+    }
+
+    /**
+     * @param mixed $RealUserALT
+     */
+    public function setRealUserALT($RealUserALT)
+    {
+        $this->RealUserALT = $RealUserALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getSubaccountID()
     {
@@ -303,21 +245,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Unique Token used to retrieve these access rights.
-     *
-     * @param string
-     * @return Apikeyaccess
+     * @param mixed $SubaccountID
      */
-    public function setToken($Token = null)
+    public function setSubaccountID($SubaccountID)
     {
-        $this->Token = $Token;
-        return $this;
+        $this->SubaccountID = $SubaccountID;
     }
 
     /**
-     * Gets the Unique Token used to retrieve these access rights.
-     *
-     * @return string
+     * @return mixed
      */
     public function getToken()
     {
@@ -325,21 +261,15 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was last updated in database.
-     *
-     * @param \Datetime
-     * @return Apikeyaccess
+     * @param mixed $Token
      */
-    public function setUpdatedAt(\Datetime $UpdatedAt = null)
+    public function setToken($Token)
     {
-        $this->UpdatedAt = $UpdatedAt;
-        return $this;
+        $this->Token = $Token;
     }
 
     /**
-     * Gets the Timestamp when object was last updated in database.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getUpdatedAt()
     {
@@ -347,27 +277,42 @@ class Apikeyaccess implements ModelInterface
     }
 
     /**
-     * Sets the Reference to user for whom access is described.
-     *
-     * @param int
-     * @return Apikeyaccess
+     * @param mixed $UpdatedAt
      */
-    public function setUserID($UserID)
+    public function setUpdatedAt($UpdatedAt)
     {
-        $this->UserID = $UserID;
-        return $this;
+        $this->UpdatedAt = $UpdatedAt;
     }
 
     /**
-     * Gets the Reference to user for whom access is described.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUserID()
     {
         return $this->UserID;
     }
 
+    /**
+     * @param mixed $UserID
+     */
+    public function setUserID($UserID)
+    {
+        $this->UserID = $UserID;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getUserALT()
+    {
+        return $this->UserALT;
+    }
+
+    /**
+     * @param mixed $UserALT
+     */
+    public function setUserALT($UserALT)
+    {
+        $this->UserALT = $UserALT;
+    }
 }
-

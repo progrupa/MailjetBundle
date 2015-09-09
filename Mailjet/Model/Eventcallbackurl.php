@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Eventcallbackurl Model
@@ -43,63 +12,76 @@ use \Datetime;
  */
 class Eventcallbackurl implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'eventcallbackurl';
+    }
 
     /**
      * API Key for which the callback URL is registered.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
+     * API Key for which the callback URL is registered.
+     * @Type("string")
+     * @SerializedName("APIKeyALT")
+     */
+    protected $APIKeyALT = null;
+
+    /**
      * Numerical event type.
+     * @Type("string")
+     * @SerializedName("EventType")
      */
     protected $EventType = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Is this a backup URL ?
+     * @Type("boolean")
+     * @SerializedName("IsBackup")
      */
     protected $IsBackup = false;
 
     /**
      * Status of the event
+     * @Type("string")
+     * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * Timestamp indicating when this object was last modified.
+     * @Type("string")
+     * @SerializedName("UpdatedAt")
      */
     protected $UpdatedAt = null;
 
     /**
      * URL to use
+     * @Type("string")
+     * @SerializedName("Url")
      */
     protected $Url = null;
 
     /**
      * Event API version for which this URL is valid.
+     * @Type("integer")
+     * @SerializedName("Version")
      */
     protected $Version = null;
 
     /**
-     * Sets the API Key for which the callback URL is registered.
-     *
-     * @param int
-     * @return Eventcallbackurl
-     */
-    public function setAPIKeyID($APIKeyID)
-    {
-        $this->APIKeyID = $APIKeyID;
-        return $this;
-    }
-
-    /**
-     * Gets the API Key for which the callback URL is registered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKeyID()
     {
@@ -107,21 +89,31 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Numerical event type.
-     *
-     * @param int
-     * @return Eventcallbackurl
+     * @param mixed $APIKeyID
      */
-    public function setEventType($EventType = null)
+    public function setAPIKeyID($APIKeyID)
     {
-        $this->EventType = $EventType;
-        return $this;
+        $this->APIKeyID = $APIKeyID;
     }
 
     /**
-     * Gets the Numerical event type.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getAPIKeyALT()
+    {
+        return $this->APIKeyALT;
+    }
+
+    /**
+     * @param mixed $APIKeyALT
+     */
+    public function setAPIKeyALT($APIKeyALT)
+    {
+        $this->APIKeyALT = $APIKeyALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getEventType()
     {
@@ -129,21 +121,15 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Eventcallbackurl
+     * @param mixed $EventType
      */
-    public function setID($ID = null)
+    public function setEventType($EventType)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->EventType = $EventType;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -151,21 +137,15 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Is this a backup URL ?
-     *
-     * @param bool
-     * @return Eventcallbackurl
+     * @param mixed $ID
      */
-    public function setIsBackup($IsBackup = null)
+    public function setID($ID)
     {
-        $this->IsBackup = $IsBackup;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Is this a backup URL ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsBackup()
     {
@@ -173,21 +153,15 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Status of the event
-     *
-     * @param int
-     * @return Eventcallbackurl
+     * @param mixed $IsBackup
      */
-    public function setStatus($Status = null)
+    public function setIsBackup($IsBackup)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->IsBackup = $IsBackup;
     }
 
     /**
-     * Gets the Status of the event
-     *
-     * @return int
+     * @return mixed
      */
     public function getStatus()
     {
@@ -195,21 +169,15 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp indicating when this object was last modified.
-     *
-     * @param \Datetime
-     * @return Eventcallbackurl
+     * @param mixed $Status
      */
-    public function setUpdatedAt(\Datetime $UpdatedAt = null)
+    public function setStatus($Status)
     {
-        $this->UpdatedAt = $UpdatedAt;
-        return $this;
+        $this->Status = $Status;
     }
 
     /**
-     * Gets the Timestamp indicating when this object was last modified.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getUpdatedAt()
     {
@@ -217,21 +185,15 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the URL to use
-     *
-     * @param string
-     * @return Eventcallbackurl
+     * @param mixed $UpdatedAt
      */
-    public function setUrl($Url)
+    public function setUpdatedAt($UpdatedAt)
     {
-        $this->Url = $Url;
-        return $this;
+        $this->UpdatedAt = $UpdatedAt;
     }
 
     /**
-     * Gets the URL to use
-     *
-     * @return string
+     * @return mixed
      */
     public function getUrl()
     {
@@ -239,27 +201,26 @@ class Eventcallbackurl implements ModelInterface
     }
 
     /**
-     * Sets the Event API version for which this URL is valid.
-     *
-     * @param int
-     * @return Eventcallbackurl
+     * @param mixed $Url
      */
-    public function setVersion($Version = null)
+    public function setUrl($Url)
     {
-        $this->Version = $Version;
-        return $this;
+        $this->Url = $Url;
     }
 
     /**
-     * Gets the Event API version for which this URL is valid.
-     *
-     * @return int
+     * @return mixed
      */
     public function getVersion()
     {
         return $this->Version;
     }
 
-
+    /**
+     * @param mixed $Version
+     */
+    public function setVersion($Version)
+    {
+        $this->Version = $Version;
+    }
 }
-

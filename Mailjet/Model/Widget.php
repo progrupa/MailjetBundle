@@ -1,140 +1,101 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Widget Model
  *
  * Mailjet widget definitions.
  */
-class Widget implements ModelInterface
+class Widget extends AbstractModel
 {
-
-    /**
-     * Timestamp when widget was created
-     */
-    protected $CreatedAt = null;
+    public static function getResource()
+    {
+        return 'widget';
+    }
 
     /**
      * Reference to Sender address for this widget
+     * @Type("integer")
+     * @SerializedName("FromID")
      */
     protected $FromID = null;
 
     /**
-     * Unique numerical ID for this object
+     * Reference to Sender address for this widget
+     * @Type("string")
+     * @SerializedName("FromALT")
      */
-    protected $ID = null;
+    protected $FromALT = null;
 
     /**
      * Is thewidget still active.
+     * @Type("boolean")
+     * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Contactslist for which this widget handles subscriptions.
+     * @Type("integer")
+     * @SerializedName("ListID")
      */
     protected $ListID = null;
 
     /**
+     * Contactslist for which this widget handles subscriptions.
+     * @Type("string")
+     * @SerializedName("ListALT")
+     */
+    protected $ListALT = null;
+
+    /**
      * Locale in which the information in this record is recorded.
+     * @Type("string")
+     * @SerializedName("Locale")
      */
     protected $Locale = null;
 
     /**
      * Name for this widget
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Reply To email address for this widhet
+     * @Type("string")
+     * @SerializedName("Replyto")
      */
     protected $Replyto = null;
 
     /**
      * Sender name for this widget
+     * @Type("string")
+     * @SerializedName("Sendername")
      */
     protected $Sendername = null;
 
     /**
      * Subject for this widget
+     * @Type("string")
+     * @SerializedName("Subject")
      */
     protected $Subject = null;
 
     /**
      * Message to send when sending mail for this widget
+     * @Type("integer")
+     * @SerializedName("Template")
      */
-    protected $TemplateID = null;
+    protected $Template = null;
 
     /**
-     * Sets the Timestamp when widget was created
-     *
-     * @param int
-     * @return Widget
-     */
-    public function setCreatedAt($CreatedAt = null)
-    {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp when widget was created
-     *
-     * @return int
-     */
-    public function getCreatedAt()
-    {
-        return $this->CreatedAt;
-    }
-
-    /**
-     * Sets the Reference to Sender address for this widget
-     *
-     * @param int
-     * @return Widget
-     */
-    public function setFromID($FromID)
-    {
-        $this->FromID = $FromID;
-        return $this;
-    }
-
-    /**
-     * Gets the Reference to Sender address for this widget
-     *
-     * @return int
+     * @return mixed
      */
     public function getFromID()
     {
@@ -142,43 +103,31 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Widget
+     * @param mixed $FromID
      */
-    public function setID($ID = null)
+    public function setFromID($FromID)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->FromID = $FromID;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
-    public function getID()
+    public function getFromALT()
     {
-        return $this->ID;
+        return $this->FromALT;
     }
 
     /**
-     * Sets the Is thewidget still active.
-     *
-     * @param bool
-     * @return Widget
+     * @param mixed $FromALT
      */
-    public function setIsActive($IsActive = null)
+    public function setFromALT($FromALT)
     {
-        $this->IsActive = $IsActive;
-        return $this;
+        $this->FromALT = $FromALT;
     }
 
     /**
-     * Gets the Is thewidget still active.
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsActive()
     {
@@ -186,21 +135,15 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Contactslist for which this widget handles subscriptions.
-     *
-     * @param int
-     * @return Widget
+     * @param mixed $IsActive
      */
-    public function setListID($ListID)
+    public function setIsActive($IsActive)
     {
-        $this->ListID = $ListID;
-        return $this;
+        $this->IsActive = $IsActive;
     }
 
     /**
-     * Gets the Contactslist for which this widget handles subscriptions.
-     *
-     * @return int
+     * @return mixed
      */
     public function getListID()
     {
@@ -208,21 +151,31 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Locale in which the information in this record is recorded.
-     *
-     * @param string
-     * @return Widget
+     * @param mixed $ListID
      */
-    public function setLocale($Locale)
+    public function setListID($ListID)
     {
-        $this->Locale = $Locale;
-        return $this;
+        $this->ListID = $ListID;
     }
 
     /**
-     * Gets the Locale in which the information in this record is recorded.
-     *
-     * @return string
+     * @return mixed
+     */
+    public function getListALT()
+    {
+        return $this->ListALT;
+    }
+
+    /**
+     * @param mixed $ListALT
+     */
+    public function setListALT($ListALT)
+    {
+        $this->ListALT = $ListALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getLocale()
     {
@@ -230,21 +183,15 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Name for this widget
-     *
-     * @param string
-     * @return Widget
+     * @param mixed $Locale
      */
-    public function setName($Name = null)
+    public function setLocale($Locale)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->Locale = $Locale;
     }
 
     /**
-     * Gets the Name for this widget
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -252,21 +199,15 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Reply To email address for this widhet
-     *
-     * @param string
-     * @return Widget
+     * @param mixed $Name
      */
-    public function setReplyto($Replyto = null)
+    public function setName($Name)
     {
-        $this->Replyto = $Replyto;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the Reply To email address for this widhet
-     *
-     * @return string
+     * @return mixed
      */
     public function getReplyto()
     {
@@ -274,21 +215,15 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Sender name for this widget
-     *
-     * @param string
-     * @return Widget
+     * @param mixed $Replyto
      */
-    public function setSendername($Sendername = null)
+    public function setReplyto($Replyto)
     {
-        $this->Sendername = $Sendername;
-        return $this;
+        $this->Replyto = $Replyto;
     }
 
     /**
-     * Gets the Sender name for this widget
-     *
-     * @return string
+     * @return mixed
      */
     public function getSendername()
     {
@@ -296,21 +231,15 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Subject for this widget
-     *
-     * @param string
-     * @return Widget
+     * @param mixed $Sendername
      */
-    public function setSubject($Subject = null)
+    public function setSendername($Sendername)
     {
-        $this->Subject = $Subject;
-        return $this;
+        $this->Sendername = $Sendername;
     }
 
     /**
-     * Gets the Subject for this widget
-     *
-     * @return string
+     * @return mixed
      */
     public function getSubject()
     {
@@ -318,27 +247,26 @@ class Widget implements ModelInterface
     }
 
     /**
-     * Sets the Message to send when sending mail for this widget
-     *
-     * @param int
-     * @return Widget
+     * @param mixed $Subject
      */
-    public function setTemplateID($TemplateID = null)
+    public function setSubject($Subject)
     {
-        $this->TemplateID = $TemplateID;
-        return $this;
+        $this->Subject = $Subject;
     }
 
     /**
-     * Gets the Message to send when sending mail for this widget
-     *
-     * @return int
+     * @return mixed
      */
-    public function getTemplateID()
+    public function getTemplate()
     {
-        return $this->TemplateID;
+        return $this->Template;
     }
 
-
+    /**
+     * @param mixed $Template
+     */
+    public function setTemplate($Template)
+    {
+        $this->Template = $Template;
+    }
 }
-

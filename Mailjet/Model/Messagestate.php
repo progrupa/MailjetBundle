@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Messagestate Model
@@ -41,38 +12,35 @@ namespace Mailjet\Model;
  */
 class Messagestate implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'messagestate';
+    }
+
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Reason for this state
+     * @Type("string")
+     * @SerializedName("RelatedTo")
      */
     protected $RelatedTo = null;
 
     /**
      * Description of the message state
+     * @Type("string")
+     * @SerializedName("State")
      */
     protected $State = null;
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Messagestate
-     */
-    public function setID($ID = null)
-    {
-        $this->ID = $ID;
-        return $this;
-    }
-
-    /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -80,21 +48,15 @@ class Messagestate implements ModelInterface
     }
 
     /**
-     * Sets the Reason for this state
-     *
-     * @param string
-     * @return Messagestate
+     * @param mixed $ID
      */
-    public function setRelatedTo($RelatedTo = null)
+    public function setID($ID)
     {
-        $this->RelatedTo = $RelatedTo;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Reason for this state
-     *
-     * @return string
+     * @return mixed
      */
     public function getRelatedTo()
     {
@@ -102,27 +64,26 @@ class Messagestate implements ModelInterface
     }
 
     /**
-     * Sets the Description of the message state
-     *
-     * @param string
-     * @return Messagestate
+     * @param mixed $RelatedTo
      */
-    public function setState($State)
+    public function setRelatedTo($RelatedTo)
     {
-        $this->State = $State;
-        return $this;
+        $this->RelatedTo = $RelatedTo;
     }
 
     /**
-     * Gets the Description of the message state
-     *
-     * @return string
+     * @return mixed
      */
     public function getState()
     {
         return $this->State;
     }
 
-
+    /**
+     * @param mixed $State
+     */
+    public function setState($State)
+    {
+        $this->State = $State;
+    }
 }
-

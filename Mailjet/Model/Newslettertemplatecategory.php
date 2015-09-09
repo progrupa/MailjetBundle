@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Newslettertemplatecategory Model
@@ -41,48 +12,48 @@ namespace Mailjet\Model;
  */
 class Newslettertemplatecategory implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'newslettertemplatecategory';
+    }
 
     /**
      * Category description (localized)
+     * @Type("string")
+     * @SerializedName("Description")
      */
     protected $Description = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Locale in which the information in this record is recorded.
+     * @Type("string")
+     * @SerializedName("Locale")
      */
     protected $Locale = null;
 
     /**
      * Parent category reference.
+     * @Type("integer")
+     * @SerializedName("ParentCategoryID")
      */
     protected $ParentCategoryID = null;
 
     /**
      * Category name.
+     * @Type("string")
+     * @SerializedName("Value")
      */
     protected $Value = null;
 
     /**
-     * Sets the Category description (localized)
-     *
-     * @param string
-     * @return Newslettertemplatecategory
-     */
-    public function setDescription($Description)
-    {
-        $this->Description = $Description;
-        return $this;
-    }
-
-    /**
-     * Gets the Category description (localized)
-     *
-     * @return string
+     * @return mixed
      */
     public function getDescription()
     {
@@ -90,21 +61,15 @@ class Newslettertemplatecategory implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Newslettertemplatecategory
+     * @param mixed $Description
      */
-    public function setID($ID = null)
+    public function setDescription($Description)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Description = $Description;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -112,21 +77,15 @@ class Newslettertemplatecategory implements ModelInterface
     }
 
     /**
-     * Sets the Locale in which the information in this record is recorded.
-     *
-     * @param string
-     * @return Newslettertemplatecategory
+     * @param mixed $ID
      */
-    public function setLocale($Locale)
+    public function setID($ID)
     {
-        $this->Locale = $Locale;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Locale in which the information in this record is recorded.
-     *
-     * @return string
+     * @return mixed
      */
     public function getLocale()
     {
@@ -134,21 +93,15 @@ class Newslettertemplatecategory implements ModelInterface
     }
 
     /**
-     * Sets the Parent category reference.
-     *
-     * @param int
-     * @return Newslettertemplatecategory
+     * @param mixed $Locale
      */
-    public function setParentCategoryID($ParentCategoryID)
+    public function setLocale($Locale)
     {
-        $this->ParentCategoryID = $ParentCategoryID;
-        return $this;
+        $this->Locale = $Locale;
     }
 
     /**
-     * Gets the Parent category reference.
-     *
-     * @return int
+     * @return mixed
      */
     public function getParentCategoryID()
     {
@@ -156,27 +109,26 @@ class Newslettertemplatecategory implements ModelInterface
     }
 
     /**
-     * Sets the Category name.
-     *
-     * @param string
-     * @return Newslettertemplatecategory
+     * @param mixed $ParentCategoryID
      */
-    public function setValue($Value)
+    public function setParentCategoryID($ParentCategoryID)
     {
-        $this->Value = $Value;
-        return $this;
+        $this->ParentCategoryID = $ParentCategoryID;
     }
 
     /**
-     * Gets the Category name.
-     *
-     * @return string
+     * @return mixed
      */
     public function getValue()
     {
         return $this->Value;
     }
 
-
+    /**
+     * @param mixed $Value
+     */
+    public function setValue($Value)
+    {
+        $this->Value = $Value;
+    }
 }
-

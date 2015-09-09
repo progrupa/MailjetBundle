@@ -1,150 +1,122 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Newslettertemplate Model
  *
  * Newsletter templates
  */
-class Newslettertemplate implements ModelInterface
+class Newslettertemplate extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'newslettertemplate';
+    }
 
     /**
      * Category for this newsletter
+     * @Type("string")
+     * @SerializedName("CategoryID")
      */
     protected $CategoryID = null;
 
     /**
-     * Timestamp when object was created in database
-     */
-    protected $CreatedAt = null;
-
-    /**
      * Footer type to generate.
+     * @Type("string")
+     * @SerializedName("Footer")
      */
     protected $Footer = null;
 
     /**
      * Address to use in footer.
+     * @Type("string")
+     * @SerializedName("FooterAddress")
      */
     protected $FooterAddress = null;
 
     /**
      * What kind of footer to generate.
+     * @Type("integer")
+     * @SerializedName("FooterWYSIWYGType")
      */
     protected $FooterWYSIWYGType = null;
 
     /**
      * Filename to use in header
+     * @Type("string")
+     * @SerializedName("HeaderFilename")
      */
     protected $HeaderFilename = null;
 
     /**
      * Link used in header
+     * @Type("string")
+     * @SerializedName("HeaderLink")
      */
     protected $HeaderLink = null;
 
     /**
      * Text of header
+     * @Type("string")
+     * @SerializedName("HeaderText")
      */
     protected $HeaderText = null;
 
     /**
      * URL used in header
+     * @Type("string")
+     * @SerializedName("HeaderUrl")
      */
     protected $HeaderUrl = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Locale in which the information in this record is recorded.
+     * @Type("string")
+     * @SerializedName("Locale")
      */
     protected $Locale = null;
 
     /**
      * Name for this newsletter
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Type of permalink that should be added to the newsletter.
+     * @Type("string")
+     * @SerializedName("Permalink")
      */
     protected $Permalink = null;
 
     /**
      * ?
+     * @Type("integer")
+     * @SerializedName("PermalinkWYSIWYGType")
      */
     protected $PermalinkWYSIWYGType = null;
 
     /**
      * When specified in POST or PUT, copy data from this newsletter.
+     * @Type("integer")
+     * @SerializedName("SourceNewsLetterID")
      */
     protected $SourceNewsLetterID = null;
 
     /**
      * Status of the newsletter template
+     * @Type("string")
+     * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
-     * Timestamp when newsletter template data was last updated.
-     */
-    protected $UpdatedAt = null;
-
-    /**
-     * Sets the Category for this newsletter
-     *
-     * @param int
-     * @return Newslettertemplate
-     */
-    public function setCategoryID($CategoryID = null)
-    {
-        $this->CategoryID = $CategoryID;
-        return $this;
-    }
-
-    /**
-     * Gets the Category for this newsletter
-     *
-     * @return int
+     * @return mixed
      */
     public function getCategoryID()
     {
@@ -152,43 +124,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Newslettertemplate
+     * @param mixed $CategoryID
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setCategoryID($CategoryID)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->CategoryID = $CategoryID;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
-     */
-    public function getCreatedAt()
-    {
-        return $this->CreatedAt;
-    }
-
-    /**
-     * Sets the Footer type to generate.
-     *
-     * @param string
-     * @return Newslettertemplate
-     */
-    public function setFooter($Footer = null)
-    {
-        $this->Footer = $Footer;
-        return $this;
-    }
-
-    /**
-     * Gets the Footer type to generate.
-     *
-     * @return string
+     * @return mixed
      */
     public function getFooter()
     {
@@ -196,21 +140,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Address to use in footer.
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $Footer
      */
-    public function setFooterAddress($FooterAddress = null)
+    public function setFooter($Footer)
     {
-        $this->FooterAddress = $FooterAddress;
-        return $this;
+        $this->Footer = $Footer;
     }
 
     /**
-     * Gets the Address to use in footer.
-     *
-     * @return string
+     * @return mixed
      */
     public function getFooterAddress()
     {
@@ -218,21 +156,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the What kind of footer to generate.
-     *
-     * @param int
-     * @return Newslettertemplate
+     * @param mixed $FooterAddress
      */
-    public function setFooterWYSIWYGType($FooterWYSIWYGType = null)
+    public function setFooterAddress($FooterAddress)
     {
-        $this->FooterWYSIWYGType = $FooterWYSIWYGType;
-        return $this;
+        $this->FooterAddress = $FooterAddress;
     }
 
     /**
-     * Gets the What kind of footer to generate.
-     *
-     * @return int
+     * @return mixed
      */
     public function getFooterWYSIWYGType()
     {
@@ -240,21 +172,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Filename to use in header
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $FooterWYSIWYGType
      */
-    public function setHeaderFilename($HeaderFilename = null)
+    public function setFooterWYSIWYGType($FooterWYSIWYGType)
     {
-        $this->HeaderFilename = $HeaderFilename;
-        return $this;
+        $this->FooterWYSIWYGType = $FooterWYSIWYGType;
     }
 
     /**
-     * Gets the Filename to use in header
-     *
-     * @return string
+     * @return mixed
      */
     public function getHeaderFilename()
     {
@@ -262,21 +188,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Link used in header
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $HeaderFilename
      */
-    public function setHeaderLink($HeaderLink = null)
+    public function setHeaderFilename($HeaderFilename)
     {
-        $this->HeaderLink = $HeaderLink;
-        return $this;
+        $this->HeaderFilename = $HeaderFilename;
     }
 
     /**
-     * Gets the Link used in header
-     *
-     * @return string
+     * @return mixed
      */
     public function getHeaderLink()
     {
@@ -284,21 +204,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Text of header
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $HeaderLink
      */
-    public function setHeaderText($HeaderText = null)
+    public function setHeaderLink($HeaderLink)
     {
-        $this->HeaderText = $HeaderText;
-        return $this;
+        $this->HeaderLink = $HeaderLink;
     }
 
     /**
-     * Gets the Text of header
-     *
-     * @return string
+     * @return mixed
      */
     public function getHeaderText()
     {
@@ -306,21 +220,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the URL used in header
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $HeaderText
      */
-    public function setHeaderUrl($HeaderUrl = null)
+    public function setHeaderText($HeaderText)
     {
-        $this->HeaderUrl = $HeaderUrl;
-        return $this;
+        $this->HeaderText = $HeaderText;
     }
 
     /**
-     * Gets the URL used in header
-     *
-     * @return string
+     * @return mixed
      */
     public function getHeaderUrl()
     {
@@ -328,43 +236,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Newslettertemplate
+     * @param mixed $HeaderUrl
      */
-    public function setID($ID = null)
+    public function setHeaderUrl($HeaderUrl)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->HeaderUrl = $HeaderUrl;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Locale in which the information in this record is recorded.
-     *
-     * @param string
-     * @return Newslettertemplate
-     */
-    public function setLocale($Locale)
-    {
-        $this->Locale = $Locale;
-        return $this;
-    }
-
-    /**
-     * Gets the Locale in which the information in this record is recorded.
-     *
-     * @return string
+     * @return mixed
      */
     public function getLocale()
     {
@@ -372,21 +252,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Name for this newsletter
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $Locale
      */
-    public function setName($Name = null)
+    public function setLocale($Locale)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->Locale = $Locale;
     }
 
     /**
-     * Gets the Name for this newsletter
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -394,21 +268,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Type of permalink that should be added to the newsletter.
-     *
-     * @param string
-     * @return Newslettertemplate
+     * @param mixed $Name
      */
-    public function setPermalink($Permalink = null)
+    public function setName($Name)
     {
-        $this->Permalink = $Permalink;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the Type of permalink that should be added to the newsletter.
-     *
-     * @return string
+     * @return mixed
      */
     public function getPermalink()
     {
@@ -416,21 +284,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the ?
-     *
-     * @param int
-     * @return Newslettertemplate
+     * @param mixed $Permalink
      */
-    public function setPermalinkWYSIWYGType($PermalinkWYSIWYGType = null)
+    public function setPermalink($Permalink)
     {
-        $this->PermalinkWYSIWYGType = $PermalinkWYSIWYGType;
-        return $this;
+        $this->Permalink = $Permalink;
     }
 
     /**
-     * Gets the ?
-     *
-     * @return int
+     * @return mixed
      */
     public function getPermalinkWYSIWYGType()
     {
@@ -438,21 +300,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the When specified in POST or PUT, copy data from this newsletter.
-     *
-     * @param int
-     * @return Newslettertemplate
+     * @param mixed $PermalinkWYSIWYGType
      */
-    public function setSourceNewsLetterID($SourceNewsLetterID = null)
+    public function setPermalinkWYSIWYGType($PermalinkWYSIWYGType)
     {
-        $this->SourceNewsLetterID = $SourceNewsLetterID;
-        return $this;
+        $this->PermalinkWYSIWYGType = $PermalinkWYSIWYGType;
     }
 
     /**
-     * Gets the When specified in POST or PUT, copy data from this newsletter.
-     *
-     * @return int
+     * @return mixed
      */
     public function getSourceNewsLetterID()
     {
@@ -460,21 +316,15 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Status of the newsletter template
-     *
-     * @param int
-     * @return Newslettertemplate
+     * @param mixed $SourceNewsLetterID
      */
-    public function setStatus($Status = null)
+    public function setSourceNewsLetterID($SourceNewsLetterID)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->SourceNewsLetterID = $SourceNewsLetterID;
     }
 
     /**
-     * Gets the Status of the newsletter template
-     *
-     * @return int
+     * @return mixed
      */
     public function getStatus()
     {
@@ -482,27 +332,10 @@ class Newslettertemplate implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when newsletter template data was last updated.
-     *
-     * @param \Datetime
-     * @return Newslettertemplate
+     * @param mixed $Status
      */
-    public function setUpdatedAt(\Datetime $UpdatedAt = null)
+    public function setStatus($Status)
     {
-        $this->UpdatedAt = $UpdatedAt;
-        return $this;
+        $this->Status = $Status;
     }
-
-    /**
-     * Gets the Timestamp when newsletter template data was last updated.
-     *
-     * @return \Datetime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->UpdatedAt;
-    }
-
-
 }
-

@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Widgetcustomvalue Model
@@ -41,53 +12,62 @@ namespace Mailjet\Model;
  */
 class Widgetcustomvalue implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'widgetcustomvalue';
+    }
 
     /**
      * APIKey to which the widget and custom value belongs
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
+     * APIKey to which the widget and custom value belongs
+     * @Type("string")
+     * @SerializedName("APIKeyALT")
+     */
+    protected $APIKeyALT = null;
+
+    /**
      * Should the value be displayed
+     * @Type("boolean")
+     * @SerializedName("Display")
      */
     protected $Display = false;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Name of the custom value
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Value of the custom value
+     * @Type("string")
+     * @SerializedName("Value")
      */
     protected $Value = null;
 
     /**
      * Widget for which the value is registered.
+     * @Type("integer")
+     * @SerializedName("WidgetID")
      */
     protected $WidgetID = null;
 
     /**
-     * Sets the APIKey to which the widget and custom value belongs
-     *
-     * @param int
-     * @return Widgetcustomvalue
-     */
-    public function setAPIKeyID($APIKeyID = null)
-    {
-        $this->APIKeyID = $APIKeyID;
-        return $this;
-    }
-
-    /**
-     * Gets the APIKey to which the widget and custom value belongs
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKeyID()
     {
@@ -95,21 +75,31 @@ class Widgetcustomvalue implements ModelInterface
     }
 
     /**
-     * Sets the Should the value be displayed
-     *
-     * @param bool
-     * @return Widgetcustomvalue
+     * @param mixed $APIKeyID
      */
-    public function setDisplay($Display = null)
+    public function setAPIKeyID($APIKeyID)
     {
-        $this->Display = $Display;
-        return $this;
+        $this->APIKeyID = $APIKeyID;
     }
 
     /**
-     * Gets the Should the value be displayed
-     *
-     * @return bool
+     * @return mixed
+     */
+    public function getAPIKeyALT()
+    {
+        return $this->APIKeyALT;
+    }
+
+    /**
+     * @param mixed $APIKeyALT
+     */
+    public function setAPIKeyALT($APIKeyALT)
+    {
+        $this->APIKeyALT = $APIKeyALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getDisplay()
     {
@@ -117,21 +107,15 @@ class Widgetcustomvalue implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Widgetcustomvalue
+     * @param mixed $Display
      */
-    public function setID($ID = null)
+    public function setDisplay($Display)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Display = $Display;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -139,21 +123,15 @@ class Widgetcustomvalue implements ModelInterface
     }
 
     /**
-     * Sets the Name of the custom value
-     *
-     * @param string
-     * @return Widgetcustomvalue
+     * @param mixed $ID
      */
-    public function setName($Name)
+    public function setID($ID)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Name of the custom value
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -161,21 +139,15 @@ class Widgetcustomvalue implements ModelInterface
     }
 
     /**
-     * Sets the Value of the custom value
-     *
-     * @param string
-     * @return Widgetcustomvalue
+     * @param mixed $Name
      */
-    public function setValue($Value = null)
+    public function setName($Name)
     {
-        $this->Value = $Value;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the Value of the custom value
-     *
-     * @return string
+     * @return mixed
      */
     public function getValue()
     {
@@ -183,27 +155,26 @@ class Widgetcustomvalue implements ModelInterface
     }
 
     /**
-     * Sets the Widget for which the value is registered.
-     *
-     * @param int
-     * @return Widgetcustomvalue
+     * @param mixed $Value
      */
-    public function setWidgetID($WidgetID)
+    public function setValue($Value)
     {
-        $this->WidgetID = $WidgetID;
-        return $this;
+        $this->Value = $Value;
     }
 
     /**
-     * Gets the Widget for which the value is registered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getWidgetID()
     {
         return $this->WidgetID;
     }
 
-
+    /**
+     * @param mixed $WidgetID
+     */
+    public function setWidgetID($WidgetID)
+    {
+        $this->WidgetID = $WidgetID;
+    }
 }
-

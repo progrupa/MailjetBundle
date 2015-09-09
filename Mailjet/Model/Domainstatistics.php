@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Domainstatistics Model
@@ -41,78 +12,90 @@ namespace Mailjet\Model;
  */
 class Domainstatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'domainstatistics';
+    }
 
     /**
      * Number of blocked messages.
+     * @Type("integer")
+     * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
+     * @Type("integer")
+     * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
+     * @Type("integer")
+     * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Domain name (lowercase)
+     * @Type("string")
+     * @SerializedName("Domain")
      */
     protected $Domain = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Number of message open registrations.
+     * @Type("integer")
+     * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
+     * @Type("integer")
+     * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
+     * @Type("integer")
+     * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
+     * @Type("integer")
+     * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
      * Number of registered unsubscribe requests.
+     * @Type("integer")
+     * @SerializedName("UnsubscribedCount")
      */
     protected $UnsubscribedCount = null;
 
     /**
-     * Sets the Number of blocked messages.
-     *
-     * @param int
-     * @return Domainstatistics
-     */
-    public function setBlockedCount($BlockedCount = null)
-    {
-        $this->BlockedCount = $BlockedCount;
-        return $this;
-    }
-
-    /**
-     * Gets the Number of blocked messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBlockedCount()
     {
@@ -120,21 +103,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of bounced messages.
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $BlockedCount
      */
-    public function setBouncedCount($BouncedCount = null)
+    public function setBlockedCount($BlockedCount)
     {
-        $this->BouncedCount = $BouncedCount;
-        return $this;
+        $this->BlockedCount = $BlockedCount;
     }
 
     /**
-     * Gets the Number of bounced messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBouncedCount()
     {
@@ -142,21 +119,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $BouncedCount
      */
-    public function setClickedCount($ClickedCount = null)
+    public function setBouncedCount($BouncedCount)
     {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
+        $this->BouncedCount = $BouncedCount;
     }
 
     /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -164,21 +135,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages delivered to their destination.
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $ClickedCount
      */
-    public function setDeliveredCount($DeliveredCount = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->DeliveredCount = $DeliveredCount;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the Number of messages delivered to their destination.
-     *
-     * @return int
+     * @return mixed
      */
     public function getDeliveredCount()
     {
@@ -186,21 +151,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Domain name (lowercase)
-     *
-     * @param string
-     * @return Domainstatistics
+     * @param mixed $DeliveredCount
      */
-    public function setDomain($Domain = null)
+    public function setDeliveredCount($DeliveredCount)
     {
-        $this->Domain = $Domain;
-        return $this;
+        $this->DeliveredCount = $DeliveredCount;
     }
 
     /**
-     * Gets the Domain name (lowercase)
-     *
-     * @return string
+     * @return mixed
      */
     public function getDomain()
     {
@@ -208,21 +167,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $Domain
      */
-    public function setID($ID = null)
+    public function setDomain($Domain)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Domain = $Domain;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -230,21 +183,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of message open registrations.
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $ID
      */
-    public function setOpenedCount($OpenedCount = null)
+    public function setID($ID)
     {
-        $this->OpenedCount = $OpenedCount;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Number of message open registrations.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenedCount()
     {
@@ -252,21 +199,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Total number of messages processed by Mailjet
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $OpenedCount
      */
-    public function setProcessedCount($ProcessedCount = null)
+    public function setOpenedCount($OpenedCount)
     {
-        $this->ProcessedCount = $ProcessedCount;
-        return $this;
+        $this->OpenedCount = $OpenedCount;
     }
 
     /**
-     * Gets the Total number of messages processed by Mailjet
-     *
-     * @return int
+     * @return mixed
      */
     public function getProcessedCount()
     {
@@ -274,21 +215,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages waiting in send queue
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $ProcessedCount
      */
-    public function setQueuedCount($QueuedCount = null)
+    public function setProcessedCount($ProcessedCount)
     {
-        $this->QueuedCount = $QueuedCount;
-        return $this;
+        $this->ProcessedCount = $ProcessedCount;
     }
 
     /**
-     * Gets the Number of messages waiting in send queue
-     *
-     * @return int
+     * @return mixed
      */
     public function getQueuedCount()
     {
@@ -296,21 +231,15 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of spam complaints
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $QueuedCount
      */
-    public function setSpamComplaintCount($SpamComplaintCount = null)
+    public function setQueuedCount($QueuedCount)
     {
-        $this->SpamComplaintCount = $SpamComplaintCount;
-        return $this;
+        $this->QueuedCount = $QueuedCount;
     }
 
     /**
-     * Gets the Number of spam complaints
-     *
-     * @return int
+     * @return mixed
      */
     public function getSpamComplaintCount()
     {
@@ -318,27 +247,26 @@ class Domainstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered unsubscribe requests.
-     *
-     * @param int
-     * @return Domainstatistics
+     * @param mixed $SpamComplaintCount
      */
-    public function setUnsubscribedCount($UnsubscribedCount = null)
+    public function setSpamComplaintCount($SpamComplaintCount)
     {
-        $this->UnsubscribedCount = $UnsubscribedCount;
-        return $this;
+        $this->SpamComplaintCount = $SpamComplaintCount;
     }
 
     /**
-     * Gets the Number of registered unsubscribe requests.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUnsubscribedCount()
     {
         return $this->UnsubscribedCount;
     }
 
-
+    /**
+     * @param mixed $UnsubscribedCount
+     */
+    public function setUnsubscribedCount($UnsubscribedCount)
+    {
+        $this->UnsubscribedCount = $UnsubscribedCount;
+    }
 }
-

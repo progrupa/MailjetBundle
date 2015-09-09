@@ -1,122 +1,81 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
-use Mailjet\Type\TSenderStatus;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Sender Model
  *
  * API Key sender email address
  */
-class Sender implements ModelInterface
+class Sender extends AbstractModel
 {
+    public static function getResource()
+    {
+        return 'sender';
+    }
 
     /**
      * Key used when confirming validity of this sender.
+     * @Type("string")
+     * @SerializedName("ConfirmKey")
      */
     protected $ConfirmKey = null;
 
     /**
-     * Timestamp when object was created in database
-     */
-    protected $CreatedAt = null;
-
-    /**
      * DNS domain to which sender belongs.
+     * @Type("string")
+     * @SerializedName("DNS")
      */
-    protected $DNSID = null;
+    protected $DNS = null;
 
     /**
      * Email Address of this sender
+     * @Type("string")
+     * @SerializedName("Email")
      */
     protected $Email = null;
 
     /**
      * Type of emails that can be sent from this address
+     * @Type("string")
+     * @SerializedName("EmailType")
      */
     protected $EmailType = null;
 
     /**
      * Filename expected on the domain name webserver, used for verifying the domain in
      * case of a catch-all address.
+     * @Type("string")
+     * @SerializedName("Filename")
      */
     protected $Filename = null;
 
     /**
-     * Unique numerical ID for this object
-     */
-    protected $ID = null;
-
-    /**
      * Is this the default sender for this API key ?
+     * @Type("boolean")
+     * @SerializedName("ACL")
      */
     protected $IsDefaultSender = false;
 
     /**
      * User-provided name for this sender
+     * @Type("string")
+     * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Status of the sender
+     * @Type("string")
+     * @SerializedName("Status")
      */
     protected $Status = 'Inactive';
 
     /**
-     * Timestamp of last UMP check for this sender
-     */
-    protected $UMPCheckedAt = null;
-
-    /**
-     * Sets the Key used when confirming validity of this sender.
-     *
-     * @param string
-     * @return Sender
-     */
-    public function setConfirmKey($ConfirmKey = null)
-    {
-        $this->ConfirmKey = $ConfirmKey;
-        return $this;
-    }
-
-    /**
-     * Gets the Key used when confirming validity of this sender.
-     *
-     * @return string
+     * @return mixed
      */
     public function getConfirmKey()
     {
@@ -124,65 +83,31 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when object was created in database
-     *
-     * @param \Datetime
-     * @return Sender
+     * @param mixed $ConfirmKey
      */
-    public function setCreatedAt(\Datetime $CreatedAt = null)
+    public function setConfirmKey($ConfirmKey)
     {
-        $this->CreatedAt = $CreatedAt;
-        return $this;
+        $this->ConfirmKey = $ConfirmKey;
     }
 
     /**
-     * Gets the Timestamp when object was created in database
-     *
-     * @return \Datetime
+     * @return mixed
      */
-    public function getCreatedAt()
+    public function getDNS()
     {
-        return $this->CreatedAt;
+        return $this->DNS;
     }
 
     /**
-     * Sets the DNS domain to which sender belongs.
-     *
-     * @param int
-     * @return Sender
+     * @param mixed $DNS
      */
-    public function setDNSID($DNSID = null)
+    public function setDNS($DNS)
     {
-        $this->DNSID = $DNSID;
-        return $this;
+        $this->DNS = $DNS;
     }
 
     /**
-     * Gets the DNS domain to which sender belongs.
-     *
-     * @return int
-     */
-    public function getDNSID()
-    {
-        return $this->DNSID;
-    }
-
-    /**
-     * Sets the Email Address of this sender
-     *
-     * @param string
-     * @return Sender
-     */
-    public function setEmail($Email)
-    {
-        $this->Email = $Email;
-        return $this;
-    }
-
-    /**
-     * Gets the Email Address of this sender
-     *
-     * @return string
+     * @return mixed
      */
     public function getEmail()
     {
@@ -190,21 +115,15 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Type of emails that can be sent from this address
-     *
-     * @param int
-     * @return Sender
+     * @param mixed $Email
      */
-    public function setEmailType($EmailType = null)
+    public function setEmail($Email)
     {
-        $this->EmailType = $EmailType;
-        return $this;
+        $this->Email = $Email;
     }
 
     /**
-     * Gets the Type of emails that can be sent from this address
-     *
-     * @return int
+     * @return mixed
      */
     public function getEmailType()
     {
@@ -212,23 +131,15 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Filename expected on the domain name webserver, used for verifying the
-     * domain in case of a catch-all address.
-     *
-     * @param string
-     * @return Sender
+     * @param mixed $EmailType
      */
-    public function setFilename($Filename = null)
+    public function setEmailType($EmailType)
     {
-        $this->Filename = $Filename;
-        return $this;
+        $this->EmailType = $EmailType;
     }
 
     /**
-     * Gets the Filename expected on the domain name webserver, used for verifying the
-     * domain in case of a catch-all address.
-     *
-     * @return string
+     * @return mixed
      */
     public function getFilename()
     {
@@ -236,43 +147,15 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Sender
+     * @param mixed $Filename
      */
-    public function setID($ID = null)
+    public function setFilename($Filename)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Filename = $Filename;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
-     */
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    /**
-     * Sets the Is this the default sender for this API key ?
-     *
-     * @param bool
-     * @return Sender
-     */
-    public function setIsDefaultSender($IsDefaultSender = null)
-    {
-        $this->IsDefaultSender = $IsDefaultSender;
-        return $this;
-    }
-
-    /**
-     * Gets the Is this the default sender for this API key ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getIsDefaultSender()
     {
@@ -280,21 +163,15 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the User-provided name for this sender
-     *
-     * @param string
-     * @return Sender
+     * @param mixed $IsDefaultSender
      */
-    public function setName($Name = null)
+    public function setIsDefaultSender($IsDefaultSender)
     {
-        $this->Name = $Name;
-        return $this;
+        $this->IsDefaultSender = $IsDefaultSender;
     }
 
     /**
-     * Gets the User-provided name for this sender
-     *
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -302,21 +179,15 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Status of the sender
-     *
-     * @param TSenderStatus
-     * @return Sender
+     * @param mixed $Name
      */
-    public function setStatus(TSenderStatus $Status = null)
+    public function setName($Name)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->Name = $Name;
     }
 
     /**
-     * Gets the Status of the sender
-     *
-     * @return TSenderStatus
+     * @return mixed
      */
     public function getStatus()
     {
@@ -324,27 +195,10 @@ class Sender implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last UMP check for this sender
-     *
-     * @param \Datetime
-     * @return Sender
+     * @param mixed $Status
      */
-    public function setUMPCheckedAt(\Datetime $UMPCheckedAt = null)
+    public function setStatus($Status)
     {
-        $this->UMPCheckedAt = $UMPCheckedAt;
-        return $this;
+        $this->Status = $Status;
     }
-
-    /**
-     * Gets the Timestamp of last UMP check for this sender
-     *
-     * @return \Datetime
-     */
-    public function getUMPCheckedAt()
-    {
-        return $this->UMPCheckedAt;
-    }
-
-
 }
-

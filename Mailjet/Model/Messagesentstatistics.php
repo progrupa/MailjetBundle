@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Messagesentstatistics Model
@@ -43,98 +12,181 @@ use \Datetime;
  */
 class Messagesentstatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'messagesentstatistics';
+    }
 
     /**
      * When did the message arrive at Mailjet
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("ArrivalTs")
      */
     protected $ArrivalTs = null;
 
     /**
      * Was the message blocked ?
+     * @Type("boolean")
+     * @SerializedName("Blocked")
      */
     protected $Blocked = false;
 
     /**
      * Has the message bounced ?
+     * @Type("boolean")
+     * @SerializedName("Bounce")
      */
     protected $Bounce = false;
 
     /**
+     * Timestamp when the message had bounced. Available if ShowExtraData=True
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("BounceDate")
+     */
+    protected $BounceDate = null;
+
+    /**
+     * The reaon why the message bounced. Available if ShowExtraData=True
+     * @Type("string")
+     * @SerializedName("BounceReason")
+     */
+    protected $BounceReason = null;
+
+    /**
      * reference to the Campaign to which message belongs.
+     * @Type("integer")
+     * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
+     * reference to the Campaign to which message belongs.
+     * @Type("string")
+     * @SerializedName("CampaignALT")
+     */
+    protected $CampaignALT = null;
+
+    /**
      * Was a click registered for this message ?
+     * @Type("boolean")
+     * @SerializedName("Click")
      */
     protected $Click = false;
 
     /**
      * Number of recipients for this campaign.
+     * @Type("integer")
+     * @SerializedName("CntRecipients")
      */
     protected $CntRecipients = null;
 
     /**
+     * Timestamp for the date of the complaint. Available if ShowExtraData=True
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("ComplaintDate")
+     */
+    protected $ComplaintDate = null;
+
+    /**
      * Reference to contact to which message was sent.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
-     * Unique numerical ID for this object
+     * Reference to contact to which message was sent.
+     * @Type("string")
+     * @SerializedName("ContactALT")
      */
-    protected $ID = null;
+    protected $ContactALT = null;
+
+    /**
+     * More details for the message
+     * @Type("string")
+     * @SerializedName("Details")
+     */
+    protected $Details = null;
+
+    /**
+     * FBLSource. Available if ShowExtraData=True
+     * @Type("string")
+     * @SerializedName("FBLSource")
+     */
+    protected $FBLSource = null;
+
+    /**
+     * FBLSource. Available if ShowExtraData=True
+     * @Type("integer")
+     * @SerializedName("MessageID")
+     */
+    protected $MessageID = null;
 
     /**
      * Was the message opened ?
+     * @Type("boolean")
+     * @SerializedName("Open")
      */
     protected $Open = false;
 
     /**
      * Is the message still in the queue ?
+     * @Type("boolean")
+     * @SerializedName("Queued")
      */
     protected $Queued = false;
 
     /**
      * Was the message sent ?
+     * @Type("boolean")
+     * @SerializedName("Sent")
      */
     protected $Sent = false;
 
     /**
      * Was a spam complaint registered for this message ?
+     * @Type("boolean")
+     * @SerializedName("Spam")
      */
     protected $Spam = false;
 
     /**
      * Current state of the message.
+     * @Type("integer")
+     * @SerializedName("StateID")
      */
     protected $StateID = null;
 
     /**
      * Is the current state of the message permanent ?
+     * @Type("boolean")
+     * @SerializedName("StatePermanent")
      */
     protected $StatePermanent = false;
 
     /**
      * Current status of the message.
+     * @Type("string")
+     * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
-     * Sets the When did the message arrive at Mailjet
-     *
-     * @param \Datetime
-     * @return Messagesentstatistics
+     * The receiver email for the message
+     * @Type("string")
+     * @SerializedName("ToEmail")
      */
-    public function setArrivalTs(\Datetime $ArrivalTs = null)
-    {
-        $this->ArrivalTs = $ArrivalTs;
-        return $this;
-    }
+    protected $ToEmail = null;
 
     /**
-     * Gets the When did the message arrive at Mailjet
-     *
-     * @return \Datetime
+     * Was the message unsubed ?
+     * @Type("boolean")
+     * @SerializedName("Unsub")
+     */
+    protected $Unsub = null;
+
+    /**
+     * @return mixed
      */
     public function getArrivalTs()
     {
@@ -142,21 +194,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Was the message blocked ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $ArrivalTs
      */
-    public function setBlocked($Blocked = null)
+    public function setArrivalTs($ArrivalTs)
     {
-        $this->Blocked = $Blocked;
-        return $this;
+        $this->ArrivalTs = $ArrivalTs;
     }
 
     /**
-     * Gets the Was the message blocked ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getBlocked()
     {
@@ -164,21 +210,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Has the message bounced ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $Blocked
      */
-    public function setBounce($Bounce = null)
+    public function setBlocked($Blocked)
     {
-        $this->Bounce = $Bounce;
-        return $this;
+        $this->Blocked = $Blocked;
     }
 
     /**
-     * Gets the Has the message bounced ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getBounce()
     {
@@ -186,21 +226,47 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the reference to the Campaign to which message belongs.
-     *
-     * @param int
-     * @return Messagesentstatistics
+     * @param mixed $Bounce
      */
-    public function setCampaignID($CampaignID)
+    public function setBounce($Bounce)
     {
-        $this->CampaignID = $CampaignID;
-        return $this;
+        $this->Bounce = $Bounce;
     }
 
     /**
-     * Gets the reference to the Campaign to which message belongs.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getBounceDate()
+    {
+        return $this->BounceDate;
+    }
+
+    /**
+     * @param mixed $BounceDate
+     */
+    public function setBounceDate($BounceDate)
+    {
+        $this->BounceDate = $BounceDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBounceReason()
+    {
+        return $this->BounceReason;
+    }
+
+    /**
+     * @param mixed $BounceReason
+     */
+    public function setBounceReason($BounceReason)
+    {
+        $this->BounceReason = $BounceReason;
+    }
+
+    /**
+     * @return mixed
      */
     public function getCampaignID()
     {
@@ -208,21 +274,31 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Was a click registered for this message ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $CampaignID
      */
-    public function setClick($Click = null)
+    public function setCampaignID($CampaignID)
     {
-        $this->Click = $Click;
-        return $this;
+        $this->CampaignID = $CampaignID;
     }
 
     /**
-     * Gets the Was a click registered for this message ?
-     *
-     * @return bool
+     * @return mixed
+     */
+    public function getCampaignALT()
+    {
+        return $this->CampaignALT;
+    }
+
+    /**
+     * @param mixed $CampaignALT
+     */
+    public function setCampaignALT($CampaignALT)
+    {
+        $this->CampaignALT = $CampaignALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getClick()
     {
@@ -230,21 +306,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of recipients for this campaign.
-     *
-     * @param int
-     * @return Messagesentstatistics
+     * @param mixed $Click
      */
-    public function setCntRecipients($CntRecipients = null)
+    public function setClick($Click)
     {
-        $this->CntRecipients = $CntRecipients;
-        return $this;
+        $this->Click = $Click;
     }
 
     /**
-     * Gets the Number of recipients for this campaign.
-     *
-     * @return int
+     * @return mixed
      */
     public function getCntRecipients()
     {
@@ -252,21 +322,31 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Reference to contact to which message was sent.
-     *
-     * @param int
-     * @return Messagesentstatistics
+     * @param mixed $CntRecipients
      */
-    public function setContactID($ContactID)
+    public function setCntRecipients($CntRecipients)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->CntRecipients = $CntRecipients;
     }
 
     /**
-     * Gets the Reference to contact to which message was sent.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getComplaintDate()
+    {
+        return $this->ComplaintDate;
+    }
+
+    /**
+     * @param mixed $ComplaintDate
+     */
+    public function setComplaintDate($ComplaintDate)
+    {
+        $this->ComplaintDate = $ComplaintDate;
+    }
+
+    /**
+     * @return mixed
      */
     public function getContactID()
     {
@@ -274,43 +354,79 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Messagesentstatistics
+     * @param mixed $ContactID
      */
-    public function setID($ID = null)
+    public function setContactID($ContactID)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
-    public function getID()
+    public function getContactALT()
     {
-        return $this->ID;
+        return $this->ContactALT;
     }
 
     /**
-     * Sets the Was the message opened ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $ContactALT
      */
-    public function setOpen($Open = null)
+    public function setContactALT($ContactALT)
     {
-        $this->Open = $Open;
-        return $this;
+        $this->ContactALT = $ContactALT;
     }
 
     /**
-     * Gets the Was the message opened ?
-     *
-     * @return bool
+     * @return mixed
+     */
+    public function getDetails()
+    {
+        return $this->Details;
+    }
+
+    /**
+     * @param mixed $Details
+     */
+    public function setDetails($Details)
+    {
+        $this->Details = $Details;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFBLSource()
+    {
+        return $this->FBLSource;
+    }
+
+    /**
+     * @param mixed $FBLSource
+     */
+    public function setFBLSource($FBLSource)
+    {
+        $this->FBLSource = $FBLSource;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessageID()
+    {
+        return $this->MessageID;
+    }
+
+    /**
+     * @param mixed $MessageID
+     */
+    public function setMessageID($MessageID)
+    {
+        $this->MessageID = $MessageID;
+    }
+
+    /**
+     * @return mixed
      */
     public function getOpen()
     {
@@ -318,21 +434,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Is the message still in the queue ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $Open
      */
-    public function setQueued($Queued = null)
+    public function setOpen($Open)
     {
-        $this->Queued = $Queued;
-        return $this;
+        $this->Open = $Open;
     }
 
     /**
-     * Gets the Is the message still in the queue ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getQueued()
     {
@@ -340,21 +450,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Was the message sent ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $Queued
      */
-    public function setSent($Sent = null)
+    public function setQueued($Queued)
     {
-        $this->Sent = $Sent;
-        return $this;
+        $this->Queued = $Queued;
     }
 
     /**
-     * Gets the Was the message sent ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getSent()
     {
@@ -362,21 +466,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Was a spam complaint registered for this message ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $Sent
      */
-    public function setSpam($Spam = null)
+    public function setSent($Sent)
     {
-        $this->Spam = $Spam;
-        return $this;
+        $this->Sent = $Sent;
     }
 
     /**
-     * Gets the Was a spam complaint registered for this message ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getSpam()
     {
@@ -384,21 +482,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Current state of the message.
-     *
-     * @param int
-     * @return Messagesentstatistics
+     * @param mixed $Spam
      */
-    public function setStateID($StateID)
+    public function setSpam($Spam)
     {
-        $this->StateID = $StateID;
-        return $this;
+        $this->Spam = $Spam;
     }
 
     /**
-     * Gets the Current state of the message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getStateID()
     {
@@ -406,21 +498,15 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Is the current state of the message permanent ?
-     *
-     * @param bool
-     * @return Messagesentstatistics
+     * @param mixed $StateID
      */
-    public function setStatePermanent($StatePermanent = null)
+    public function setStateID($StateID)
     {
-        $this->StatePermanent = $StatePermanent;
-        return $this;
+        $this->StateID = $StateID;
     }
 
     /**
-     * Gets the Is the current state of the message permanent ?
-     *
-     * @return bool
+     * @return mixed
      */
     public function getStatePermanent()
     {
@@ -428,27 +514,58 @@ class Messagesentstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Current status of the message.
-     *
-     * @param string
-     * @return Messagesentstatistics
+     * @param mixed $StatePermanent
      */
-    public function setStatus($Status = null)
+    public function setStatePermanent($StatePermanent)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->StatePermanent = $StatePermanent;
     }
 
     /**
-     * Gets the Current status of the message.
-     *
-     * @return string
+     * @return mixed
      */
     public function getStatus()
     {
         return $this->Status;
     }
 
+    /**
+     * @param mixed $Status
+     */
+    public function setStatus($Status)
+    {
+        $this->Status = $Status;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getToEmail()
+    {
+        return $this->ToEmail;
+    }
+
+    /**
+     * @param mixed $ToEmail
+     */
+    public function setToEmail($ToEmail)
+    {
+        $this->ToEmail = $ToEmail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUnsub()
+    {
+        return $this->Unsub;
+    }
+
+    /**
+     * @param mixed $Unsub
+     */
+    public function setUnsub($Unsub)
+    {
+        $this->Unsub = $Unsub;
+    }
 }
-

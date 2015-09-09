@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Batchjob Model
@@ -41,109 +12,139 @@ namespace Mailjet\Model;
  */
 class Batchjob implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'batchjob';
+    }
 
     /**
      * Timestamp indicating when batch process was last seen alive.
+     * @Type("integer")
+     * @SerializedName("AliveAt")
      */
     protected $AliveAt = null;
 
     /**
      * API key for which this batch job is destined.
+     * @Type("integer")
+     * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
-     * Size of processing blocks (e.g. number of contacts to process as one block in a
-     * contact import job).
+     * Value of the APIKey field of the related APIKey resource
+     * @Type("string")
+     * @SerializedName("APIKeyALT")
+     */
+    protected $APIKeyALT = null;
+
+    /**
+     * Size of processing blocks (e.g. number of contacts to process as one block in a contact import job).
+     * @Type("integer")
+     * @SerializedName("Blocksize")
      */
     protected $Blocksize = null;
 
     /**
      * Total number of items to process. (if applicable)
+     * @Type("integer")
+     * @SerializedName("Count")
      */
     protected $Count = null;
 
     /**
      * Current item being processed (if applicable)
+     * @Type("integer")
+     * @SerializedName("Current")
      */
     protected $Current = null;
 
     /**
      * Reference to more data for this batch job.
+     * @Type("array")
+     * @SerializedName("Data")
      */
     protected $Data = null;
 
     /**
      * Number of errors encountered.
+     * @Type("integer")
+     * @SerializedName("Errcount")
      */
     protected $Errcount = null;
 
     /**
      * Maximum amount of errors allowed before aborting the job (as a percentage %)
+     * @Type("integer")
+     * @SerializedName("ErrTreshold")
      */
     protected $ErrTreshold = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Timestamp indicating when job was processed completely.
+     * @Type("integer")
+     * @SerializedName("JobEnd")
      */
     protected $JobEnd = null;
 
     /**
      * Timestamp indicating when job processing was started.
+     * @Type("integer")
+     * @SerializedName("JobStart")
      */
     protected $JobStart = null;
 
     /**
      * Type of job.
+     * @Type("string")
+     * @SerializedName("JobType")
      */
     protected $JobType = null;
 
     /**
      * Method to use when handling job (e.g. contact import: force, noforce etc.)
+     * @Type("string")
+     * @SerializedName("Method")
      */
     protected $Method = null;
 
     /**
      * Reference to object being handled (e.g. contact import: the contactslist ID.)
+     * @Type("integer")
+     * @SerializedName("RefId")
      */
     protected $RefId = null;
 
     /**
      * Timestamp when batch job request was submitted.
+     * @Type("integer")
+     * @SerializedName("RequestAt")
      */
     protected $RequestAt = null;
 
     /**
      * Current status of the job. Can be set to Abort to cancel treatment.
+     * @Type("string")
+     * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * General purpose processing speed limit indicator.
+     * @Type("integer")
+     * @SerializedName("Throttle")
      */
     protected $Throttle = null;
 
     /**
-     * Sets the Timestamp indicating when batch process was last seen alive.
-     *
-     * @param int
-     * @return Batchjob
-     */
-    public function setAliveAt($AliveAt = null)
-    {
-        $this->AliveAt = $AliveAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp indicating when batch process was last seen alive.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAliveAt()
     {
@@ -151,21 +152,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the API key for which this batch job is destined.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $AliveAt
      */
-    public function setAPIKeyID($APIKeyID = null)
+    public function setAliveAt($AliveAt)
     {
-        $this->APIKeyID = $APIKeyID;
-        return $this;
+        $this->AliveAt = $AliveAt;
     }
 
     /**
-     * Gets the API key for which this batch job is destined.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKeyID()
     {
@@ -173,23 +168,31 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Size of processing blocks (e.g. number of contacts to process as one
-     * block in a contact import job).
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $APIKeyID
      */
-    public function setBlocksize($Blocksize = null)
+    public function setAPIKeyID($APIKeyID)
     {
-        $this->Blocksize = $Blocksize;
-        return $this;
+        $this->APIKeyID = $APIKeyID;
     }
 
     /**
-     * Gets the Size of processing blocks (e.g. number of contacts to process as one
-     * block in a contact import job).
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getAPIKeyALT()
+    {
+        return $this->APIKeyALT;
+    }
+
+    /**
+     * @param mixed $APIKeyALT
+     */
+    public function setAPIKeyALT($APIKeyALT)
+    {
+        $this->APIKeyALT = $APIKeyALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getBlocksize()
     {
@@ -197,21 +200,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Total number of items to process. (if applicable)
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Blocksize
      */
-    public function setCount($Count = null)
+    public function setBlocksize($Blocksize)
     {
-        $this->Count = $Count;
-        return $this;
+        $this->Blocksize = $Blocksize;
     }
 
     /**
-     * Gets the Total number of items to process. (if applicable)
-     *
-     * @return int
+     * @return mixed
      */
     public function getCount()
     {
@@ -219,21 +216,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Current item being processed (if applicable)
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Count
      */
-    public function setCurrent($Current = null)
+    public function setCount($Count)
     {
-        $this->Current = $Current;
-        return $this;
+        $this->Count = $Count;
     }
 
     /**
-     * Gets the Current item being processed (if applicable)
-     *
-     * @return int
+     * @return mixed
      */
     public function getCurrent()
     {
@@ -241,21 +232,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Reference to more data for this batch job.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Current
      */
-    public function setData($Data)
+    public function setCurrent($Current)
     {
-        $this->Data = $Data;
-        return $this;
+        $this->Current = $Current;
     }
 
     /**
-     * Gets the Reference to more data for this batch job.
-     *
-     * @return int
+     * @return mixed
      */
     public function getData()
     {
@@ -263,21 +248,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Number of errors encountered.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Data
      */
-    public function setErrcount($Errcount = null)
+    public function setData($Data)
     {
-        $this->Errcount = $Errcount;
-        return $this;
+        $this->Data = $Data;
     }
 
     /**
-     * Gets the Number of errors encountered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getErrcount()
     {
@@ -285,23 +264,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Maximum amount of errors allowed before aborting the job (as a
-     * percentage %)
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Errcount
      */
-    public function setErrTreshold($ErrTreshold = null)
+    public function setErrcount($Errcount)
     {
-        $this->ErrTreshold = $ErrTreshold;
-        return $this;
+        $this->Errcount = $Errcount;
     }
 
     /**
-     * Gets the Maximum amount of errors allowed before aborting the job (as a
-     * percentage %)
-     *
-     * @return int
+     * @return mixed
      */
     public function getErrTreshold()
     {
@@ -309,21 +280,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $ErrTreshold
      */
-    public function setID($ID = null)
+    public function setErrTreshold($ErrTreshold)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ErrTreshold = $ErrTreshold;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -331,21 +296,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp indicating when job was processed completely.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $ID
      */
-    public function setJobEnd($JobEnd = null)
+    public function setID($ID)
     {
-        $this->JobEnd = $JobEnd;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Timestamp indicating when job was processed completely.
-     *
-     * @return int
+     * @return mixed
      */
     public function getJobEnd()
     {
@@ -353,21 +312,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp indicating when job processing was started.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $JobEnd
      */
-    public function setJobStart($JobStart = null)
+    public function setJobEnd($JobEnd)
     {
-        $this->JobStart = $JobStart;
-        return $this;
+        $this->JobEnd = $JobEnd;
     }
 
     /**
-     * Gets the Timestamp indicating when job processing was started.
-     *
-     * @return int
+     * @return mixed
      */
     public function getJobStart()
     {
@@ -375,21 +328,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Type of job.
-     *
-     * @param string
-     * @return Batchjob
+     * @param mixed $JobStart
      */
-    public function setJobType($JobType)
+    public function setJobStart($JobStart)
     {
-        $this->JobType = $JobType;
-        return $this;
+        $this->JobStart = $JobStart;
     }
 
     /**
-     * Gets the Type of job.
-     *
-     * @return string
+     * @return mixed
      */
     public function getJobType()
     {
@@ -397,23 +344,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Method to use when handling job (e.g. contact import: force, noforce
-     * etc.)
-     *
-     * @param string
-     * @return Batchjob
+     * @param mixed $JobType
      */
-    public function setMethod($Method = null)
+    public function setJobType($JobType)
     {
-        $this->Method = $Method;
-        return $this;
+        $this->JobType = $JobType;
     }
 
     /**
-     * Gets the Method to use when handling job (e.g. contact import: force, noforce
-     * etc.)
-     *
-     * @return string
+     * @return mixed
      */
     public function getMethod()
     {
@@ -421,23 +360,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Reference to object being handled (e.g. contact import: the
-     * contactslist ID.)
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Method
      */
-    public function setRefId($RefId = null)
+    public function setMethod($Method)
     {
-        $this->RefId = $RefId;
-        return $this;
+        $this->Method = $Method;
     }
 
     /**
-     * Gets the Reference to object being handled (e.g. contact import: the
-     * contactslist ID.)
-     *
-     * @return int
+     * @return mixed
      */
     public function getRefId()
     {
@@ -445,21 +376,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp when batch job request was submitted.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $RefId
      */
-    public function setRequestAt($RequestAt = null)
+    public function setRefId($RefId)
     {
-        $this->RequestAt = $RequestAt;
-        return $this;
+        $this->RefId = $RefId;
     }
 
     /**
-     * Gets the Timestamp when batch job request was submitted.
-     *
-     * @return int
+     * @return mixed
      */
     public function getRequestAt()
     {
@@ -467,21 +392,15 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the Current status of the job. Can be set to Abort to cancel treatment.
-     *
-     * @param string
-     * @return Batchjob
+     * @param mixed $RequestAt
      */
-    public function setStatus($Status = null)
+    public function setRequestAt($RequestAt)
     {
-        $this->Status = $Status;
-        return $this;
+        $this->RequestAt = $RequestAt;
     }
 
     /**
-     * Gets the Current status of the job. Can be set to Abort to cancel treatment.
-     *
-     * @return string
+     * @return mixed
      */
     public function getStatus()
     {
@@ -489,27 +408,26 @@ class Batchjob implements ModelInterface
     }
 
     /**
-     * Sets the General purpose processing speed limit indicator.
-     *
-     * @param int
-     * @return Batchjob
+     * @param mixed $Status
      */
-    public function setThrottle($Throttle = null)
+    public function setStatus($Status)
     {
-        $this->Throttle = $Throttle;
-        return $this;
+        $this->Status = $Status;
     }
 
     /**
-     * Gets the General purpose processing speed limit indicator.
-     *
-     * @return int
+     * @return mixed
      */
     public function getThrottle()
     {
         return $this->Throttle;
     }
 
-
+    /**
+     * @param mixed $Throttle
+     */
+    public function setThrottle($Throttle)
+    {
+        $this->Throttle = $Throttle;
+    }
 }
-

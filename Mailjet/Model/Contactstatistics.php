@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Contactstatistics Model
@@ -43,73 +12,90 @@ use \Datetime;
  */
 class Contactstatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'contactstatistics';
+    }
 
     /**
      * Number of blocked messages.
+     * @Type("integer")
+     * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
+     * @Type("integer")
+     * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * The contact for which statistics are shown.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
+     * Value of the Email field of the related Contact resource
+     * @Type("string")
+     * @SerializedName("ContactALT")
+     */
+    protected $ContactALT = null;
+
+    /**
      * Number of messages delivered to their destination.
+     * @Type("integer")
+     * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Timestamp of last registered activity for this contact
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * Number of message open registrations.
+     * @Type("integer")
+     * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
+     * @Type("integer")
+     * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
+     * @Type("integer")
+     * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
+     * @Type("integer")
+     * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
-     * Sets the Number of blocked messages.
-     *
-     * @param int
-     * @return Contactstatistics
-     */
-    public function setBlockedCount($BlockedCount = null)
-    {
-        $this->BlockedCount = $BlockedCount;
-        return $this;
-    }
-
-    /**
-     * Gets the Number of blocked messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBlockedCount()
     {
@@ -117,21 +103,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of bounced messages.
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $BlockedCount
      */
-    public function setBouncedCount($BouncedCount = null)
+    public function setBlockedCount($BlockedCount)
     {
-        $this->BouncedCount = $BouncedCount;
-        return $this;
+        $this->BlockedCount = $BlockedCount;
     }
 
     /**
-     * Gets the Number of bounced messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBouncedCount()
     {
@@ -139,21 +119,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $BouncedCount
      */
-    public function setClickedCount($ClickedCount = null)
+    public function setBouncedCount($BouncedCount)
     {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
+        $this->BouncedCount = $BouncedCount;
     }
 
     /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -161,21 +135,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the The contact for which statistics are shown.
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $ClickedCount
      */
-    public function setContactID($ContactID = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the The contact for which statistics are shown.
-     *
-     * @return int
+     * @return mixed
      */
     public function getContactID()
     {
@@ -183,21 +151,31 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages delivered to their destination.
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $ContactID
      */
-    public function setDeliveredCount($DeliveredCount = null)
+    public function setContactID($ContactID)
     {
-        $this->DeliveredCount = $DeliveredCount;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Number of messages delivered to their destination.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getContactALT()
+    {
+        return $this->ContactALT;
+    }
+
+    /**
+     * @param mixed $ContactALT
+     */
+    public function setContactALT($ContactALT)
+    {
+        $this->ContactALT = $ContactALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getDeliveredCount()
     {
@@ -205,21 +183,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last registered activity for this contact
-     *
-     * @param \Datetime
-     * @return Contactstatistics
+     * @param mixed $DeliveredCount
      */
-    public function setLastActivityAt(\Datetime $LastActivityAt = null)
+    public function setDeliveredCount($DeliveredCount)
     {
-        $this->LastActivityAt = $LastActivityAt;
-        return $this;
+        $this->DeliveredCount = $DeliveredCount;
     }
 
     /**
-     * Gets the Timestamp of last registered activity for this contact
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getLastActivityAt()
     {
@@ -227,21 +199,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of message open registrations.
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $LastActivityAt
      */
-    public function setOpenedCount($OpenedCount = null)
+    public function setLastActivityAt($LastActivityAt)
     {
-        $this->OpenedCount = $OpenedCount;
-        return $this;
+        $this->LastActivityAt = $LastActivityAt;
     }
 
     /**
-     * Gets the Number of message open registrations.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenedCount()
     {
@@ -249,21 +215,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Total number of messages processed by Mailjet
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $OpenedCount
      */
-    public function setProcessedCount($ProcessedCount = null)
+    public function setOpenedCount($OpenedCount)
     {
-        $this->ProcessedCount = $ProcessedCount;
-        return $this;
+        $this->OpenedCount = $OpenedCount;
     }
 
     /**
-     * Gets the Total number of messages processed by Mailjet
-     *
-     * @return int
+     * @return mixed
      */
     public function getProcessedCount()
     {
@@ -271,21 +231,15 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages waiting in send queue
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $ProcessedCount
      */
-    public function setQueuedCount($QueuedCount = null)
+    public function setProcessedCount($ProcessedCount)
     {
-        $this->QueuedCount = $QueuedCount;
-        return $this;
+        $this->ProcessedCount = $ProcessedCount;
     }
 
     /**
-     * Gets the Number of messages waiting in send queue
-     *
-     * @return int
+     * @return mixed
      */
     public function getQueuedCount()
     {
@@ -293,27 +247,26 @@ class Contactstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of spam complaints
-     *
-     * @param int
-     * @return Contactstatistics
+     * @param mixed $QueuedCount
      */
-    public function setSpamComplaintCount($SpamComplaintCount = null)
+    public function setQueuedCount($QueuedCount)
     {
-        $this->SpamComplaintCount = $SpamComplaintCount;
-        return $this;
+        $this->QueuedCount = $QueuedCount;
     }
 
     /**
-     * Gets the Number of spam complaints
-     *
-     * @return int
+     * @return mixed
      */
     public function getSpamComplaintCount()
     {
         return $this->SpamComplaintCount;
     }
 
-
+    /**
+     * @param mixed $SpamComplaintCount
+     */
+    public function setSpamComplaintCount($SpamComplaintCount)
+    {
+        $this->SpamComplaintCount = $SpamComplaintCount;
+    }
 }
-

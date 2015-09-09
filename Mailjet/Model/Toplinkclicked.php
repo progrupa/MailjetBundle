@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Toplinkclicked Model
@@ -41,43 +12,41 @@ namespace Mailjet\Model;
  */
 class Toplinkclicked implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'toplinkclicked';
+    }
 
     /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Unique ID for the link.
+     * @Type("integer")
+     * @SerializedName("LinkId")
      */
     protected $LinkId = null;
 
     /**
      * Actual link clicked
+     * @Type("string")
+     * @SerializedName("Url")
      */
     protected $Url = null;
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Toplinkclicked
-     */
-    public function setClickedCount($ClickedCount = null)
-    {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
-    }
-
-    /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -85,21 +54,15 @@ class Toplinkclicked implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Toplinkclicked
+     * @param mixed $ClickedCount
      */
-    public function setID($ID = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -107,21 +70,15 @@ class Toplinkclicked implements ModelInterface
     }
 
     /**
-     * Sets the Unique ID for the link.
-     *
-     * @param int
-     * @return Toplinkclicked
+     * @param mixed $ID
      */
-    public function setLinkId($LinkId = null)
+    public function setID($ID)
     {
-        $this->LinkId = $LinkId;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Unique ID for the link.
-     *
-     * @return int
+     * @return mixed
      */
     public function getLinkId()
     {
@@ -129,27 +86,26 @@ class Toplinkclicked implements ModelInterface
     }
 
     /**
-     * Sets the Actual link clicked
-     *
-     * @param string
-     * @return Toplinkclicked
+     * @param mixed $LinkId
      */
-    public function setUrl($Url = null)
+    public function setLinkId($LinkId)
     {
-        $this->Url = $Url;
-        return $this;
+        $this->LinkId = $LinkId;
     }
 
     /**
-     * Gets the Actual link clicked
-     *
-     * @return string
+     * @return mixed
      */
     public function getUrl()
     {
         return $this->Url;
     }
 
-
+    /**
+     * @param mixed $Url
+     */
+    public function setUrl($Url)
+    {
+        $this->Url = $Url;
+    }
 }
-

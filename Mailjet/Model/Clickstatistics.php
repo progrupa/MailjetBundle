@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Clickstatistics Model
@@ -43,58 +12,69 @@ use \Datetime;
  */
 class Clickstatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'clickstatistics';
+    }
 
     /**
      * Timestamp of registration of click.
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("ClickedAt")
      */
     protected $ClickedAt = null;
 
     /**
      * Delay between registration of click and sending of message.
+     * @Type("integer")
+     * @SerializedName("ClickedDelay")
      */
     protected $ClickedDelay = null;
 
     /**
      * Contact for which click was registered.
+     * @Type("integer")
+     * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
+     * Contact for which click was registered.
+     * @Type("string")
+     * @SerializedName("ContactALT")
+     */
+    protected $ContactALT = null;
+
+    /**
      * Unique numerical ID for the click event
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Reference to Message for which click was registered.
+     * @Type("integer")
+     * @SerializedName("MessageID")
      */
     protected $MessageID = null;
 
     /**
      * URL that was clicked
+     * @Type("string")
+     * @SerializedName("Url")
      */
     protected $Url = null;
 
     /**
      * User agent that was used to open the URL.
+     * @Type("string")
+     * @SerializedName("UserAgent")
      */
     protected $UserAgent = null;
 
     /**
-     * Sets the Timestamp of registration of click.
-     *
-     * @param \Datetime
-     * @return Clickstatistics
-     */
-    public function setClickedAt(\Datetime $ClickedAt = null)
-    {
-        $this->ClickedAt = $ClickedAt;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp of registration of click.
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getClickedAt()
     {
@@ -102,21 +82,15 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Delay between registration of click and sending of message.
-     *
-     * @param int
-     * @return Clickstatistics
+     * @param mixed $ClickedAt
      */
-    public function setClickedDelay($ClickedDelay = null)
+    public function setClickedAt($ClickedAt)
     {
-        $this->ClickedDelay = $ClickedDelay;
-        return $this;
+        $this->ClickedAt = $ClickedAt;
     }
 
     /**
-     * Gets the Delay between registration of click and sending of message.
-     *
-     * @return int
+     * @return mixed
      */
     public function getClickedDelay()
     {
@@ -124,21 +98,15 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Contact for which click was registered.
-     *
-     * @param int
-     * @return Clickstatistics
+     * @param mixed $ClickedDelay
      */
-    public function setContactID($ContactID)
+    public function setClickedDelay($ClickedDelay)
     {
-        $this->ContactID = $ContactID;
-        return $this;
+        $this->ClickedDelay = $ClickedDelay;
     }
 
     /**
-     * Gets the Contact for which click was registered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getContactID()
     {
@@ -146,21 +114,31 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for the click event
-     *
-     * @param int
-     * @return Clickstatistics
+     * @param mixed $ContactID
      */
-    public function setID($ID = null)
+    public function setContactID($ContactID)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->ContactID = $ContactID;
     }
 
     /**
-     * Gets the Unique numerical ID for the click event
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getContactALT()
+    {
+        return $this->ContactALT;
+    }
+
+    /**
+     * @param mixed $ContactALT
+     */
+    public function setContactALT($ContactALT)
+    {
+        $this->ContactALT = $ContactALT;
+    }
+
+    /**
+     * @return mixed
      */
     public function getID()
     {
@@ -168,21 +146,15 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Reference to Message for which click was registered.
-     *
-     * @param int
-     * @return Clickstatistics
+     * @param mixed $ID
      */
-    public function setMessageID($MessageID)
+    public function setID($ID)
     {
-        $this->MessageID = $MessageID;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Reference to Message for which click was registered.
-     *
-     * @return int
+     * @return mixed
      */
     public function getMessageID()
     {
@@ -190,21 +162,15 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the URL that was clicked
-     *
-     * @param string
-     * @return Clickstatistics
+     * @param mixed $MessageID
      */
-    public function setUrl($Url)
+    public function setMessageID($MessageID)
     {
-        $this->Url = $Url;
-        return $this;
+        $this->MessageID = $MessageID;
     }
 
     /**
-     * Gets the URL that was clicked
-     *
-     * @return string
+     * @return mixed
      */
     public function getUrl()
     {
@@ -212,27 +178,26 @@ class Clickstatistics implements ModelInterface
     }
 
     /**
-     * Sets the User agent that was used to open the URL.
-     *
-     * @param int
-     * @return Clickstatistics
+     * @param mixed $Url
      */
-    public function setUserAgent($UserAgent)
+    public function setUrl($Url)
     {
-        $this->UserAgent = $UserAgent;
-        return $this;
+        $this->Url = $Url;
     }
 
     /**
-     * Gets the User agent that was used to open the URL.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUserAgent()
     {
         return $this->UserAgent;
     }
 
-
+    /**
+     * @param mixed $UserAgent
+     */
+    public function setUserAgent($UserAgent)
+    {
+        $this->UserAgent = $UserAgent;
+    }
 }
-

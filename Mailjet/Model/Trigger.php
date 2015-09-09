@@ -1,38 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Trigger Model
@@ -41,53 +12,55 @@ namespace Mailjet\Model;
  */
 class Trigger implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'trigger';
+    }
 
     /**
      * Timestamp when object was written to the database
+     * @Type("integer")
+     * @SerializedName("AddedTs")
      */
     protected $AddedTs = null;
 
     /**
      * Reference to API key to whom this trigger belongs.
+     * @Type("integer")
+     * @SerializedName("APIKey")
      */
     protected $APIKey = null;
 
     /**
      * JSON with event details
+     * @Type("string")
+     * @SerializedName("Details")
      */
     protected $Details = null;
 
     /**
      * Type of event
+     * @Type("string")
+     * @SerializedName("Event")
      */
     protected $Event = null;
 
     /**
      * Unique numerical ID for this object
+     * @Type("integer")
+     * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Reference to user to whom this trigger belongs.
+     * @Type("integer")
+     * @SerializedName("User")
      */
     protected $User = null;
 
     /**
-     * Sets the Timestamp when object was written to the database
-     *
-     * @param int
-     * @return Trigger
-     */
-    public function setAddedTs($AddedTs = null)
-    {
-        $this->AddedTs = $AddedTs;
-        return $this;
-    }
-
-    /**
-     * Gets the Timestamp when object was written to the database
-     *
-     * @return int
+     * @return mixed
      */
     public function getAddedTs()
     {
@@ -95,21 +68,15 @@ class Trigger implements ModelInterface
     }
 
     /**
-     * Sets the Reference to API key to whom this trigger belongs.
-     *
-     * @param int
-     * @return Trigger
+     * @param mixed $AddedTs
      */
-    public function setAPIKey($APIKey = null)
+    public function setAddedTs($AddedTs)
     {
-        $this->APIKey = $APIKey;
-        return $this;
+        $this->AddedTs = $AddedTs;
     }
 
     /**
-     * Gets the Reference to API key to whom this trigger belongs.
-     *
-     * @return int
+     * @return mixed
      */
     public function getAPIKey()
     {
@@ -117,21 +84,15 @@ class Trigger implements ModelInterface
     }
 
     /**
-     * Sets the JSON with event details
-     *
-     * @param string
-     * @return Trigger
+     * @param mixed $APIKey
      */
-    public function setDetails($Details = null)
+    public function setAPIKey($APIKey)
     {
-        $this->Details = $Details;
-        return $this;
+        $this->APIKey = $APIKey;
     }
 
     /**
-     * Gets the JSON with event details
-     *
-     * @return string
+     * @return mixed
      */
     public function getDetails()
     {
@@ -139,21 +100,15 @@ class Trigger implements ModelInterface
     }
 
     /**
-     * Sets the Type of event
-     *
-     * @param int
-     * @return Trigger
+     * @param mixed $Details
      */
-    public function setEvent($Event = null)
+    public function setDetails($Details)
     {
-        $this->Event = $Event;
-        return $this;
+        $this->Details = $Details;
     }
 
     /**
-     * Gets the Type of event
-     *
-     * @return int
+     * @return mixed
      */
     public function getEvent()
     {
@@ -161,21 +116,15 @@ class Trigger implements ModelInterface
     }
 
     /**
-     * Sets the Unique numerical ID for this object
-     *
-     * @param int
-     * @return Trigger
+     * @param mixed $Event
      */
-    public function setID($ID = null)
+    public function setEvent($Event)
     {
-        $this->ID = $ID;
-        return $this;
+        $this->Event = $Event;
     }
 
     /**
-     * Gets the Unique numerical ID for this object
-     *
-     * @return int
+     * @return mixed
      */
     public function getID()
     {
@@ -183,27 +132,26 @@ class Trigger implements ModelInterface
     }
 
     /**
-     * Sets the Reference to user to whom this trigger belongs.
-     *
-     * @param int
-     * @return Trigger
+     * @param mixed $ID
      */
-    public function setUser($User = null)
+    public function setID($ID)
     {
-        $this->User = $User;
-        return $this;
+        $this->ID = $ID;
     }
 
     /**
-     * Gets the Reference to user to whom this trigger belongs.
-     *
-     * @return int
+     * @return mixed
      */
     public function getUser()
     {
         return $this->User;
     }
 
-
+    /**
+     * @param mixed $User
+     */
+    public function setUser($User)
+    {
+        $this->User = $User;
+    }
 }
-

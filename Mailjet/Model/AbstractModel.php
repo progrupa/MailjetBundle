@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dominikkasprzak
- * Date: 27/08/15
- * Time: 11:30
- */
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
-
 
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;

@@ -1,40 +1,9 @@
 <?php
-/**
- * MailJet Model
- *
- * Copyright (c) 2013, Mailjet.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *     * Redistributions in binary form must reproduce the above copyright notice,
- *       this list of conditions and the following disclaimer in the documentation
- *       and/or other materials provided with the distribution.
- *
- *     * Neither the name of Zend Technologies USA, Inc. nor the names of its
- *       contributors may be used to endorse or promote products derived from this
- *       software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
+namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-namespace Mailjet\Model;
-
-use \Datetime;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 /**
  * Campaignstatistics Model
@@ -43,78 +12,162 @@ use \Datetime;
  */
 class Campaignstatistics implements ModelInterface
 {
+    public static function getResource()
+    {
+        return 'campaignstatistics';
+    }
+
+    /**
+     * A reference to AXtesting object
+     * @Type("string")
+     * @SerializedName("AXTesting")
+     */
+    protected $AXTesting = null;
 
     /**
      * Number of blocked messages.
+     * @Type("integer")
+     * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
+     * @Type("integer")
+     * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
-     * Reference to campaign
+     * ID reference to Campaign
+     * @Type("integer")
+     * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
+     * Value of the CustomValue field of the related Campaign resource
+     * @Type("string")
+     * @SerializedName("CampaignALT")
+     */
+    protected $CampaignALT = null;
+
+    /**
+     * True if the campaign is starred
+     * @Type("boolean")
+     * @SerializedName("CampaignIsStarred")
+     */
+    protected $CampaignIsStarred = null;
+
+    /**
+     * When the campaign is started
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("CampaignSendStartAt")
+     */
+    protected $CampaignSendStartAt = null;
+
+    /**
+     * The subject of the campaign
+     * @Type("string")
+     * @SerializedName("CampaignSubject")
+     */
+    protected $CampaignSubject = null;
+
+    /**
      * Number of registered clicks.
+     * @Type("integer")
+     * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
+     * The name of the contact list where the campaign is sent. Available if ShowExtraData filter is True
+     * @Type("string")
+     * @SerializedName("ContactListName")
+     */
+    protected $ContactListName = null;
+
+    /**
      * Number of messages delivered to their destination.
+     * @Type("integer")
+     * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Timestamp of last registered activity for this Campaign
+     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
+     * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * Only retrieve campaign statistics for the given NewsLetter ID.
+     * @Type("integer")
+     * @SerializedName("NewsLetterID")
      */
     protected $NewsLetterID = null;
 
     /**
      * Number of message open registrations.
+     * @Type("integer")
+     * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
+     * @Type("integer")
+     * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
+     * @Type("integer")
+     * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
+     * The name of the contact filter which is applied for this campaign. Available if ShowExtraData filter is True
+     * @Type("string")
+     * @SerializedName("SegmentName")
+     */
+    protected $SegmentName = null;
+
+    /**
      * Number of spam complaints
+     * @Type("integer")
+     * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
-     * Sets the Number of blocked messages.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * The count of unsubscribed emails as result of this campaign
+     * @Type("integer")
+     * @SerializedName("UnsubscribedCount")
      */
-    public function setBlockedCount($BlockedCount = null)
+    protected $UnsubscribedCount = null;
+
+    /**
+     * @return mixed
+     */
+    public function getAXTesting()
     {
-        $this->BlockedCount = $BlockedCount;
-        return $this;
+        return $this->AXTesting;
     }
 
     /**
-     * Gets the Number of blocked messages.
-     *
-     * @return int
+     * @param mixed $AXTesting
+     */
+    public function setAXTesting($AXTesting)
+    {
+        $this->AXTesting = $AXTesting;
+    }
+
+    /**
+     * @return mixed
      */
     public function getBlockedCount()
     {
@@ -122,21 +175,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of bounced messages.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $BlockedCount
      */
-    public function setBouncedCount($BouncedCount = null)
+    public function setBlockedCount($BlockedCount)
     {
-        $this->BouncedCount = $BouncedCount;
-        return $this;
+        $this->BlockedCount = $BlockedCount;
     }
 
     /**
-     * Gets the Number of bounced messages.
-     *
-     * @return int
+     * @return mixed
      */
     public function getBouncedCount()
     {
@@ -144,21 +191,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Reference to campaign
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $BouncedCount
      */
-    public function setCampaignID($CampaignID = null)
+    public function setBouncedCount($BouncedCount)
     {
-        $this->CampaignID = $CampaignID;
-        return $this;
+        $this->BouncedCount = $BouncedCount;
     }
 
     /**
-     * Gets the Reference to campaign
-     *
-     * @return int
+     * @return mixed
      */
     public function getCampaignID()
     {
@@ -166,21 +207,79 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of registered clicks.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $CampaignID
      */
-    public function setClickedCount($ClickedCount = null)
+    public function setCampaignID($CampaignID)
     {
-        $this->ClickedCount = $ClickedCount;
-        return $this;
+        $this->CampaignID = $CampaignID;
     }
 
     /**
-     * Gets the Number of registered clicks.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getCampaignALT()
+    {
+        return $this->CampaignALT;
+    }
+
+    /**
+     * @param mixed $CampaignALT
+     */
+    public function setCampaignALT($CampaignALT)
+    {
+        $this->CampaignALT = $CampaignALT;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaignIsStarred()
+    {
+        return $this->CampaignIsStarred;
+    }
+
+    /**
+     * @param mixed $CampaignIsStarred
+     */
+    public function setCampaignIsStarred($CampaignIsStarred)
+    {
+        $this->CampaignIsStarred = $CampaignIsStarred;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaignSendStartAt()
+    {
+        return $this->CampaignSendStartAt;
+    }
+
+    /**
+     * @param mixed $CampaignSendStartAt
+     */
+    public function setCampaignSendStartAt($CampaignSendStartAt)
+    {
+        $this->CampaignSendStartAt = $CampaignSendStartAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaignSubject()
+    {
+        return $this->CampaignSubject;
+    }
+
+    /**
+     * @param mixed $CampaignSubject
+     */
+    public function setCampaignSubject($CampaignSubject)
+    {
+        $this->CampaignSubject = $CampaignSubject;
+    }
+
+    /**
+     * @return mixed
      */
     public function getClickedCount()
     {
@@ -188,21 +287,31 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages delivered to their destination.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $ClickedCount
      */
-    public function setDeliveredCount($DeliveredCount = null)
+    public function setClickedCount($ClickedCount)
     {
-        $this->DeliveredCount = $DeliveredCount;
-        return $this;
+        $this->ClickedCount = $ClickedCount;
     }
 
     /**
-     * Gets the Number of messages delivered to their destination.
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getContactListName()
+    {
+        return $this->ContactListName;
+    }
+
+    /**
+     * @param mixed $ContactListName
+     */
+    public function setContactListName($ContactListName)
+    {
+        $this->ContactListName = $ContactListName;
+    }
+
+    /**
+     * @return mixed
      */
     public function getDeliveredCount()
     {
@@ -210,21 +319,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Timestamp of last registered activity for this Campaign
-     *
-     * @param \Datetime
-     * @return Campaignstatistics
+     * @param mixed $DeliveredCount
      */
-    public function setLastActivityAt(\Datetime $LastActivityAt = null)
+    public function setDeliveredCount($DeliveredCount)
     {
-        $this->LastActivityAt = $LastActivityAt;
-        return $this;
+        $this->DeliveredCount = $DeliveredCount;
     }
 
     /**
-     * Gets the Timestamp of last registered activity for this Campaign
-     *
-     * @return \Datetime
+     * @return mixed
      */
     public function getLastActivityAt()
     {
@@ -232,21 +335,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Only retrieve campaign statistics for the given NewsLetter ID.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $LastActivityAt
      */
-    public function setNewsLetterID($NewsLetterID = null)
+    public function setLastActivityAt($LastActivityAt)
     {
-        $this->NewsLetterID = $NewsLetterID;
-        return $this;
+        $this->LastActivityAt = $LastActivityAt;
     }
 
     /**
-     * Gets the Only retrieve campaign statistics for the given NewsLetter ID.
-     *
-     * @return int
+     * @return mixed
      */
     public function getNewsLetterID()
     {
@@ -254,21 +351,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of message open registrations.
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $NewsLetterID
      */
-    public function setOpenedCount($OpenedCount = null)
+    public function setNewsLetterID($NewsLetterID)
     {
-        $this->OpenedCount = $OpenedCount;
-        return $this;
+        $this->NewsLetterID = $NewsLetterID;
     }
 
     /**
-     * Gets the Number of message open registrations.
-     *
-     * @return int
+     * @return mixed
      */
     public function getOpenedCount()
     {
@@ -276,21 +367,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Total number of messages processed by Mailjet
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $OpenedCount
      */
-    public function setProcessedCount($ProcessedCount = null)
+    public function setOpenedCount($OpenedCount)
     {
-        $this->ProcessedCount = $ProcessedCount;
-        return $this;
+        $this->OpenedCount = $OpenedCount;
     }
 
     /**
-     * Gets the Total number of messages processed by Mailjet
-     *
-     * @return int
+     * @return mixed
      */
     public function getProcessedCount()
     {
@@ -298,21 +383,15 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of messages waiting in send queue
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $ProcessedCount
      */
-    public function setQueuedCount($QueuedCount = null)
+    public function setProcessedCount($ProcessedCount)
     {
-        $this->QueuedCount = $QueuedCount;
-        return $this;
+        $this->ProcessedCount = $ProcessedCount;
     }
 
     /**
-     * Gets the Number of messages waiting in send queue
-     *
-     * @return int
+     * @return mixed
      */
     public function getQueuedCount()
     {
@@ -320,27 +399,58 @@ class Campaignstatistics implements ModelInterface
     }
 
     /**
-     * Sets the Number of spam complaints
-     *
-     * @param int
-     * @return Campaignstatistics
+     * @param mixed $QueuedCount
      */
-    public function setSpamComplaintCount($SpamComplaintCount = null)
+    public function setQueuedCount($QueuedCount)
     {
-        $this->SpamComplaintCount = $SpamComplaintCount;
-        return $this;
+        $this->QueuedCount = $QueuedCount;
     }
 
     /**
-     * Gets the Number of spam complaints
-     *
-     * @return int
+     * @return mixed
+     */
+    public function getSegmentName()
+    {
+        return $this->SegmentName;
+    }
+
+    /**
+     * @param mixed $SegmentName
+     */
+    public function setSegmentName($SegmentName)
+    {
+        $this->SegmentName = $SegmentName;
+    }
+
+    /**
+     * @return mixed
      */
     public function getSpamComplaintCount()
     {
         return $this->SpamComplaintCount;
     }
 
+    /**
+     * @param mixed $SpamComplaintCount
+     */
+    public function setSpamComplaintCount($SpamComplaintCount)
+    {
+        $this->SpamComplaintCount = $SpamComplaintCount;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getUnsubscribedCount()
+    {
+        return $this->UnsubscribedCount;
+    }
+
+    /**
+     * @param mixed $UnsubscribedCount
+     */
+    public function setUnsubscribedCount($UnsubscribedCount)
+    {
+        $this->UnsubscribedCount = $UnsubscribedCount;
+    }
 }
-
