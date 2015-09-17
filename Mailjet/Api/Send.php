@@ -37,7 +37,16 @@ class Send
     public function send(SendEmail $email)
     {
         if ($this->debugRecipient) {
+            $recipientInfo = $this->prepareRecipientInfo($email);
+            if ($email->getHtml()) {
+                $email->setHtml($email->getHtml() . $recipientInfo);
+            } else {
+                $email->setText($email->getText() . $recipientInfo);
+            }
+
             $email->setTo([$this->debugRecipient]);
+            $email->setCc([]);
+            $email->setBcc([]);
         }
         $data = $this->serializer->serialize($email, 'array');
 
@@ -135,5 +144,14 @@ class Send
         }
 
         return $multipart;
+    }
+
+    private function prepareRecipientInfo(SendEmail $email)
+    {
+        return "Message intended for:\n
+            To: ".implode(', ', $email->getTo())."\n
+            CC: ".implode(', ', $email->getCc())."\n
+            BCC: ".implode(', ', $email->getBcc())."\n
+        ";
     }
 }
