@@ -24,15 +24,21 @@ class Send
     private $client;
     /** @var  SerializerInterface */
     private $serializer;
+    /** @var bool|string */
+    private $debugRecipient;
 
-    public function __construct(ClientInterface $client, SerializerInterface $serializer)
+    public function __construct(ClientInterface $client, SerializerInterface $serializer, $debugRecipient = false)
     {
         $this->client = $client;
         $this->serializer = $serializer;
+        $this->debugRecipient = $debugRecipient;
     }
 
     public function send(SendEmail $email)
     {
+        if ($this->debugRecipient) {
+            $email->setTo([$this->debugRecipient]);
+        }
         $data = $this->serializer->serialize($email, 'array');
 
         $data = $this->transformToMultipart($data);
