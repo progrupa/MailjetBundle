@@ -62,7 +62,8 @@ abstract class AbstractApi
         return $this->call(
             'POST',
             $this->getResource(),
-            $this->serializer->serialize($model, 'json')
+            $this->serializer->serialize($model, 'json'),
+            [201]
         );
     }
 
@@ -71,7 +72,8 @@ abstract class AbstractApi
         return $this->call(
             'PUT',
             $this->getResourceForId($model->getID()),
-            $this->serializer->serialize($model, 'json')
+            $this->serializer->serialize($model, 'json'),
+            [200, 304]
         );
     }
 
