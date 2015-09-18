@@ -36,11 +36,18 @@ abstract class AbstractApi
         );
     }
 
-    public function getList()
+    public function getList($filters = null)
     {
+        if (! empty($filters)) {
+            $filterQuery = http_build_query($filters);
+            $resource = $this->getResource() . "?$filterQuery";
+        } else {
+            $resource = $this->getResource();
+        }
+
         return $this->call(
             'GET',
-            $this->getResource()
+            $resource
         );
     }
 
