@@ -30,15 +30,10 @@ abstract class AbstractApi
 
     public function get($id)
     {
-        $result = $this->call(
+        return $this->call(
             'GET',
             $this->getResourceForId($id)
         );
-        if ($result->isSuccess()) {
-            $data = $result->getData();
-            $result->setData(reset($data));
-        }
-        return $result;
     }
 
     public function getList()

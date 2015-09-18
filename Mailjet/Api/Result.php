@@ -11,6 +11,7 @@ namespace Progrupa\MailjetBundle\Mailjet\Api;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\SerializerInterface;
+use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 
 class Result
 {
@@ -90,6 +91,17 @@ class Result
             $obj = $serializer->deserialize($objectArray, $getModel, 'array');
             $this->objects[] = $obj;
         }
+    }
+
+    /**
+     * @return ModelInterface
+     */
+    public function getObject()
+    {
+        if (! empty($this->objects)) {
+            return reset($this->objects);
+        }
+        return null;
     }
 
     /**
