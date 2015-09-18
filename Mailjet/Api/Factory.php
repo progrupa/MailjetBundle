@@ -4,6 +4,7 @@ namespace Progrupa\MailjetBundle\Mailjet\Api;
 
 use GuzzleHttp\ClientInterface;
 use JMS\Serializer\SerializerInterface;
+use Progrupa\MailjetBundle\Mailjet\Model\ChildModelInterface;
 
 class Factory
 {
@@ -23,12 +24,29 @@ class Factory
     public function create($modelClass)
     {
         if (! isset($this->apis[$modelClass])) {
-            $api = new GeneralApi($this->client, $this->serializer);
+            $apiClass = $this->getApiClass($modelClass);
+            $api = new $apiClass($this->client, $this->serializer);
             $api->setModel($modelClass);
 
             $this->apis[$modelClass] = $api;
         }
 
         return $this->apis[$modelClass];
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getApiClass($modelClass)
+    {
+        $interfaces = class_implements($modelClass);
+
+        if (false !== array_search(ChildModelInterface::class, $interfaces)) {
+            $apiClass = ChildModelApi::class;
+        } else {
+            $apiClass = GeneralApi::class;
+        }
+
+        return $apiClass;
     }
 }
