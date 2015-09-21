@@ -110,7 +110,7 @@
 
         <!-- Metadata Factory -->
         <service id="mailjet.serializer.metadata.cache.file_cache" class="%mailjet.serializer.metadata.cache.file_cache.class%" public="false">
-            <argument type="string">/tmp</argument>
+            <argument type="string">%kernel.cache_dir%/%kernel.environment%/mailjet_serializer</argument>
         </service>
         <service id="mailjet.serializer.metadata.cache" alias="mailjet.serializer.metadata.cache.file_cache" public="false" />
         <service id="mailjet.serializer.metadata_factory" class="%mailjet.serializer.metadata.metadata_factory.class%" public="false">
