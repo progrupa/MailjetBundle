@@ -17,6 +17,7 @@
 
         <parameter key="mailjet.serializer.metadata.metadata_factory.class">Metadata\MetadataFactory</parameter>
         <parameter key="mailjet.serializer.metadata.cache.file_cache.class">Metadata\Cache\FileCache</parameter>
+        <parameter key="mailjet.serializer.metadata.cache.file_cache.dir">%kernel.cache_dir%/mailjet_serializer</parameter>
 
         <parameter key="mailjet.serializer.event_dispatcher.class">JMS\Serializer\EventDispatcher\LazyEventDispatcher</parameter>
 
@@ -110,7 +111,7 @@
 
         <!-- Metadata Factory -->
         <service id="mailjet.serializer.metadata.cache.file_cache" class="%mailjet.serializer.metadata.cache.file_cache.class%" public="false">
-            <argument type="string">%kernel.cache_dir%/%kernel.environment%/mailjet_serializer</argument>
+            <argument type="string">%mailjet.serializer.metadata.cache.file_cache.dir%</argument>
         </service>
         <service id="mailjet.serializer.metadata.cache" alias="mailjet.serializer.metadata.cache.file_cache" public="false" />
         <service id="mailjet.serializer.metadata_factory" class="%mailjet.serializer.metadata.metadata_factory.class%" public="false">

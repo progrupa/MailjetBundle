@@ -30,5 +30,12 @@ class ProgrupaMailjetExtension extends Extension
 
         $xmlLoader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $xmlLoader->load('services.jms.xml');
+
+        $dir = $container->getParameterBag()->resolveValue('%mailjet.serializer.metadata.cache.file_cache.dir%');
+        if (!file_exists($dir)) {
+            if (!$rs = @mkdir($dir, 0777, true)) {
+                throw new \RuntimeException(sprintf('Could not create cache directory "%s".', $dir));
+            }
+        }
     }
 }
