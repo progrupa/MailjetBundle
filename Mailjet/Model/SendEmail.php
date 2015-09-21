@@ -68,8 +68,8 @@ class SendEmail
      */
     private $mjPrio = 2;
     /**
-     * @var integer
-     * @Type("integer")
+     * @var string
+     * @Type("string")
      * @SerializedName("mj-campaign")
      */
     private $mjCampaign = null;
