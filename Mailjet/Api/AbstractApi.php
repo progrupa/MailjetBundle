@@ -61,6 +61,7 @@ abstract class AbstractApi
         return $this->call(
             'DELETE',
             $this->getResourceForId($id),
+            null,
             [200, 204]
         );
     }
