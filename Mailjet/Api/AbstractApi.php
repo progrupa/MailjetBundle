@@ -60,7 +60,8 @@ abstract class AbstractApi
     {
         return $this->call(
             'DELETE',
-            $this->getResourceForId($id)
+            $this->getResourceForId($id),
+            [200, 204]
         );
     }
 
@@ -109,9 +110,10 @@ abstract class AbstractApi
                 )
             );
 
-            if ($response->getBody()) {
+            $responseBody = (string)$response->getBody();
+            if ($responseBody) {
                 /** @var Result $result */
-                $result = $this->serializer->deserialize((string)$response->getBody(), Result::class, 'json');
+                $result = $this->serializer->deserialize($responseBody, Result::class, 'json');
                 $result->deserializeData($this->serializer, $this->getModel());
             } else {
                 $result = new Result();
@@ -122,11 +124,11 @@ abstract class AbstractApi
             return $result;
         } catch (GuzzleException $ge) {
             $result = new Result();
-            $result->setSuccess(false)->setMessage($ge->getMessage());
+            $result->setSuccess(false)->setMessage(sprintf("Client error: %s", $ge->getMessage()));
             return $result;
         } catch (\Exception $e) {
             $result = new Result();
-            $result->setSuccess(false)->setMessage($e->getMessage());
+            $result->setSuccess(false)->setMessage(sprintf("General error: %s", $e->getMessage()));
             return $result;
         }
     }
