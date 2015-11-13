@@ -14,7 +14,7 @@ services:
         class: GuzzleHttp\Client
         arguments:
             options:
-                base_uri: 'http://api.mailjet.com/v3/REST/'
+                base_uri: 'https://api.mailjet.com/v3/REST/'
                 auth: ['d355fa1dc93774e2691498bfdc400d84', '5279bdc6e1538db5f51337b8329d88ca']
                 headers: {Content-Type: 'application/json'}
 
@@ -22,5 +22,6 @@ services:
         class: GuzzleHttp\Client
         arguments:
             options:
-                base_uri: 'http://api.mailjet.com/v3/'
+                base_uri: 'https://api.mailjet.com/v3/'
                 auth: ['d355fa1dc93774e2691498bfdc400d84', '5279bdc6e1538db5f51337b8329d88ca']
+                headers: {Content-Type: 'application/json'}

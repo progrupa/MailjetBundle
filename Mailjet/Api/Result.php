@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dominikkasprzak
- * Date: 26/08/15
- * Time: 15:27
- */
 
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
@@ -13,7 +7,7 @@ use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 
-class Result
+class Result extends AbstractResult
 {
     /**
      * @Type("integer")
@@ -32,10 +26,6 @@ class Result
     private $data;
     /** @var  array */
     private $objects;
-    /** @var  boolean */
-    private $success = false;
-    /** @var  string */
-    private $message;
 
     /**
      * @return mixed
@@ -115,41 +105,5 @@ class Result
     public function hasObjects()
     {
         return $this->getCount() && count($this->objects);
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isSuccess()
-    {
-        return $this->success;
-    }
-
-    /**
-     * @param boolean $success
-     */
-    public function setSuccess($success)
-    {
-        $this->success = $success;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-
-        return $this;
     }
 }

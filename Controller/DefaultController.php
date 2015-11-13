@@ -24,7 +24,7 @@ class DefaultController extends Controller
     {
         $email = new SendEmail();
         $email
-            ->setFrom('"Stefek" <biuro@progrupa.com>')
+            ->setFromName('"Stefek" <biuro@progrupa.com>')
             ->addTo('dominik.kasprzak@progrupa.com')
             ->setSubject('Test mejldżeta')
             ->setText('Wiadomość testowa')

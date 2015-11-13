@@ -18,9 +18,9 @@ use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 abstract class AbstractApi
 {
     /** @var  ClientInterface */
-    private $client;
+    protected $client;
     /** @var  SerializerInterface */
-    private $serializer;
+    protected $serializer;
 
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
@@ -100,7 +100,7 @@ abstract class AbstractApi
      * @param $id
      * @return Result
      */
-    private function call($method, $resource, $body = null, $acceptedCodes = array(200))
+    protected function call($method, $resource, $body = null, $acceptedCodes = array(200))
     {
         try {
             $response = $this->client->request(
@@ -114,7 +114,7 @@ abstract class AbstractApi
             $responseBody = (string)$response->getBody();
             if ($responseBody) {
                 /** @var Result $result */
-                $result = $this->serializer->deserialize($responseBody, Result::class, 'json');
+                $result = $this->serializer->deserialize($responseBody, $this->getResultClass(), 'json');
                 $result->deserializeData($this->serializer, $this->getModel());
             } else {
                 $result = new Result();
@@ -137,5 +137,13 @@ abstract class AbstractApi
     private function getResourceForId($id)
     {
         return $this->getResource() . "/$id";
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getResultClass()
+    {
+        return Result::class;
     }
 }

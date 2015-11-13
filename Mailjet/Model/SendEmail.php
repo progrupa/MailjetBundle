@@ -2,122 +2,174 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
+/**
+ * @ExclusionPolicy("all")
+ */
 class SendEmail
 {
     /**
-     * @var string
+     * @Expose
      * @Type("string")
+     * @SerializedName("FromName")
      */
-    private $from;
+    private $fromName = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
+     * @SerializedName("FromEmail")
+     */
+    private $fromEmail = null;
+    /**
+     * @Expose
+     * @Type("string")
+     * @SerializedName("Sender")
      */
     private $sender = null;
     /**
-     * @var array
+     * @Expose
+     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Recipient>")
+     * @SerializedName("Recipients")
+     */
+    private $recipients = null;
+    /**
+     * @Expose
      * @Type("array<string>")
+     * @SerializedName("To")
      */
-    private $to = array();
+    private $to = null;
     /**
-     * @var array
-     * @Type("array")
+     * @Expose
+     * @Type("array<string>")
+     * @SerializedName("Cc")
      */
-    private $cc = array();
+    private $cc = null;
     /**
-     * @var array
-     * @Type("array")
+     * @Expose
+     * @Type("array<string>")
+     * @SerializedName("Bcc")
      */
-    private $bcc = array();
+    private $bcc = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
+     * @SerializedName("Subject")
      */
-    private $subject;
+    private $subject = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
+     * @SerializedName("Text-part")
      */
     private $text = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
+     * @SerializedName("Html-part")
      */
     private $html = null;
     /**
-     * @var array
-     * @Type("array")
+     * @Expose
+     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Attachment>")
+     * @SerializedName("Attachments")
      */
-    private $attachment = null;
+    private $attachments = null;
     /**
-     * @var array
-     * @Type("array")
+     * @Expose
+     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\InlineAttachment>")
+     * @SerializedName("Inline-attachments")
      */
-    private $inlineAttachment = null;
+    private $inlineAttachments = null;
     /**
-     * @var array
+     * @Expose
      * @Type("array")
+     * @SerializedName("Headers")
      */
-    private $header = null;
+    private $headers = null;
     /**
-     * @var integer
+     * @Expose
+     * @Type("array")
+     * @SerializedName("Vars")
+     */
+    private $vars = null;
+    /**
+     * @Expose
      * @Type("integer")
+     * @SerializedName("Mj-prio")
      */
     private $mjPrio = 2;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
-     * @SerializedName("mj-campaign")
+     * @SerializedName("Mj-campaign")
      */
     private $mjCampaign = null;
     /**
-     * @var boolean
+     * @Expose
      * @Type("boolean")
-     * @SerializedName("mj-deduplicatecampaign")
+     * @SerializedName("Mj-deduplicatecampaign")
      */
     private $mjDeduplicateCampaign = null;
     /**
-     * @var boolean
+     * @Expose
      * @Type("boolean")
-     * @SerializedName("mj-trackopen")
+     * @SerializedName("Mj-trackopen")
      */
     private $mjTrackOpen = null;
     /**
-     * @var boolean
+     * @Expose
      * @Type("boolean")
-     * @SerializedName("mj-trackclick")
+     * @SerializedName("Mj-trackclick")
      */
     private $mjTrackClick = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
-     * @SerializedName("mj-customid")
+     * @SerializedName("Mj-customid")
      */
     private $mjCustomId = null;
     /**
-     * @var string
+     * @Expose
      * @Type("string")
-     * @SerializedName("mj-eventpayload")
+     * @SerializedName("Mj-eventpayload")
      */
     private $mjEventPayload = null;
 
     /**
      * @return mixed
      */
-    public function getFrom()
+    public function getFromName()
     {
-        return $this->from;
+        return $this->fromName;
     }
 
     /**
-     * @param mixed $from
+     * @param mixed $fromName
      */
-    public function setFrom($from)
+    public function setFromName($fromName)
     {
-        $this->from = $from;
+        $this->fromName = $fromName;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFromEmail()
+    {
+        return $this->fromEmail;
+    }
+
+    /**
+     * @param mixed $fromEmail
+     */
+    public function setFromEmail($fromEmail)
+    {
+        $this->fromEmail = $fromEmail;
         return $this;
     }
 
@@ -141,6 +193,49 @@ class SendEmail
     /**
      * @return mixed
      */
+    public function getRecipients()
+    {
+        return $this->recipients;
+    }
+
+    /**
+     * @param mixed $recipients
+     */
+    public function setRecipients($recipients)
+    {
+        $this->recipients = $recipients;
+        return $this;
+    }
+
+    /**
+     * @param Recipient $recipient
+     * @return $this
+     */
+    public function addRecipient(Recipient $recipient)
+    {
+        if (! $this->recipients) {
+            $this->recipients = array();
+        }
+        $this->recipients[] = $recipient;
+        return $this;
+    }
+
+    /**
+     * @param string $recipient
+     * @return $this
+     */
+    public function addRecipientEmail($recipient)
+    {
+        if (! $this->recipients) {
+            $this->recipients = array();
+        }
+        $this->recipients[] = new Recipient($recipient);
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTo()
     {
         return $this->to;
@@ -157,6 +252,9 @@ class SendEmail
 
     public function addTo($to)
     {
+        if (! $this->to) {
+            $this->to = array();
+        }
         $this->to[] = $to;
         return $this;
     }
@@ -180,6 +278,9 @@ class SendEmail
 
     public function addCc($cc)
     {
+        if (! $this->cc) {
+            $this->cc = array();
+        }
         $this->cc[] = $cc;
         return $this;
     }
@@ -203,6 +304,9 @@ class SendEmail
 
     public function addBcc($bcc)
     {
+        if (! $this->bcc) {
+            $this->bcc = array();
+        }
         $this->bcc[] = $bcc;
         return $this;
     }
@@ -261,67 +365,90 @@ class SendEmail
     /**
      * @return mixed
      */
-    public function getAttachment()
+    public function getAttachments()
     {
-        return $this->attachment;
+        return $this->attachments;
     }
 
     /**
-     * @param mixed $attachment
+     * @param mixed $attachments
      */
-    public function setAttachment($attachment)
+    public function setAttachments($attachments)
     {
-        $this->attachment = $attachment;
+        $this->attachments = $attachments;
         return $this;
     }
 
-    public function addAttachement($attachment, $name = null)
+    public function addAttachment(Attachment $attachment)
     {
-        if ($name) {
-            $this->attachment[$name] = $attachment;
-        } else {
-            $this->attachment[] = $attachment;
+        $this->attachments[] = $attachment;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInlineAttachments()
+    {
+        return $this->inlineAttachments;
+    }
+
+    /**
+     * @param mixed $inlineAttachments
+     */
+    public function setInlineAttachments($inlineAttachments)
+    {
+        $this->inlineAttachments = $inlineAttachments;
+        return $this;
+    }
+
+    public function addInlineAttachment(InlineAttachment $inlineAttachment)
+    {
+        $this->inlineAttachments[] = $inlineAttachment;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @param mixed $headers
+     */
+    public function setHeaders($headers)
+    {
+        $this->headers = $headers;
+        return $this;
+    }
+
+    public function addHeader($name, $value)
+    {
+        if (! $this->headers) {
+            $this->headers = array();
         }
+        $this->headers[$name] = $value;
         return $this;
     }
+
 
     /**
      * @return mixed
      */
-    public function getInlineAttachment()
+    public function getVars()
     {
-        return $this->inlineAttachment;
+        return $this->vars;
     }
 
     /**
-     * @param mixed $inlineAttachment
+     * @param mixed $vars
      */
-    public function setInlineAttachment($inlineAttachment)
+    public function setVars($vars)
     {
-        $this->inlineAttachment = $inlineAttachment;
-        return $this;
-    }
-
-    public function addInlineAttachement($inlineAttachment)
-    {
-        $this->inlineAttachment[] = $inlineAttachment;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHeader()
-    {
-        return $this->header;
-    }
-
-    /**
-     * @param mixed $header
-     */
-    public function setHeader($header)
-    {
-        $this->header = $header;
+        $this->vars = $vars;
         return $this;
     }
 

@@ -23,6 +23,12 @@ class Recipient
      */
     protected $Name = null;
 
+    public function __construct($Email, $Name = null)
+    {
+        $this->Email = $Email;
+        $this->Name = $Name;
+    }
+
     /**
      * @return mixed
      */

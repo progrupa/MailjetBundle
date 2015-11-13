@@ -15,22 +15,18 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use JMS\Serializer\SerializerInterface;
+use Progrupa\MailjetBundle\Mailjet\Model\Recipient;
 use Progrupa\MailjetBundle\Mailjet\Model\SendEmail;
 use Psr\Http\Message\RequestInterface;
 
-class Send
+class Send extends AbstractApi
 {
-    /** @var  ClientInterface */
-    private $client;
-    /** @var  SerializerInterface */
-    private $serializer;
     /** @var bool|string */
     private $debugRecipient;
 
     public function __construct(ClientInterface $client, SerializerInterface $serializer, $debugRecipient = false)
     {
-        $this->client = $client;
-        $this->serializer = $serializer;
+        parent::__construct($client, $serializer);
         $this->debugRecipient = $debugRecipient;
     }
 
@@ -44,49 +40,30 @@ class Send
                 $email->setText($email->getText() . $recipientInfo);
             }
 
-            $email->setTo([$this->debugRecipient]);
-            $email->setCc([]);
-            $email->setBcc([]);
+            $email->setRecipients([new Recipient($this->debugRecipient)]);
+            $email->setCc(null);
+            $email->setBcc(null);
         }
-        $data = $this->serializer->serialize($email, 'array');
 
-        $data = $this->transformToMultipart($data);
+        return $this->call('POST', $this->getResource(), $this->serializer->serialize($email, 'json'), [200]);
+    }
 
-        /** @var HandlerStack $stack */
-        $stack = $this->client->getConfig('handler');
-        $stack->after('prepare_body',
-            Middleware::mapRequest(function (RequestInterface $r) {
-                return $r->withBody(\GuzzleHttp\Psr7\stream_for(preg_replace('/%5B[0-9]+%5D/simU', '', $r->getBody())));
-            }, 'remove_brackets')
-        );
-
-        try {
-            /** @var Response $response */
-            $response = $this->client->post(
-                $this->getResource(),
-                array(
-                    'multipart' => $data
-                )
-            );
-
-            $result = new Result();
-            $result->setSuccess(in_array($response->getStatusCode(), [200]))->setMessage($response->getReasonPhrase());
-
-            return $result;
-        } catch (GuzzleException $ge) {
-            $result = new Result();
-            $result->setSuccess(false)->setMessage($ge->getMessage());
-            return $result;
-        } catch (\Exception $e) {
-            $result = new Result();
-            $result->setSuccess(false)->setMessage($e->getMessage());
-            return $result;
-        }
+    /**
+     * @return string Classname of the api model
+     */
+    protected function getModel()
+    {
+        return SendEmail::class;
     }
 
     protected function getResource()
     {
-        return 'send/message';
+        return 'send';
+    }
+
+    protected function getResultClass()
+    {
+        return SendResult::class;
     }
 
     private function transformToMultipart($data)
