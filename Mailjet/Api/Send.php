@@ -41,6 +41,7 @@ class Send extends AbstractApi
             }
 
             $email->setRecipients([new Recipient($this->debugRecipient)]);
+            $email->setTo(null);
             $email->setCc(null);
             $email->setBcc(null);
         }
@@ -125,10 +126,14 @@ class Send extends AbstractApi
 
     private function prepareRecipientInfo(SendEmail $email)
     {
-        return "Message intended for:\n
-            To: ".implode(', ', $email->getTo())."\n
-            CC: ".implode(', ', $email->getCc())."\n
-            BCC: ".implode(', ', $email->getBcc())."\n
-        ";
+        $out = "Message intended for:\n";
+        if ($email->getRecipients()) {
+            $out .= "Recipients: ".implode(', ', $email->getRecipients())."\n";
+        }
+        if ($email->getTo()) $out .= "To: ".implode(', ', $email->getTo())."\n";
+        if ($email->getCc()) $out .= "To: ".implode(', ', $email->getCc())."\n";
+        if ($email->getBcc()) $out .= "To: ".implode(', ', $email->getBcc())."\n";
+
+        return $out;
     }
 }

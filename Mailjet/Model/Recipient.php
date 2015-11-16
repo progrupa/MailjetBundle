@@ -60,4 +60,9 @@ class Recipient
     {
         $this->Name = $Name;
     }
+
+    public function __toString()
+    {
+        return ($this->Name ? : ' ') . $this->Email;
+    }
 }
