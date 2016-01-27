@@ -31,10 +31,7 @@
         <parameter key="mailjet.serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
 
         <parameter key="mailjet.serializer.serializer.class">JMS\Serializer\Serializer</parameter>
-
-        <parameter key="mailjet.serializer.twig_extension.class">JMS\Serializer\Twig\SerializerExtension</parameter>
-        <parameter key="mailjet.serializer.templating.helper.class">JMS\SerializerBundle\Templating\SerializerHelper</parameter>
-
+        
         <parameter key="mailjet.serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
         <parameter key="mailjet.serializer.json_serialization_visitor.options" type="collection"></parameter>
         <parameter key="mailjet.serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
@@ -150,18 +147,6 @@
             <argument type="service" id="mailjet.serializer.event_dispatcher" />
         </service>
         <service id="mailjet.serializer" alias="mailjet.serializer.serializer" /><!-- Preferred Alias -->
-
-        <!-- Twig Extension -->
-        <service id="mailjet.serializer.twig_extension.serializer" class="%mailjet.serializer.twig_extension.class%" public="false">
-            <argument type="service" id="mailjet.serializer" />
-            <tag name="twig.extension" />
-        </service>
-
-        <!-- PHP templating helper -->
-        <service id="mailjet.serializer.templating.helper.serializer" class="%mailjet.serializer.templating.helper.class%">
-            <argument type="service" id="mailjet.serializer" />
-            <tag name="templating.helper" alias="mailjet.serializer" />
-        </service>
 
         <!-- Visitors -->
         <service id="mailjet.serializer.json_serialization_visitor" class="%mailjet.serializer.json_serialization_visitor.class%">
