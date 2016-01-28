@@ -31,7 +31,7 @@
         <parameter key="mailjet.serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
 
         <parameter key="mailjet.serializer.serializer.class">JMS\Serializer\Serializer</parameter>
-        
+
         <parameter key="mailjet.serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
         <parameter key="mailjet.serializer.json_serialization_visitor.options" type="collection"></parameter>
         <parameter key="mailjet.serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
