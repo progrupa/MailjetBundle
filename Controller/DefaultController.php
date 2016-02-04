@@ -4,10 +4,11 @@ namespace Progrupa\MailjetBundle\Controller;
 
 use Progrupa\MailjetBundle\Mailjet\Model\Contact;
 use Progrupa\MailjetBundle\Mailjet\Model\Contactslist;
-use Progrupa\MailjetBundle\Mailjet\Model\SendEmail;
+use Progrupa\MailjetBundle\Mailjet\Model\ContactsListManageManyContacts;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class DefaultController
@@ -17,51 +18,35 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("", name="progrupa_mailjet_homepage")
+     * @Route("/unsubscribe/{contactListId}/{contactEmail}", name="progrupa_mailjet_unsubscribe", defaults={"contactEmail": null})
      * @Template()
      */
-    public function indexAction()
+    public function unsubscribeAction(Request $request, $contactListId, $contactEmail)
     {
-        $email = new SendEmail();
-        $email
-            ->setFromName('"Stefek" <biuro@progrupa.com>')
-            ->addTo('dominik.kasprzak@progrupa.com')
-            ->setSubject('Test mejldżeta')
-            ->setText('Wiadomość testowa')
-            ->addAttachement('/www/pms/file.txt', 'optional_name.txt')
-            ->setMjCampaign(490322)
-        ;
+        /** @var Contact $contact */
+        $contact = $this->get('mailjet.api.factory')->create(Contact::class)->get($contactEmail)->getObject();
+        /** @var Contactslist $contactList */
+        $contactList = $this->get('mailjet.api.factory')->create(Contactslist::class)->get($contactListId)->getObject();
 
-        $res = $this->get('mailjet.api.send')->send($email);
+        if (! $contact) {
+            throw $this->createNotFoundException($this->get('translator')->trans('unsubscribe.contactNotFound', ['%email%' => $contactEmail], 'ProgrupaMailjetBundle'));
+        }
 
-        var_dump($res);
+        if (! $contactList) {
+            throw $this->createNotFoundException($this->get('translator')->trans('unsubscribe.contactListNotFound', ['%contactList%' => $contactListId], 'ProgrupaMailjetBundle'));
+        }
 
-        return array();
-    }
+        $unsubAction = new ContactsListManageManyContacts();
+        $unsubAction->setAction(ContactsListManageManyContacts::ACTION_UNSUB);
+        $unsubAction->setContacts([$contact]);
 
-    /**
-     * @Route("/contacts-lists", name="progrupa_mailjet_contacts_lists")
-     * @Template
-     */
-    public function contactsListsAction()
-    {
-        $lists = $this->get('mailjet.api.factory')->create(Contactslist::class)->getList();
+        $unsubApi = $this->get('mailjet.api.factory')->create(ContactsListManageManyContacts::class);
+        $unsubApi->setParent($contactList);
+        $unsubApi->update($unsubAction);
 
-        return array(
-            'result' => $lists
-        );
-    }
-
-    /**
-     * @Route("/contacts", name="progrupa_mailjet_contacts")
-     * @Template
-     */
-    public function contactsAction()
-    {
-        $lists = $this->get('mailjet.api.factory')->create(Contact::class)->getList();
-
-        return array(
-            'result' => $lists
-        );
+        return [
+            'contact' => $contact,
+            'contactList' => $contactList,
+        ];
     }
 }

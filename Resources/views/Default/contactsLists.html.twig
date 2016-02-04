@@ -1,9 +1,0 @@
-<div>
-    <h1>Available contact lists</h1>
-    <div>{{ result.total }} lists available</div>
-    <ul>
-        {% for contactsList in result.objects %}
-            <li>{{ contactsList.name }} - {{ contactsList.subscriberCount }} subscribers</li>
-        {% endfor %}
-    </ul>
-</div>

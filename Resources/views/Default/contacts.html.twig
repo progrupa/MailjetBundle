@@ -1,9 +1,0 @@
-<div>
-    <h1>Available contacts</h1>
-    <div>{{ result.total }} contacts available</div>
-    <ul>
-        {% for contact in result.objects %}
-            <li>{{ contact.email }}{% if contact.name %} ({{ contact.name }}) {% endif %} - {{ contact.deliveredCount }} wysłanych wiadomości</li>
-        {% endfor %}
-    </ul>
-</div>

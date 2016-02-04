@@ -5,8 +5,13 @@ namespace Progrupa\MailjetBundle\Mailjet\Model;
 use JMS\Serializer\Annotation\SerializedName;
 use JMS\Serializer\Annotation\Type;
 
-class ContactsListManageManyContacts implements ModelInterface
+class ContactsListManageManyContacts implements ChildModelInterface
 {
+    const ACTION_ADD_FORCE = 'addforce';
+    const ACTION_ADD_NO_FORCE = 'addnoforce';
+    const ACTION_REMOVE = 'remove';
+    const ACTION_UNSUB = 'unsub';
+
     public static function getResource()
     {
         return 'contactslist/{id}/managemanycontacts';
@@ -21,11 +26,15 @@ class ContactsListManageManyContacts implements ModelInterface
 
     /**
      * A JSON array. Each contact is represented by its Email, Name, and Properties - a JSON object containing properties values for this contact
-     * @Type("array<Contact>")
+     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Contact>")
      * @SerializedName("Contacts")
      */
     protected $Contacts = null;
 
+    public function getID()
+    {
+        return null;
+    }
     /**
      * @return mixed
      */
