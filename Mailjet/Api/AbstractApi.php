@@ -124,9 +124,14 @@ abstract class AbstractApi
 
             return $result;
         } catch (GuzzleException $ge) {
-            $result = new Result();
-            $result->setSuccess(false)->setMessage(sprintf("Client error: %s", $ge->getMessage()));
-            return $result;
+            if ($ge->getCode() == \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS && php_sapi_name() == "cli") {
+                sleep(5);
+                return $this->call($method, $resource, $body, $acceptedCodes);
+            } else {
+                $result = new Result();
+                $result->setSuccess(false)->setMessage(sprintf("Client error: %s", $ge->getMessage()));
+                return $result;
+            }
         } catch (\Exception $e) {
             $result = new Result();
             $result->setSuccess(false)->setMessage(sprintf("General error: %s", $e->getMessage()));
