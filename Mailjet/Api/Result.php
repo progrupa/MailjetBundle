@@ -106,4 +106,12 @@ class Result extends AbstractResult
     {
         return $this->getCount() && count($this->objects);
     }
+
+    /**
+     * @param array $objects
+     */
+    public function setObjects($objects)
+    {
+        $this->objects = $objects;
+    }
 }
