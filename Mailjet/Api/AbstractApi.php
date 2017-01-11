@@ -124,7 +124,10 @@ abstract class AbstractApi
 
             return $result;
         } catch (GuzzleException $ge) {
-            if ($ge->getCode() == \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS && php_sapi_name() == "cli") {
+            if (
+                $ge->getCode() == \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS &&
+                (strpos(php_sapi_name(), 'cli') !== false || strpos(php_sapi_name(), 'cgi') !== false)
+            ) {
                 sleep(5);
                 return $this->call($method, $resource, $body, $acceptedCodes);
             } else {
