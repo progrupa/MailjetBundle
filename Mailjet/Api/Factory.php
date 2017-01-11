@@ -14,11 +14,29 @@ class Factory
     private $serializer;
     /** @var  AbstractApi[] */
     private $apis;
+    /** @var bool */
+    private $repeat = false;
 
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
         $this->client = $client;
         $this->serializer = $serializer;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isRepeat()
+    {
+        return $this->repeat;
+    }
+
+    /**
+     * @param boolean $repeat
+     */
+    public function setRepeat($repeat)
+    {
+        $this->repeat = $repeat;
     }
 
     public function create($modelClass)
@@ -27,6 +45,7 @@ class Factory
             $apiClass = $this->getApiClass($modelClass);
             $api = new $apiClass($this->client, $this->serializer);
             $api->setModel($modelClass);
+            $api->setRepeat($this->repeat);
 
             $this->apis[$modelClass] = $api;
         }

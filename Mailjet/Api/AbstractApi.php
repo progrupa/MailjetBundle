@@ -21,11 +21,29 @@ abstract class AbstractApi
     protected $client;
     /** @var  SerializerInterface */
     protected $serializer;
+    /** @var bool */
+    protected $repeat = false;
 
     public function __construct(ClientInterface $client, SerializerInterface $serializer)
     {
         $this->client = $client;
         $this->serializer = $serializer;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isRepeat()
+    {
+        return $this->repeat;
+    }
+
+    /**
+     * @param boolean $repeat
+     */
+    public function setRepeat($repeat)
+    {
+        $this->repeat = $repeat;
     }
 
     public function get($id)
@@ -124,10 +142,7 @@ abstract class AbstractApi
 
             return $result;
         } catch (GuzzleException $ge) {
-            if (
-                $ge->getCode() == \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS &&
-                (strpos(php_sapi_name(), 'cli') !== false || strpos(php_sapi_name(), 'cgi') !== false)
-            ) {
+            if ($ge->getCode() == \Symfony\Component\HttpFoundation\Response::HTTP_TOO_MANY_REQUESTS && $this->repeat) {
                 sleep(5);
                 return $this->call($method, $resource, $body, $acceptedCodes);
             } else {
