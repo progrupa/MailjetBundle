@@ -2,20 +2,20 @@ services:
     mailjet.api.send:
         class: Progrupa\MailjetBundle\Mailjet\Api\Send
         arguments:
-            - @mailjet.send_client
-            - @mailjet.serializer.serializer
-            - %progrupa.mailjet.debug_recipient%
+            - "@mailjet.send_client"
+            - "@mailjet.serializer.serializer"
+            - "%progrupa.mailjet.debug_recipient%"
 
     mailjet.api.factory:
         class: Progrupa\MailjetBundle\Mailjet\Api\Factory
-        arguments: [@mailjet.client, @mailjet.serializer.serializer]
+        arguments: [ "@mailjet.client", "@mailjet.serializer.serializer"]
 
     mailjet.client:
         class: GuzzleHttp\Client
         arguments:
             options:
                 base_uri: 'https://api.mailjet.com/v3/REST/'
-                auth: %progrupa.mailjet.api_auth%
+                auth: "%progrupa.mailjet.api_auth%"
                 headers: {Content-Type: 'application/json'}
 
     mailjet.send_client:
@@ -23,5 +23,5 @@ services:
         arguments:
             options:
                 base_uri: 'https://api.mailjet.com/v3/'
-                auth: %progrupa.mailjet.api_auth%
+                auth: "%progrupa.mailjet.api_auth%"
                 headers: {Content-Type: 'application/json'}
