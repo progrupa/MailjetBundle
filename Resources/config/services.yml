@@ -13,7 +13,7 @@ services:
     mailjet.client:
         class: GuzzleHttp\Client
         arguments:
-            options:
+            -
                 base_uri: 'https://api.mailjet.com/v3/REST/'
                 auth: "%progrupa.mailjet.api_auth%"
                 headers: {Content-Type: 'application/json'}
@@ -21,7 +21,7 @@ services:
     mailjet.send_client:
         class: GuzzleHttp\Client
         arguments:
-            options:
+            -
                 base_uri: 'https://api.mailjet.com/v3/'
                 auth: "%progrupa.mailjet.api_auth%"
                 headers: {Content-Type: 'application/json'}
