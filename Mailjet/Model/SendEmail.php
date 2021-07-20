@@ -89,7 +89,7 @@ class SendEmail
      * @Type("array")
      * @SerializedName("Headers")
      */
-    private $headers = null;
+    private $headers = [];
     /**
      * @Expose
      * @Type("array")
@@ -308,6 +308,16 @@ class SendEmail
             $this->bcc = array();
         }
         $this->bcc[] = $bcc;
+        return $this;
+    }
+
+    /**
+     * @param string $replyTo
+     * @return $this
+     */
+    public function setReplyTo($replyTo)
+    {
+        $this->headers['Reply-to'] = $replyTo;
         return $this;
     }
 
