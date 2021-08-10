@@ -1,14 +1,18 @@
 services:
     mailjet.api.send:
         class: Progrupa\MailjetBundle\Mailjet\Api\Send
+        public: true
         arguments:
             - "@mailjet.send_client"
             - "@mailjet.serializer.serializer"
             - "%progrupa.mailjet.debug_recipient%"
+    Progrupa\MailjetBundle\Mailjet\Api\Send: "@mailjet.api.send"
 
     mailjet.api.factory:
         class: Progrupa\MailjetBundle\Mailjet\Api\Factory
+        public: true
         arguments: [ "@mailjet.client", "@mailjet.serializer.serializer"]
+    Progrupa\MailjetBundle\Mailjet\Api\Factory: "@mailjet.api.factory"
 
     mailjet.client:
         class: GuzzleHttp\Client
