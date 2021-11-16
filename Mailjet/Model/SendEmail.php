@@ -89,7 +89,7 @@ class SendEmail
      * @Type("array")
      * @SerializedName("Headers")
      */
-    private $headers = [];
+    private $headers = null;
     /**
      * @Expose
      * @Type("array")
@@ -317,7 +317,7 @@ class SendEmail
      */
     public function setReplyTo($replyTo)
     {
-        $this->headers['Reply-to'] = $replyTo;
+        $this->addHeader('Reply-to', $replyTo);
         return $this;
     }
 

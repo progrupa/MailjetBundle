@@ -16,6 +16,7 @@ services:
 
     mailjet.client:
         class: GuzzleHttp\Client
+        public: true
         arguments:
             -
                 base_uri: 'https://api.mailjet.com/v3/REST/'
@@ -24,6 +25,7 @@ services:
 
     mailjet.send_client:
         class: GuzzleHttp\Client
+        public: true
         arguments:
             -
                 base_uri: 'https://api.mailjet.com/v3/'
