@@ -17,8 +17,10 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('progrupa_mailjet')
+        $treeBuilder = new TreeBuilder('progrupa_mailjet');
+        $rootNode = $treeBuilder->getRootNode();
+        
+        $rootNode
             ->children()
                 ->arrayNode('api_auth')->isRequired(true)->prototype('scalar')->end()->end()
                 ->scalarNode('debug_recipient')->defaultValue(false)->end()
