@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('progrupa_mailjet');
         $rootNode = $treeBuilder->getRootNode();
-        
+
         $rootNode
             ->children()
                 ->arrayNode('api_auth')->isRequired(true)->prototype('scalar')->end()->end()
