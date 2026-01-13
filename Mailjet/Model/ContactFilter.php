@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class ContactFilter implements ModelInterface
 {
@@ -14,31 +14,26 @@ class ContactFilter implements ModelInterface
 
     /**
      * Textual description of the filter.
-     * @Type("string")
      * @SerializedName("Description")
      */
     protected $Description = null;
     /**
      * Filter Expression. Checked for syntactical correctness when writing
-     * @Type("string")
      * @SerializedName("Expression")
      */
     protected $Expression = null;
     /**
      * Filter Expression. Checked for syntactical correctness when writing
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
     /**
      * A unique name for this filter.
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
     /**
      * The status of the filter - used, unused, deleted
-     * @Type("string")
      * @SerializedName("Status")
      */
     protected $Status = null;

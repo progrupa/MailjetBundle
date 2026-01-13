@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Apikeyaccess Model
@@ -19,91 +19,78 @@ class Apikeyaccess extends AbstractModel
 
     /**
      * JSON describing access rights.
-     * @Type("string")
      * @SerializedName("AllowedAccess")
      */
     protected $AllowedAccess = null;
 
     /**
      * API key for which the rights are descibed.
-     * @Type("integer")
      * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
      * API key for which the rights are descibed.
-     * @Type("string")
      * @SerializedName("APIKeyALT")
      */
     protected $APIKeyALT = null;
 
     /**
      * Custom name for this set of rights
-     * @Type("string")
      * @SerializedName("CustomName")
      */
     protected $CustomName = null;
 
     /**
      * Is this object active (rights enforced) or not
-     * @Type("boolean")
      * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Timestamp of last registered activity for this API Key
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * Reference to Real user
-     * @Type("integer")
      * @SerializedName("RealUserID")
      */
     protected $RealUserID = null;
 
     /**
      * Reference to Real user
-     * @Type("string")
      * @SerializedName("RealUserALT")
      */
     protected $RealUserALT = null;
 
     /**
      * Reference to subaccount
-     * @Type("integer")
      * @SerializedName("SubaccountID")
      */
     protected $SubaccountID = null;
 
     /**
      * Unique Token used to retrieve these access rights.
-     * @Type("string")
      * @SerializedName("Token")
      */
     protected $Token = null;
 
     /**
      * Timestamp when object was last updated in database.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("UpdatedAt")
      */
     protected $UpdatedAt = null;
 
     /**
      * Reference to user for whom access is described.
-     * @Type("integer")
      * @SerializedName("UserID")
      */
     protected $UserID = null;
 
     /**
      * Reference to user for whom access is described.
-     * @Type("string")
      * @SerializedName("UserALT")
      */
     protected $UserALT = null;

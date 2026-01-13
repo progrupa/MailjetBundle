@@ -3,7 +3,7 @@
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
 use GuzzleHttp\ClientInterface;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\ChildModelInterface;
 
 class Factory

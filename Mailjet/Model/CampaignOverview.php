@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class CampaignOverview implements ModelInterface
 {
@@ -14,84 +14,72 @@ class CampaignOverview implements ModelInterface
 
     /**
      * Clicked count
-     * @Type("integer")
      * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Edit mode
-     * @Type("string")
      * @SerializedName("EditMode")
      */
     protected $EditMode = null;
 
     /**
      * Edit type
-     * @Type("string")
      * @SerializedName("EditType")
      */
     protected $EditType = null;
 
     /**
      * Unique numerical ID for this object.
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Campaign, AX campaign or newsletter
-     * @Type("string")
      * @SerializedName("IDType")
      */
     protected $IDType = null;
 
     /**
      * Opened count
-     * @Type("integer")
      * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * How many items are processed
-     * @Type("integer")
      * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * How many items are processed
-     * @Type("integer")
      * @SerializedName("SendTimeStart")
      */
     protected $SendTimeStart = null;
 
     /**
      * Starred
-     * @Type("boolean")
      * @SerializedName("Starred")
      */
     protected $Starred = null;
 
     /**
      * Status of the campaign
-     * @Type("integer")
      * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * Status of the campaign
-     * @Type("string")
      * @SerializedName("Subject")
      */
     protected $Subject = null;
 
     /**
      * Title of the campaign
-     * @Type("string")
      * @SerializedName("Title")
      */
     protected $Title = null;

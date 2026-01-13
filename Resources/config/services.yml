@@ -31,3 +31,10 @@ services:
                 base_uri: 'https://api.mailjet.com/v3/'
                 auth: "%progrupa.mailjet.api_auth%"
                 headers: {Content-Type: 'application/json'}
+
+    Progrupa\MailjetBundle\Controller\DefaultController:
+        public: true
+        arguments:
+            - "@mailjet.api.factory"
+            - "@translator"
+        tags: ['controller.service_arguments']

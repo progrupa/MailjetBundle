@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Domainstatistics Model
@@ -19,77 +19,66 @@ class Domainstatistics implements ModelInterface
 
     /**
      * Number of blocked messages.
-     * @Type("integer")
      * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @Type("integer")
      * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
-     * @Type("integer")
      * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @Type("integer")
      * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Domain name (lowercase)
-     * @Type("string")
      * @SerializedName("Domain")
      */
     protected $Domain = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Number of message open registrations.
-     * @Type("integer")
      * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
-     * @Type("integer")
      * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @Type("integer")
      * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
-     * @Type("integer")
      * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
      * Number of registered unsubscribe requests.
-     * @Type("integer")
      * @SerializedName("UnsubscribedCount")
      */
     protected $UnsubscribedCount = null;

@@ -2,21 +2,19 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 abstract class AbstractModel implements ModelInterface
 {
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Timestamp when object was created in database
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("CreatedAt")
      */
     protected $CreatedAt = null;

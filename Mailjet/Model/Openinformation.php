@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Openinformation Model
@@ -19,70 +19,60 @@ class Openinformation implements ModelInterface
 
     /**
      * Timestamp indicating when the message arrived.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("ArrivedAt")
      */
     protected $ArrivedAt = null;
 
     /**
      * Reference to Campaign in which message is sent
-     * @Type("integer")
      * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
      * Reference to Campaign in which message is sent
-     * @Type("string")
      * @SerializedName("CampaignALT")
      */
     protected $CampaignALT = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("MessageID")
      */
     protected $MessageID = null;
 
     /**
      * Timestamp when message open registration was received.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("OpenedAt")
      */
     protected $OpenedAt = null;
 
     /**
      * Useragent used to view the message.
-     * @Type("string")
      * @SerializedName("UserAgent")
      */
     protected $UserAgent = null;
 
     /**
      * Useragent used to view the message.
-     * @Type("string")
      * @SerializedName("UserAgentFull")
      */
     protected $UserAgentFull = null;

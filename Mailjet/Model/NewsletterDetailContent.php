@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * An action to upload the content of the newsletter
@@ -17,14 +17,12 @@ class NewsletterDetailContent implements ModelInterface
 
     /**
      * The html-formatted part of the message
-     * @Type("string")
      * @SerializedName("Html-part")
      */
     protected $HtmlPart = null;
 
     /**
      *  The plain text part of the message
-     * @Type("string")
      * @SerializedName("Text-part")
      */
     protected $TextPart  = null;

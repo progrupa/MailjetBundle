@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Metadata Model
@@ -19,70 +19,60 @@ class Metadata implements ModelInterface
 
     /**
      * A list of the supported actions
-     * @Type("array")
      * @SerializedName("Actions")
      */
     protected $Actions = null;
 
     /**
      * Current API version
-     * @Type("string")
      * @SerializedName("APIVersion")
      */
     protected $APIVersion = null;
 
     /**
      * Description of resource.
-     * @Type("string")
      * @SerializedName("Description")
      */
     protected $Description = null;
 
     /**
      * Applicable filters for this resource
-     * @Type("array")
      * @SerializedName("Filters")
      */
     protected $Filters = null;
 
     /**
      * Is the resource inherently read-only
-     * @Type("boolean")
      * @SerializedName("IsReadOnly")
      */
     protected $IsReadOnly = false;
 
     /**
      * Unique name of the resource
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * List of allowed operations in private API
-     * @Type("array")
      * @SerializedName("PrivateOperations")
      */
     protected $PrivateOperations = null;
 
     /**
      * List of properties for this resource.
-     * @Type("array")
      * @SerializedName("Properties")
      */
     protected $Properties = null;
 
     /**
      * List of allowed operations in public API
-     * @Type("array")
      * @SerializedName("PublicOperations")
      */
     protected $PublicOperations = null;
 
     /**
      * Information about the fields on which a list of this resource can be sorted.
-     * @Type("array")
      * @SerializedName("SortInfo")
      */
     protected $SortInfo = null;
@@ -90,7 +80,6 @@ class Metadata implements ModelInterface
     /**
      * Name of the property which can be used as an alternative unique key in the URL
      * (other than the ID)
-     * @Type("string")
      * @SerializedName("UniqueKey")
      */
     protected $UniqueKey = null;

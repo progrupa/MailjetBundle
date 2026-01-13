@@ -1,0 +1,34 @@
+services:
+    mailjet.serializer.normalizer:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        arguments:
+            - '@mailjet.serializer.metadata_factory'
+            - '@mailjet.serializer.name_converter'
+            - '@property_accessor'
+        tags:
+            - { name: 'serializer.normalizer', priority: -900 }
+
+    mailjet.serializer.metadata_factory:
+        class: Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory
+        arguments:
+            - '@mailjet.serializer.annotation_loader'
+
+    mailjet.serializer.annotation_loader:
+        class: Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader
+        arguments:
+            - '@annotation_reader'
+
+    mailjet.serializer.name_converter:
+        class: Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter
+        arguments:
+            - '@mailjet.serializer.metadata_factory'
+
+    mailjet.serializer.encoder.json:
+        class: Symfony\Component\Serializer\Encoder\JsonEncoder
+
+    mailjet.serializer.serializer:
+        class: Symfony\Component\Serializer\Serializer
+        public: true
+        arguments:
+            - ['@mailjet.serializer.normalizer']
+            - ['@mailjet.serializer.encoder.json']

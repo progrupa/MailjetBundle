@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Metasender Model
@@ -19,7 +19,6 @@ class Metasender extends AbstractModel
 
     /**
      * User provided readable description of the domain
-     * @Type("string")
      * @SerializedName("Description")
      */
     protected $Description = null;
@@ -27,7 +26,6 @@ class Metasender extends AbstractModel
     /**
      * The email address (lowercase), which may consist of a wildcard (*) in the local
      * part.
-     * @Type("string")
      * @SerializedName("Email")
      */
     protected $Email = null;
@@ -35,14 +33,12 @@ class Metasender extends AbstractModel
     /**
      * Filename expected on the domain name webserver, used for verifying the domain,
      * in case of a catch-all address.
-     * @Type("string")
      * @SerializedName("Filename")
      */
     protected $Filename = null;
 
     /**
      * Is the domain authorized to send mails through Mailjet.
-     * @Type("boolean")
      * @SerializedName("IsEnabled")
      */
     protected $IsEnabled = false;

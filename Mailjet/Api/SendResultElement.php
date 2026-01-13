@@ -3,17 +3,14 @@
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 class SendResultElement {
     /**
-     * @Type("string")
      * @SerializedName("Email")
      */
     private $email;
     /**
-     * @Type("integer")
      * @SerializedName("MessageID")
      */
     private $messageId;

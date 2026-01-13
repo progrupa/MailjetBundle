@@ -10,9 +10,10 @@
     "require": {
         "php": ">= 7.4",
         "guzzlehttp/guzzle": "~7.0",
-        "jms/serializer": "~1.11",
-        "sensio/framework-extra-bundle": ">=3.0.2",
-        "symfony/framework-bundle": "~2.6 || ^3.0 || ^4.0"
+        "symfony/serializer": "^5.4 || ^6.0",
+        "symfony/property-access": "^5.4 || ^6.0",
+        "sensio/framework-extra-bundle": "^5.2 || ^6.0",
+        "symfony/framework-bundle": "^5.4 || ^6.0"
     },
     "require-dev": {
     },

@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * User Model
@@ -19,154 +19,132 @@ class User extends AbstractModel
 
     /**
      * Reference to administrator assigned to this user
-     * @Type("string")
      * @SerializedName("ACL")
      */
     protected $ACL = null;
 
     /**
      * Email address of user
-     * @Type("string")
      * @SerializedName("$Email")
      */
     protected $Email = null;
 
     /**
      * Is the user activated
-     * @Type("boolean")
      * @SerializedName("$IsActivated")
      */
     protected $IsActivated = false;
 
     /**
      * Is the user banned ?
-     * @Type("boolean")
      * @SerializedName("$IsBanned")
      */
     protected $IsBanned = false;
 
     /**
      * Is the user part of the Beta testers [?]
-     * @Type("boolean")
      * @SerializedName("$IsBeta")
      */
     protected $IsBeta = false;
 
     /**
      * Is the user allowed to pay cash ?
-     * @Type("boolean")
      * @SerializedName("$IsCashAllowed")
      */
     protected $IsCashAllowed = false;
 
     /**
      * Is the user information complete ?
-     * @Type("boolean")
      * @SerializedName("$IsCompleted")
      */
     protected $IsCompleted = false;
 
     /**
      * Is the user profile complete ?
-     * @Type("boolean")
      * @SerializedName("$IsProfileCompleted")
      */
     protected $IsProfileCompleted = false;
 
     /**
      * Has the user accepted the Mailjet Rules ?
-     * @Type("boolean")
      * @SerializedName("$IsRulesAccepted")
      */
     protected $IsRulesAccepted = false;
 
     /**
      * Has the user been temporarily blocked ?
-     * @Type("boolean")
      * @SerializedName("$IsTemporaryBlocked")
      */
     protected $IsTemporaryBlocked = false;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @Type("string")
      * @SerializedName("$LastIp")
      */
     protected $LastIp = null;
 
     /**
      * Timestamp when user last logged in.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("$LastLoginAt")
      */
     protected $LastLoginAt = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @Type("string")
      * @SerializedName("$Locale")
      */
     protected $Locale = null;
 
     /**
      * Maximum number of API keys the user is allowed to have.
-     * @Type("string")
      * @SerializedName("$MaxAllowedAPIKeys")
      */
     protected $MaxAllowedAPIKeys = null;
 
     /**
      * Timestamp when user data was last modified.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("$ModifiedAt")
      */
     protected $ModifiedAt = null;
 
     /**
      * New email in case of email change
-     * @Type("string")
      * @SerializedName("$NewEmail")
      */
     protected $NewEmail = null;
 
     /**
      * Timestamp when new password was requested.
-     * @Type("string")
      * @SerializedName("$NewPasswordRequestedAt")
      */
     protected $NewPasswordRequestedAt = null;
 
     /**
      * Timezone for this user
-     * @Type("string")
      * @SerializedName("$Timezone")
      */
     protected $Timezone = null;
 
     /**
      * User's Last UMP score
-     * @Type("string")
      * @SerializedName("$UMPScoreLast")
      */
     protected $UMPScoreLast = null;
 
     /**
      * User's original UMP score
-     * @Type("string")
      * @SerializedName("$UMPScoreOrig")
      */
     protected $UMPScoreOrig = null;
 
     /**
      * User name
-     * @Type("string")
      * @SerializedName("$Username")
      */
     protected $Username = null;
 
     /**
      * Timestamp when user was last warned about hitting his rate limit.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("$WarnedRatelimitAt")
      */
     protected $WarnedRatelimitAt = null;

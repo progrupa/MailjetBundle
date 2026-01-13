@@ -2,139 +2,117 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Expose;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Annotation\Ignore;
+
 
 /**
- * @ExclusionPolicy("all")
+ * 
  */
 class SendEmail
 {
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("FromName")
      */
     private $fromName = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("FromEmail")
      */
     private $fromEmail = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Sender")
      */
     private $sender = null;
     /**
-     * @Expose
-     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Recipient>")
+     * 
      * @SerializedName("Recipients")
      */
     private $recipients = null;
     /**
-     * @Expose
-     * @Type("array<string>")
+     * 
      * @SerializedName("To")
      */
     private $to = null;
     /**
-     * @Expose
-     * @Type("array<string>")
+     * 
      * @SerializedName("Cc")
      */
     private $cc = null;
     /**
-     * @Expose
-     * @Type("array<string>")
+     * 
      * @SerializedName("Bcc")
      */
     private $bcc = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Subject")
      */
     private $subject = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Text-part")
      */
     private $text = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Html-part")
      */
     private $html = null;
     /**
-     * @Expose
-     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Attachment>")
+     * 
      * @SerializedName("Attachments")
      */
     private $attachments = null;
     /**
-     * @Expose
-     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\InlineAttachment>")
+     * 
      * @SerializedName("Inline-attachments")
      */
     private $inlineAttachments = null;
     /**
-     * @Expose
-     * @Type("array")
+     * 
      * @SerializedName("Headers")
      */
     private $headers = null;
     /**
-     * @Expose
-     * @Type("array")
+     * 
      * @SerializedName("Vars")
      */
     private $vars = null;
     /**
-     * @Expose
-     * @Type("integer")
+     * 
      * @SerializedName("Mj-prio")
      */
     private $mjPrio = 2;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Mj-campaign")
      */
     private $mjCampaign = null;
     /**
-     * @Expose
-     * @Type("boolean")
+     * 
      * @SerializedName("Mj-deduplicatecampaign")
      */
     private $mjDeduplicateCampaign = null;
     /**
-     * @Expose
-     * @Type("boolean")
+     * 
      * @SerializedName("Mj-trackopen")
      */
     private $mjTrackOpen = null;
     /**
-     * @Expose
-     * @Type("boolean")
+     * 
      * @SerializedName("Mj-trackclick")
      */
     private $mjTrackClick = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Mj-customid")
      */
     private $mjCustomId = null;
     /**
-     * @Expose
-     * @Type("string")
+     * 
      * @SerializedName("Mj-eventpayload")
      */
     private $mjEventPayload = null;

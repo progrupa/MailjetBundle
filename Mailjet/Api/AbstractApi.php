@@ -12,7 +12,7 @@ namespace Progrupa\MailjetBundle\Mailjet\Api;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 
 abstract class AbstractApi

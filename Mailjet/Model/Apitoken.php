@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Apitoken Model
@@ -18,98 +18,84 @@ class Apitoken extends AbstractModel
     }
 
     /**
-     * @Type("string")
      * @SerializedName("ACL")
      */
     protected $ACL = null;
 
     /**
      * Access rights of this token, in serialized PHP.
-     * @Type("string")
      * @SerializedName("AllowedAccess")
      */
     protected $AllowedAccess = null;
 
     /**
      * Reference to API Key to which this token belongs.
-     * @Type("integer")
      * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
      * Reference to API Key to which this token belongs.
-     * @Type("string")
      * @SerializedName("APIKeyALT")
      */
     protected $APIKeyALT = null;
 
     /**
      * Last registered IP address for this token.
-     * @Type("string")
      * @SerializedName("CatchedIp")
      */
     protected $CatchedIp = null;
 
     /**
      * Timestamp of first use of this token.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("FirstUsedAt")
      */
     protected $FirstUsedAt = null;
 
     /**
      * Is this token still active
-     * @Type("boolean")
      * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Language (locale) for this token.
-     * @Type("string")
      * @SerializedName("Lang")
      */
     protected $Lang = null;
 
     /**
      * Timestamp of last use of this token.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("LastUsedAt")
      */
     protected $LastUsedAt = null;
 
     /**
      * Payload for this token.
-     * @Type("string")
      * @SerializedName("SentData")
      */
     protected $SentData = null;
 
     /**
      * Timezone to use for this token.
-     * @Type("string")
      * @SerializedName("Timezone")
      */
     protected $Timezone = null;
 
     /**
      * Unique identifier for this token, to be used by user.
-     * @Type("string")
      * @SerializedName("Token")
      */
     protected $Token = null;
 
     /**
      * Type of token
-     * @Type("string")
      * @SerializedName("TokenType")
      */
     protected $TokenType = null;
 
     /**
      * Period during which token is considered valid.
-     * @Type("integer")
      * @SerializedName("ValidFor")
      */
     protected $ValidFor = null;

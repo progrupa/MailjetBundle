@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Batchjob Model
@@ -19,126 +19,108 @@ class Batchjob implements ModelInterface
 
     /**
      * Timestamp indicating when batch process was last seen alive.
-     * @Type("integer")
      * @SerializedName("AliveAt")
      */
     protected $AliveAt = null;
 
     /**
      * API key for which this batch job is destined.
-     * @Type("integer")
      * @SerializedName("APIKeyID")
      */
     protected $APIKeyID = null;
 
     /**
      * Value of the APIKey field of the related APIKey resource
-     * @Type("string")
      * @SerializedName("APIKeyALT")
      */
     protected $APIKeyALT = null;
 
     /**
      * Size of processing blocks (e.g. number of contacts to process as one block in a contact import job).
-     * @Type("integer")
      * @SerializedName("Blocksize")
      */
     protected $Blocksize = null;
 
     /**
      * Total number of items to process. (if applicable)
-     * @Type("integer")
      * @SerializedName("Count")
      */
     protected $Count = null;
 
     /**
      * Current item being processed (if applicable)
-     * @Type("integer")
      * @SerializedName("Current")
      */
     protected $Current = null;
 
     /**
      * Reference to more data for this batch job.
-     * @Type("array")
      * @SerializedName("Data")
      */
     protected $Data = null;
 
     /**
      * Number of errors encountered.
-     * @Type("integer")
      * @SerializedName("Errcount")
      */
     protected $Errcount = null;
 
     /**
      * Maximum amount of errors allowed before aborting the job (as a percentage %)
-     * @Type("integer")
      * @SerializedName("ErrTreshold")
      */
     protected $ErrTreshold = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Timestamp indicating when job was processed completely.
-     * @Type("integer")
      * @SerializedName("JobEnd")
      */
     protected $JobEnd = null;
 
     /**
      * Timestamp indicating when job processing was started.
-     * @Type("integer")
      * @SerializedName("JobStart")
      */
     protected $JobStart = null;
 
     /**
      * Type of job.
-     * @Type("string")
      * @SerializedName("JobType")
      */
     protected $JobType = null;
 
     /**
      * Method to use when handling job (e.g. contact import: force, noforce etc.)
-     * @Type("string")
      * @SerializedName("Method")
      */
     protected $Method = null;
 
     /**
      * Reference to object being handled (e.g. contact import: the contactslist ID.)
-     * @Type("integer")
      * @SerializedName("RefId")
      */
     protected $RefId = null;
 
     /**
      * Timestamp when batch job request was submitted.
-     * @Type("integer")
      * @SerializedName("RequestAt")
      */
     protected $RequestAt = null;
 
     /**
      * Current status of the job. Can be set to Abort to cancel treatment.
-     * @Type("string")
      * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * General purpose processing speed limit indicator.
-     * @Type("integer")
      * @SerializedName("Throttle")
      */
     protected $Throttle = null;

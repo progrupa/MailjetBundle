@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class ContactGetContactsLists implements ChildModelInterface
 {
@@ -14,28 +14,24 @@ class ContactGetContactsLists implements ChildModelInterface
 
     /**
      * Is the contact active
-     * @Type("boolean")
      * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Has this contact unsubscribed from the list
-     * @Type("boolean")
      * @SerializedName("IsUnsub")
      */
     protected $IsUnsub = false;
 
     /**
      * ID of the contact list
-     * @Type("integer")
      * @SerializedName("ListID")
      */
     protected $ListID = false;
 
     /**
      * Alternative identification of the contact list
-     * @Type("string")
      * @SerializedName("ListALT")
      */
     protected $ListALT = false;

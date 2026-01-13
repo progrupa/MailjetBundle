@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Contactslistsignup Model
@@ -19,98 +19,84 @@ class Contactslistsignup implements ModelInterface
 
     /**
      * Timestamp when signup confirmation was registered.
-     * @Type("integer")
      * @SerializedName("ConfirmAt")
      */
     protected $ConfirmAt = null;
 
     /**
      * IP address detected during signup confirmation.
-     * @Type("string")
      * @SerializedName("ConfirmIp")
      */
     protected $ConfirmIp = null;
 
     /**
      * Reference to Contact to be signed up.
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Value of the Email field of the related Contact resource
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * Email address to be signed up.
-     * @Type("string")
      * @SerializedName("Email")
      */
     protected $Email = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Contact list to which contact will be subscribed.
-     * @Type("integer")
      * @SerializedName("ListID")
      */
     protected $ListID = null;
 
     /**
      * Value of the Address field of the related ContactsList resource
-     * @Type("string")
      * @SerializedName("ListALT")
      */
     protected $ListALT = null;
 
     /**
      * Reference to recipient to which contact corresponds.
-     * @Type("integer")
      * @SerializedName("Recipient")
      */
     protected $Recipient = null;
 
     /**
      * Timestamp of sign up registration.
-     * @Type("integer")
      * @SerializedName("SignupAt")
      */
     protected $SignupAt = null;
 
     /**
      * IP address detected during signup registration.
-     * @Type("string")
      * @SerializedName("SignupIp")
      */
     protected $SignupIp = null;
 
     /**
      * Unique confirmation key needed for confirmation.
-     * @Type("string")
      * @SerializedName("SignupKey")
      */
     protected $SignupKey = null;
 
     /**
      * Where did the signup request come from.
-     * @Type("string")
      * @SerializedName("Source")
      */
     protected $Source = null;
 
     /**
      * ID of signup request entity (usually widget ID).
-     * @Type("integer")
      * @SerializedName("SourceId")
      */
     protected $SourceId = null;

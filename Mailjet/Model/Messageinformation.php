@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Messageinformation Model
@@ -19,84 +19,72 @@ class Messageinformation extends AbstractModel
 
     /**
      * reference to Campaign to which message belongs.
-     * @Type("integer")
      * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
      * reference to Campaign to which message belongs.
-     * @Type("string")
      * @SerializedName("CampaignALT")
      */
     protected $CampaignALT = null;
 
     /**
      * Number of click track requests.
-     * @Type("integer")
      * @SerializedName("ClickTrackedCount")
      */
     protected $ClickTrackedCount = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * Size of the message.
-     * @Type("integer")
      * @SerializedName("MessageSize")
      */
     protected $MessageSize = null;
 
     /**
      * Number of open track requests.
-     * @Type("integer")
      * @SerializedName("OpenTrackedCount")
      */
     protected $OpenTrackedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @Type("integer")
      * @SerializedName("QueuedCount")
      */
     protected $QueuedCount = null;
 
     /**
      * Timestamp indicating when last message was sent for the campaign.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("SendEndAt")
      */
     protected $SendEndAt = null;
 
     /**
      * Number of actual sent attempts.
-     * @Type("integer")
      * @SerializedName("SentCount")
      */
     protected $SentCount = null;
 
     /**
      * Matched spam assassin rules.
-     * @Type("int")
      * @SerializedName("SpamAssassinRules")
      */
     protected $SpamAssassinRules = null;
 
     /**
      * Spam assassin score for this message.
-     * @Type("float")
      * @SerializedName("SpamAssassinScore")
      */
     protected $SpamAssassinScore = null;
