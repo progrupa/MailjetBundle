@@ -3,10 +3,8 @@
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
 
-use JMS\Serializer\Annotation\Exclude;
 use Symfony\Component\Serializer\Annotation\SerializedName;
-
-use JMS\Serializer\Annotation\VirtualProperty;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 class Attachment
 {
@@ -20,7 +18,7 @@ class Attachment
     private $filename;
     /**
      * @var  string File path
-     *@Exclude
+     *@Ignore
      */
     private $file;
 
@@ -88,7 +86,7 @@ class Attachment
     }
 
     /**
-     * @VirtualProperty
+     * 
      * @SerializedName("content")
      */
     public function getContent()

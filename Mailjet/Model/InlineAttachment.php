@@ -3,10 +3,8 @@
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
 
-use JMS\Serializer\Annotation\Exclude;
 use Symfony\Component\Serializer\Annotation\SerializedName;
-
-use JMS\Serializer\Annotation\VirtualProperty;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 class InlineAttachment
 {
@@ -20,7 +18,7 @@ class InlineAttachment
     private $filename;
     /**
      * @var string
-     * @Exclude()
+     * @Ignore()
      */
     private $content;
 
@@ -83,7 +81,7 @@ class InlineAttachment
     }
 
     /**
-     * @VirtualProperty
+     * 
      * @SerializedName("content")
      */
     public function getEncodedContent()

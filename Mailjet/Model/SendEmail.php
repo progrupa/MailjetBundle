@@ -2,118 +2,117 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Expose;
 use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 
 /**
- * @ExclusionPolicy("all")
+ * 
  */
 class SendEmail
 {
     /**
-     * @Expose
+     * 
      * @SerializedName("FromName")
      */
     private $fromName = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("FromEmail")
      */
     private $fromEmail = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Sender")
      */
     private $sender = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Recipients")
      */
     private $recipients = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("To")
      */
     private $to = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Cc")
      */
     private $cc = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Bcc")
      */
     private $bcc = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Subject")
      */
     private $subject = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Text-part")
      */
     private $text = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Html-part")
      */
     private $html = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Attachments")
      */
     private $attachments = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Inline-attachments")
      */
     private $inlineAttachments = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Headers")
      */
     private $headers = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Vars")
      */
     private $vars = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-prio")
      */
     private $mjPrio = 2;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-campaign")
      */
     private $mjCampaign = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-deduplicatecampaign")
      */
     private $mjDeduplicateCampaign = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-trackopen")
      */
     private $mjTrackOpen = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-trackclick")
      */
     private $mjTrackClick = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-customid")
      */
     private $mjCustomId = null;
     /**
-     * @Expose
+     * 
      * @SerializedName("Mj-eventpayload")
      */
     private $mjEventPayload = null;
