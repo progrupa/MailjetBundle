@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Campaign Model
@@ -19,168 +19,144 @@ class Campaign extends AbstractModel
 
     /**
      * Type of campaign (transactional, campaign)
-     * @Type("integer")
      * @SerializedName("CampaignType")
      */
     protected $CampaignType = null;
 
     /**
      * Number of messages for which click tracking is requested.
-     * @Type("integer")
      * @SerializedName("ClickTracked")
      */
     protected $ClickTracked = null;
 
     /**
      * Custom tag for this campaign, must be unique.
-     * @Type("string")
      * @SerializedName("CustomValue")
      */
     protected $CustomValue = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("FirstMessageID")
      */
     protected $FirstMessageID = null;
 
     /**
      * Sender of the campaign
-     * @Type("integer")
      * @SerializedName("FromID")
      */
     protected $FromID = null;
 
     /**
      * Sender of the campaign
-     * @Type("string")
      * @SerializedName("FromALT")
      */
     protected $FromALT = null;
 
     /**
      * Sender email address for the campaign
-     * @Type("string")
      * @SerializedName("FromEmail")
      */
     protected $FromEmail = null;
 
     /**
      * Sender name for the campaign
-     * @Type("string")
      * @SerializedName("FromName")
      */
     protected $FromName = null;
 
     /**
      * Number of messages containing HTML in this campaign.
-     * @Type("integer")
      * @SerializedName("HasHtmlCount")
      */
     protected $HasHtmlCount = null;
 
     /**
      * Number of messages containing HTML in this campaign.
-     * @Type("integer")
      * @SerializedName("HasTxtCount")
      */
     protected $HasTxtCount = null;
 
     /**
      * Has the campaign been deleted by the user.
-     * @Type("boolean")
      * @SerializedName("IsDeleted")
      */
     protected $IsDeleted = false;
 
     /**
      * Is this campaign marked as starred?
-     * @Type("boolean")
      * @SerializedName("IsStarred")
      */
     protected $IsStarred = false;
 
     /**
      * Reference to contactslist to which campaign is sent.
-     * @Type("integer")
      * @SerializedName("ListID")
      */
     protected $ListID = null;
 
     /**
      * Reference to contactslist to which campaign is sent.
-     * @Type("string")
      * @SerializedName("ListALT")
      */
     protected $ListALT = null;
 
     /**
      * Newletter ID for which the campaign was created.
-     * @Type("integer")
      * @SerializedName("NewsLetterID")
      */
     protected $NewsLetterID = null;
 
     /**
      * Number of messages for which open tracking is requested.
-     * @Type("integer")
      * @SerializedName("OpenTracked")
      */
     protected $OpenTracked = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @Type("integer")
      * @SerializedName("SegmentationID")
      */
     protected $SegmentationID = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @Type("string")
      * @SerializedName("SegmentationALT")
      */
     protected $SegmentationALT = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("SendEndAt")
      */
     protected $SendEndAt = null;
 
     /**
      * Timestamp indicating when first message in this campaign was sent.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("SendStartAt")
      */
     protected $SendStartAt = null;
 
     /**
      * Spam Assassin score for this campaign.
-     * @Type("integer")
      * @SerializedName("SpamassScore")
      */
     protected $SpamassScore = null;
 
     /**
      * Status of this campaign
-     * @Type("integer")
      * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * Campaign subject
-     * @Type("string")
      * @SerializedName("Subject")
      */
     protected $Subject = null;
 
     /**
      * Number of messages for which unsubscribe tracking is requested.
-     * @Type("integer")
      * @SerializedName("UnsubscribeTrackedCount")
      */
     protected $UnsubscribeTrackedCount = null;

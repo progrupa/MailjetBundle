@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Widget Model
@@ -19,77 +19,66 @@ class Widget extends AbstractModel
 
     /**
      * Reference to Sender address for this widget
-     * @Type("integer")
      * @SerializedName("FromID")
      */
     protected $FromID = null;
 
     /**
      * Reference to Sender address for this widget
-     * @Type("string")
      * @SerializedName("FromALT")
      */
     protected $FromALT = null;
 
     /**
      * Is thewidget still active.
-     * @Type("boolean")
      * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Contactslist for which this widget handles subscriptions.
-     * @Type("integer")
      * @SerializedName("ListID")
      */
     protected $ListID = null;
 
     /**
      * Contactslist for which this widget handles subscriptions.
-     * @Type("string")
      * @SerializedName("ListALT")
      */
     protected $ListALT = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @Type("string")
      * @SerializedName("Locale")
      */
     protected $Locale = null;
 
     /**
      * Name for this widget
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Reply To email address for this widhet
-     * @Type("string")
      * @SerializedName("Replyto")
      */
     protected $Replyto = null;
 
     /**
      * Sender name for this widget
-     * @Type("string")
      * @SerializedName("Sendername")
      */
     protected $Sendername = null;
 
     /**
      * Subject for this widget
-     * @Type("string")
      * @SerializedName("Subject")
      */
     protected $Subject = null;
 
     /**
      * Message to send when sending mail for this widget
-     * @Type("integer")
      * @SerializedName("Template")
      */
     protected $Template = null;

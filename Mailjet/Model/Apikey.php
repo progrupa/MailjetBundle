@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Apikey Model
@@ -18,70 +18,60 @@ class Apikey extends AbstractModel
     }
 
     /**
-     * @Type("string")
      * @SerializedName("ACL")
      */
     protected $ACL = null;
 
     /**
      * The unique key for this API Key
-     * @Type("string")
      * @SerializedName("APIKey")
      */
     protected $APIKey = null;
 
     /**
      * Is this API Key active ?
-     * @Type("boolean")
      * @SerializedName("IsActive")
      */
     protected $IsActive = false;
 
     /**
      * Is this API Key the master key for the user
-     * @Type("boolean")
      * @SerializedName("IsMaster")
      */
     protected $IsMaster = false;
 
     /**
      * User readable name for this API Key
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * QuarantineValue
-     * @Type("string")
      * @SerializedName("QuarantineValue")
      */
     protected $QuarantineValue = null;
 
     /**
      * Runlevel, used to indicate data is migrated and reduced performance is expected.
-     * @Type("string")
      * @SerializedName("Runlevel")
      */
     protected $Runlevel = 'Normal';
 
     /**
      * Secret key for this API Key (equivalent to password).
-     * @Type("string")
      * @SerializedName("SecretKey")
      */
     protected $SecretKey = '';
 
     /**
      * Host to be used when tracking clicks, opens, unsub requests for this API Key.
-     * @Type("string")
      * @SerializedName("TrackHost")
      */
     protected $TrackHost = '';
 
     /**
      * User ID for this API key
-     * @Type("integer")
      * @SerializedName("UserID")
      */
     protected $UserID = null;

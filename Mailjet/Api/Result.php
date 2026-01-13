@@ -2,25 +2,21 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 
 class Result extends AbstractResult
 {
     /**
-     * @Type("integer")
      * @SerializedName("Count")
      */
     private $count;
     /**
-     * @Type("integer")
      * @SerializedName("Total")
      */
     private $total;
     /**
-     * @Type("array")
      * @SerializedName("Data")
      */
     private $data;
@@ -78,7 +74,7 @@ class Result extends AbstractResult
     public function deserializeData(SerializerInterface $serializer, $getModel)
     {
         foreach ($this->data as $objectArray) {
-            $obj = $serializer->deserialize($objectArray, $getModel, 'array');
+            $obj = $serializer->denormalize($objectArray, $getModel);
             $this->objects[] = $obj;
         }
     }

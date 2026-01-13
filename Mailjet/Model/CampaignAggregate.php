@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class CampaignAggregate implements ModelInterface
 {
@@ -14,91 +14,78 @@ class CampaignAggregate implements ModelInterface
 
     /**
      * Array of campaign id’s
-     * @Type("array")
      * @SerializedName("CampaignIDS")
      */
     protected $CampaignIDS = null;
 
     /**
      * ID reference to ContactFilter
-     * @Type("integer")
      * @SerializedName("ContactFilterID")
      */
     protected $ContactFilterID = null;
 
     /**
      * Value of the Name field of the related ContactFilter resource
-     * @Type("string")
      * @SerializedName("ContactFilterALT")
      */
     protected $ContactFilterALT = null;
 
     /**
      * ID reference to ContactsList
-     * @Type("integer")
      * @SerializedName("ContactListID")
      */
     protected $ContactListID = null;
 
     /**
      * Value of the Address field of the related ContactsList resource
-     * @Type("string")
      * @SerializedName("ContactListALT")
      */
     protected $ContactListALT = null;
 
     /**
      * Need to recalculate aggregates or not
-     * @Type("boolean")
      * @SerializedName("Final")
      */
     protected $Final = null;
 
     /**
      * Filter campaigns on start date
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("FromDate")
      */
     protected $FromDate = null;
 
     /**
      * Unique ID of the object
-     * @Type("string")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Filter campaigns on keyword in subject
-     * @Type("string")
      * @SerializedName("Keyword")
      */
     protected $Keyword = null;
 
     /**
      * Name of the aggregate
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * ID reference to Sender
-     * @Type("integer")
      * @SerializedName("SenderID")
      */
     protected $SenderID = null;
 
     /**
      * Value of the Email field of the related Sender resource
-     * @Type("string")
      * @SerializedName("SenderALT")
      */
     protected $SenderALT = null;
 
     /**
      * Filter campaigns on end date
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("ToDate")
      */
     protected $ToDate = null;

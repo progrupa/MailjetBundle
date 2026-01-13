@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Messagesentstatistics Model
@@ -19,168 +19,144 @@ class Messagesentstatistics implements ModelInterface
 
     /**
      * When did the message arrive at Mailjet
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("ArrivalTs")
      */
     protected $ArrivalTs = null;
 
     /**
      * Was the message blocked ?
-     * @Type("boolean")
      * @SerializedName("Blocked")
      */
     protected $Blocked = false;
 
     /**
      * Has the message bounced ?
-     * @Type("boolean")
      * @SerializedName("Bounce")
      */
     protected $Bounce = false;
 
     /**
      * Timestamp when the message had bounced. Available if ShowExtraData=True
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("BounceDate")
      */
     protected $BounceDate = null;
 
     /**
      * The reaon why the message bounced. Available if ShowExtraData=True
-     * @Type("string")
      * @SerializedName("BounceReason")
      */
     protected $BounceReason = null;
 
     /**
      * reference to the Campaign to which message belongs.
-     * @Type("integer")
      * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
      * reference to the Campaign to which message belongs.
-     * @Type("string")
      * @SerializedName("CampaignALT")
      */
     protected $CampaignALT = null;
 
     /**
      * Was a click registered for this message ?
-     * @Type("boolean")
      * @SerializedName("Click")
      */
     protected $Click = false;
 
     /**
      * Number of recipients for this campaign.
-     * @Type("integer")
      * @SerializedName("CntRecipients")
      */
     protected $CntRecipients = null;
 
     /**
      * Timestamp for the date of the complaint. Available if ShowExtraData=True
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("ComplaintDate")
      */
     protected $ComplaintDate = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * More details for the message
-     * @Type("string")
      * @SerializedName("Details")
      */
     protected $Details = null;
 
     /**
      * FBLSource. Available if ShowExtraData=True
-     * @Type("string")
      * @SerializedName("FBLSource")
      */
     protected $FBLSource = null;
 
     /**
      * FBLSource. Available if ShowExtraData=True
-     * @Type("integer")
      * @SerializedName("MessageID")
      */
     protected $MessageID = null;
 
     /**
      * Was the message opened ?
-     * @Type("boolean")
      * @SerializedName("Open")
      */
     protected $Open = false;
 
     /**
      * Is the message still in the queue ?
-     * @Type("boolean")
      * @SerializedName("Queued")
      */
     protected $Queued = false;
 
     /**
      * Was the message sent ?
-     * @Type("boolean")
      * @SerializedName("Sent")
      */
     protected $Sent = false;
 
     /**
      * Was a spam complaint registered for this message ?
-     * @Type("boolean")
      * @SerializedName("Spam")
      */
     protected $Spam = false;
 
     /**
      * Current state of the message.
-     * @Type("integer")
      * @SerializedName("StateID")
      */
     protected $StateID = null;
 
     /**
      * Is the current state of the message permanent ?
-     * @Type("boolean")
      * @SerializedName("StatePermanent")
      */
     protected $StatePermanent = false;
 
     /**
      * Current status of the message.
-     * @Type("string")
      * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * The receiver email for the message
-     * @Type("string")
      * @SerializedName("ToEmail")
      */
     protected $ToEmail = null;
 
     /**
      * Was the message unsubed ?
-     * @Type("boolean")
      * @SerializedName("Unsub")
      */
     protected $Unsub = null;

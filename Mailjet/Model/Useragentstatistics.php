@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Useragentstatistics Model
@@ -19,28 +19,24 @@ class Useragentstatistics implements ModelInterface
 
     /**
      * Number of clicks using this browser
-     * @Type("integer")
      * @SerializedName("Count")
      */
     protected $Count = null;
 
     /**
      * User of messages clicked using this browser
-     * @Type("integer")
      * @SerializedName("DistinctCount")
      */
     protected $DistinctCount = null;
 
     /**
      * Platform on which the browser runs.
-     * @Type("string")
      * @SerializedName("Platform")
      */
     protected $Platform = null;
 
     /**
      * Description of user agent
-     * @Type("string")
      * @SerializedName("UserAgent")
      */
     protected $UserAgent = null;

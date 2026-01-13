@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Openstatistics Model
@@ -19,21 +19,18 @@ class Openstatistics implements ModelInterface
 
     /**
      * Number of message open registrations.
-     * @Type("integer")
      * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Delay between delivery and open (in seconds)
-     * @Type("float")
      * @SerializedName("OpenedDelay")
      */
     protected $OpenedDelay = null;
 
     /**
      * Total number of messages processed by Mailjet
-     * @Type("integer")
      * @SerializedName("ProcessedCount")
      */
     protected $ProcessedCount = null;

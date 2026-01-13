@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Trigger Model
@@ -19,42 +19,36 @@ class Trigger implements ModelInterface
 
     /**
      * Timestamp when object was written to the database
-     * @Type("integer")
      * @SerializedName("AddedTs")
      */
     protected $AddedTs = null;
 
     /**
      * Reference to API key to whom this trigger belongs.
-     * @Type("integer")
      * @SerializedName("APIKey")
      */
     protected $APIKey = null;
 
     /**
      * JSON with event details
-     * @Type("string")
      * @SerializedName("Details")
      */
     protected $Details = null;
 
     /**
      * Type of event
-     * @Type("string")
      * @SerializedName("Event")
      */
     protected $Event = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Reference to user to whom this trigger belongs.
-     * @Type("integer")
      * @SerializedName("User")
      */
     protected $User = null;

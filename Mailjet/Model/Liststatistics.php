@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Liststatistics Model
@@ -19,98 +19,84 @@ class Liststatistics extends AbstractModel
 
     /**
      * Number of active list members
-     * @Type("integer")
      * @SerializedName("ActiveCount")
      */
     protected $ActiveCount = null;
 
     /**
      * Number of registered unsubscribe requests. (only calculated when CalcActiveUnsub filter is active)
-     * @Type("integer")
      * @SerializedName("ActiveUnsubscribedCount")
      */
     protected $ActiveUnsubscribedCount = null;
 
     /**
      * List address
-     * @Type("string")
      * @SerializedName("Address")
      */
     protected $Address = null;
 
     /**
      * Number of blocked messages.
-     * @Type("integer")
      * @SerializedName("BlockedCount")
      */
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @Type("integer")
      * @SerializedName("BouncedCount")
      */
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
-     * @Type("integer")
      * @SerializedName("ClickedCount")
      */
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @Type("integer")
      * @SerializedName("DeliveredCount")
      */
     protected $DeliveredCount = null;
 
     /**
      * Is the list Deleted or not ?
-     * @Type("boolean")
      * @SerializedName("IsDeleted")
      */
     protected $IsDeleted = false;
 
     /**
      * Timestamp of last registered activity for this contactlist
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("LastActivityAt")
      */
     protected $LastActivityAt = null;
 
     /**
      * List name
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;
 
     /**
      * Number of message open registrations.
-     * @Type("integer")
      * @SerializedName("OpenedCount")
      */
     protected $OpenedCount = null;
 
     /**
      * Number of spam complaints
-     * @Type("integer")
      * @SerializedName("SpamComplaintCount")
      */
     protected $SpamComplaintCount = null;
 
     /**
      * Number of subscribers
-     * @Type("integer")
      * @SerializedName("SubscriberCount")
      */
     protected $SubscriberCount = null;
 
     /**
      * Number of registered unsubscribe requests.
-     * @Type("integer")
      * @SerializedName("UnsubscribedCount")
      */
     protected $UnsubscribedCount = null;

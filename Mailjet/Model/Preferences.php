@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Preferences Model
@@ -19,35 +19,30 @@ class Preferences implements ModelInterface
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Name of preference
-     * @Type("string")
      * @SerializedName("Key")
      */
     protected $Key = null;
 
     /**
      * ID reference to User
-     * @Type("integer")
      * @SerializedName("UserID")
      */
     protected $UserID = null;
 
     /**
      * Value of the Email field of the related User resource
-     * @Type("string")
      * @SerializedName("UserALT")
      */
     protected $UserALT = null;
 
     /**
      * Value of preference
-     * @Type("string")
      * @SerializedName("Value")
      */
     protected $Value = null;

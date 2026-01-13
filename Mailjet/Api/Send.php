@@ -14,7 +14,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\Recipient;
 use Progrupa\MailjetBundle\Mailjet\Model\SendEmail;
 use Psr\Http\Message\RequestInterface;

@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class ContactsListManageManyContacts implements ChildModelInterface
 {
@@ -19,14 +19,12 @@ class ContactsListManageManyContacts implements ChildModelInterface
 
     /**
      * Action is any of the actions allowed: "addforce", "addnoforce", "remove", "unsub". The action will be applied to the whole list
-     * @Type("string")
      * @SerializedName("Action")
      */
     protected $Action = null;
 
     /**
      * A JSON array. Each contact is represented by its Email, Name, and Properties - a JSON object containing properties values for this contact
-     * @Type("array<Progrupa\MailjetBundle\Mailjet\Model\Contact>")
      * @SerializedName("Contacts")
      */
     protected $Contacts = null;

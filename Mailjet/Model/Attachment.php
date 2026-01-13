@@ -4,19 +4,17 @@ namespace Progrupa\MailjetBundle\Mailjet\Model;
 
 
 use JMS\Serializer\Annotation\Exclude;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 use JMS\Serializer\Annotation\VirtualProperty;
 
 class Attachment
 {
     /**
-     * @Type("string")
      * @SerializedName("Content-type")
      */
     private $contentType;
     /**
-     * @Type("string")
      * @SerializedName("Filename")
      */
     private $filename;

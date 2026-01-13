@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class ContactHistoryData extends AbstractModel
 {
@@ -14,28 +14,24 @@ class ContactHistoryData extends AbstractModel
 
     /**
      * ID reference to Contact
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Value of the Email field of the related Contact resource
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * The data as a string.
-     * @Type("string")
      * @SerializedName("Data")
      */
     protected $Data = null;
 
     /**
      * Name of the history data item.
-     * @Type("string")
      * @SerializedName("Name")
      */
     protected $Name = null;

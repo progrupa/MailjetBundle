@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Newsletter Model
@@ -19,252 +19,216 @@ class Newsletter extends AbstractModel
 
     /**
      * Fraction of AXTesting in percentage. Zero means remainder
-     * @Type("float")
      * @SerializedName("AXFraction")
      */
     protected $AXFraction = null;
 
     /**
      * Display name for the fraction
-     * @Type("string")
      * @SerializedName("AXFractionName ")
      */
     protected $AXFractionName = null;
 
     /**
      * A reference to AXTesting object
-     * @Type("integer")
      * @SerializedName("AXTesting")
      */
     protected $AXTesting = null;
 
     /**
      * Callback URL
-     * @Type("string")
      * @SerializedName("DeliveredCount")
      */
     protected $Callback = null;
 
     /**
      * Reference to campaign created for this newsletter.
-     * @Type("integer")
      * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
      * Reference to campaign created for this newsletter.
-     * @Type("string")
      * @SerializedName("CampaignALT")
      */
     protected $CampaignALT = null;
 
     /**
      * Reference to contacts list to which newsletter will be sent.
-     * @Type("integer")
      * @SerializedName("ContactsListID")
      */
     protected $ContactsListID = null;
 
     /**
      * Reference to contacts list to which newsletter will be sent.
-     * @Type("string")
      * @SerializedName("ContactsListALT")
      */
     protected $ContactsListALT = null;
 
     /**
      * When the newsletter was delivered.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("DeliveredAt")
      */
     protected $DeliveredAt = null;
 
     /**
      * Edit mode for newsletter
-     * @Type("string")
      * @SerializedName("EditMode")
      */
     protected $EditMode = null;
 
     /**
      * Edit type
-     * @Type("string")
      * @SerializedName("EditType")
      */
     protected $EditType = null;
 
     /**
      * Footer type to generate.
-     * @Type("string")
      * @SerializedName("Footer")
      */
     protected $Footer = null;
 
     /**
      * Address to use in footer.
-     * @Type("string")
      * @SerializedName("FooterAddress")
      */
     protected $FooterAddress = null;
 
     /**
      * What kind of footer to generate.
-     * @Type("integer")
      * @SerializedName("FooterWYSIWYGType")
      */
     protected $FooterWYSIWYGType = null;
 
     /**
      * Filename to use in header
-     * @Type("string")
      * @SerializedName("HeaderFilename")
      */
     protected $HeaderFilename = null;
 
     /**
      * Link used in header
-     * @Type("string")
      * @SerializedName("HeaderLink")
      */
     protected $HeaderLink = null;
 
     /**
      * Text of header
-     * @Type("string")
      * @SerializedName("HeaderText")
      */
     protected $HeaderText = null;
 
     /**
      * URL used in header
-     * @Type("string")
      * @SerializedName("HeaderUrl")
      */
     protected $HeaderUrl = null;
 
     /**
      * IP address used to create newsletter
-     * @Type("string")
      * @SerializedName("Ip")
      */
     protected $Ip = null;
 
     /**
      * Has the newsletter been handled by Mailjet ?
-     * @Type("boolean")
      * @SerializedName("IsHandled")
      */
     protected $IsHandled = false;
 
     /**
      * Is this a starred newsletter ?
-     * @Type("boolean")
      * @SerializedName("IsStarred")
      */
     protected $IsStarred = false;
 
     /**
      * Does the newsletter include a text version ?
-     * @Type("boolean")
      * @SerializedName("IsTextPartIncluded")
      */
     protected $IsTextPartIncluded = false;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @Type("string")
      * @SerializedName("Locale")
      */
     protected $Locale = null;
 
     /**
      * Timestamp when newsletter content was last modified.
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("ModifiedAt")
      */
     protected $ModifiedAt = null;
 
     /**
      * Type of permalink that should be added to the newsletter.
-     * @Type("string")
      * @SerializedName("Permalink")
      */
     protected $Permalink = null;
 
     /**
      * Host for the permalink
-     * @Type("string")
      * @SerializedName("PermalinkHost")
      */
     protected $PermalinkHost = null;
 
     /**
      * ?
-     * @Type("string")
      * @SerializedName("PermalinkWYSIWYGType")
      */
     protected $PermalinkWYSIWYGType = null;
 
     /**
      * ?
-     * @Type("integer")
      * @SerializedName("PolitenessMode")
      */
     protected $PolitenessMode = null;
 
     /**
      * Reply-To address for the mail.
-     * @Type("string")
      * @SerializedName("ReplyEmail")
      */
     protected $ReplyEmail = null;
 
     /**
      * ID reference to ContactFilter
-     * @Type("integer")
      * @SerializedName("SegmentationID")
      */
     protected $SegmentationID = null;
 
     /**
      * Value of the Name field of the related ContactFilter resource
-     * @Type("string")
      * @SerializedName("SegmentationALT")
      */
     protected $SegmentationALT = null;
 
     /**
      * Sender
-     * @Type("integer")
      * @SerializedName("Sender")
      */
     protected $Sender = null;
 
     /**
      * Sender email address in headers
-     * @Type("string")
      * @SerializedName("SenderEmail")
      */
     protected $SenderEmail = null;
 
     /**
      * Name of the sender in Sender headers
-     * @Type("string")
      * @SerializedName("SenderName")
      */
     protected $SenderName = null;
 
     /**
      * Status of the newsletter
-     * @Type("integer")
      * @SerializedName("Status")
      */
     protected $Status = null;
 
     /**
      * Newsletter subject
-     * @Type("string")
      * @SerializedName("Subject")
      */
     protected $Subject = null;
@@ -272,28 +236,24 @@ class Newsletter extends AbstractModel
     /**
      * Template from which this newsletter was generated, or as which it was last
      * saved.
-     * @Type("integer")
      * @SerializedName("TemplateID")
      */
     protected $TemplateID = null;
 
     /**
      * Address used for testing
-     * @Type("string")
      * @SerializedName("TestAddress")
      */
     protected $TestAddress = null;
 
     /**
      * Newsletter title
-     * @Type("string")
      * @SerializedName("Title")
      */
     protected $Title = null;
 
     /**
      * URL where an online version of the newsletter can be found [?]
-     * @Type("string")
      * @SerializedName("Url")
      */
     protected $Url = null;

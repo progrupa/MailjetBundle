@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 /**
  * Bouncestatistics Model
@@ -19,63 +19,54 @@ class Bouncestatistics implements ModelInterface
 
     /**
      * Timestamp of bounce
-     * @Type("DateTime<'Y-m-d\TH:i:sP'>")
      * @SerializedName("BouncedAt")
      */
     protected $BouncedAt = null;
 
     /**
      * Reference to Campaign for which bounce occurred
-     * @Type("integer")
      * @SerializedName("CampaignID")
      */
     protected $CampaignID = null;
 
     /**
      * Reference to Campaign for which bounce occurred
-     * @Type("string")
      * @SerializedName("CampaignALT")
      */
     protected $CampaignALT = null;
 
     /**
      * Reference to Contact for which bounce occurred
-     * @Type("integer")
      * @SerializedName("ContactID")
      */
     protected $ContactID = null;
 
     /**
      * Reference to Contact for which bounce occurred
-     * @Type("string")
      * @SerializedName("ContactALT")
      */
     protected $ContactALT = null;
 
     /**
      * Unique numerical ID for this object
-     * @Type("integer")
      * @SerializedName("ID")
      */
     protected $ID = null;
 
     /**
      * Is contact blocked
-     * @Type("boolean")
      * @SerializedName("IsBlocked")
      */
     protected $IsBlocked = false;
 
     /**
      * Is this a permanent bounce
-     * @Type("boolean")
      * @SerializedName("IsStatePermanent")
      */
     protected $IsStatePermanent = false;
 
     /**
      * Current state of the message causing the bounce
-     * @Type("integer")
      * @SerializedName("StateID")
      */
     protected $StateID = null;

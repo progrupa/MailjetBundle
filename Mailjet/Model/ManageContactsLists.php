@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+
 
 class ManageContactsLists implements ModelInterface
 {
@@ -13,7 +13,6 @@ class ManageContactsLists implements ModelInterface
     }
 
     /**
-     * @Type("array<integer, string>")
      * @SerializedName("ContactsLists")
      */
     protected $ContactsLists;
