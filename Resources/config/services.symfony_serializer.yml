@@ -5,6 +5,10 @@ services:
             - '@mailjet.serializer.metadata_factory'
             - '@mailjet.serializer.name_converter'
             - '@property_accessor'
+            - ~
+            - ~
+            - ~
+            - { skip_null_values: true }
         tags:
             - { name: 'serializer.normalizer', priority: -900 }
 
