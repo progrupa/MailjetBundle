@@ -7,32 +7,22 @@ use Progrupa\MailjetBundle\Mailjet\Model\Contact;
 use Progrupa\MailjetBundle\Mailjet\Model\Contactslist;
 use Progrupa\MailjetBundle\Mailjet\Model\ContactsListManageManyContacts;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-/**
- * Class DefaultController
- * @package Progrupa\MailjetBundle\Controller
- * @Route("/mailjet")
- */
+#[Route('/mailjet')]
 class DefaultController extends AbstractController
 {
-    private $mailjetFactory;
-    private $translator;
-
-    public function __construct(Factory $mailjetFactory, TranslatorInterface $translator)
-    {
-        $this->mailjetFactory = $mailjetFactory;
-        $this->translator = $translator;
+    public function __construct(
+        private Factory $mailjetFactory,
+        private TranslatorInterface $translator,
+    ) {
     }
 
-    /**
-     * @Route("/unsubscribe/{contactListId}/{contactEmail}", name="progrupa_mailjet_unsubscribe", defaults={"contactEmail": null})
-     * @Template()
-     */
-    public function unsubscribeAction(Request $request, $contactListId, $contactEmail)
+    #[Route('/unsubscribe/{contactListId}/{contactEmail}', name: 'progrupa_mailjet_unsubscribe', defaults: ['contactEmail' => null])]
+    public function unsubscribeAction(Request $request, $contactListId, $contactEmail): Response
     {
         /** @var Contact $contact */
         $contact = $this->mailjetFactory->create(Contact::class)->get($contactEmail)->getObject();
@@ -55,9 +45,9 @@ class DefaultController extends AbstractController
         $unsubApi->setParent($contactList);
         $unsubApi->update($unsubAction);
 
-        return [
+        return $this->render('@ProgrupaMailjet/Default/unsubscribe.html.twig', [
             'contact' => $contact,
             'contactList' => $contactList,
-        ];
+        ]);
     }
 }
