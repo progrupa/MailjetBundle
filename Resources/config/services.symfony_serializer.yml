@@ -18,9 +18,7 @@ services:
             - '@mailjet.serializer.annotation_loader'
 
     mailjet.serializer.annotation_loader:
-        class: Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader
-        arguments:
-            - '@annotation_reader'
+        class: Symfony\Component\Serializer\Mapping\Loader\AttributeLoader
 
     mailjet.serializer.name_converter:
         class: Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter
