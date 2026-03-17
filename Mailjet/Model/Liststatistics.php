@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,86 +19,86 @@ class Liststatistics extends AbstractModel
 
     /**
      * Number of active list members
-     * @SerializedName("ActiveCount")
      */
+    #[SerializedName('ActiveCount')]
     protected $ActiveCount = null;
 
     /**
      * Number of registered unsubscribe requests. (only calculated when CalcActiveUnsub filter is active)
-     * @SerializedName("ActiveUnsubscribedCount")
      */
+    #[SerializedName('ActiveUnsubscribedCount')]
     protected $ActiveUnsubscribedCount = null;
 
     /**
      * List address
-     * @SerializedName("Address")
      */
+    #[SerializedName('Address')]
     protected $Address = null;
 
     /**
      * Number of blocked messages.
-     * @SerializedName("BlockedCount")
      */
+    #[SerializedName('BlockedCount')]
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @SerializedName("BouncedCount")
      */
+    #[SerializedName('BouncedCount')]
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $DeliveredCount = null;
 
     /**
      * Is the list Deleted or not ?
-     * @SerializedName("IsDeleted")
      */
+    #[SerializedName('IsDeleted')]
     protected $IsDeleted = false;
 
     /**
      * Timestamp of last registered activity for this contactlist
-     * @SerializedName("LastActivityAt")
      */
+    #[SerializedName('LastActivityAt')]
     protected $LastActivityAt = null;
 
     /**
      * List name
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Number of message open registrations.
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * Number of spam complaints
-     * @SerializedName("SpamComplaintCount")
      */
+    #[SerializedName('SpamComplaintCount')]
     protected $SpamComplaintCount = null;
 
     /**
      * Number of subscribers
-     * @SerializedName("SubscriberCount")
      */
+    #[SerializedName('SubscriberCount')]
     protected $SubscriberCount = null;
 
     /**
      * Number of registered unsubscribe requests.
-     * @SerializedName("UnsubscribedCount")
      */
+    #[SerializedName('UnsubscribedCount')]
     protected $UnsubscribedCount = null;
 
     /**

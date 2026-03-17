@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,86 +19,86 @@ class Newslettertemplate extends AbstractModel
 
     /**
      * Category for this newsletter
-     * @SerializedName("CategoryID")
      */
+    #[SerializedName('CategoryID')]
     protected $CategoryID = null;
 
     /**
      * Footer type to generate.
-     * @SerializedName("Footer")
      */
+    #[SerializedName('Footer')]
     protected $Footer = null;
 
     /**
      * Address to use in footer.
-     * @SerializedName("FooterAddress")
      */
+    #[SerializedName('FooterAddress')]
     protected $FooterAddress = null;
 
     /**
      * What kind of footer to generate.
-     * @SerializedName("FooterWYSIWYGType")
      */
+    #[SerializedName('FooterWYSIWYGType')]
     protected $FooterWYSIWYGType = null;
 
     /**
      * Filename to use in header
-     * @SerializedName("HeaderFilename")
      */
+    #[SerializedName('HeaderFilename')]
     protected $HeaderFilename = null;
 
     /**
      * Link used in header
-     * @SerializedName("HeaderLink")
      */
+    #[SerializedName('HeaderLink')]
     protected $HeaderLink = null;
 
     /**
      * Text of header
-     * @SerializedName("HeaderText")
      */
+    #[SerializedName('HeaderText')]
     protected $HeaderText = null;
 
     /**
      * URL used in header
-     * @SerializedName("HeaderUrl")
      */
+    #[SerializedName('HeaderUrl')]
     protected $HeaderUrl = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("Locale")
      */
+    #[SerializedName('Locale')]
     protected $Locale = null;
 
     /**
      * Name for this newsletter
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Type of permalink that should be added to the newsletter.
-     * @SerializedName("Permalink")
      */
+    #[SerializedName('Permalink')]
     protected $Permalink = null;
 
     /**
      * ?
-     * @SerializedName("PermalinkWYSIWYGType")
      */
+    #[SerializedName('PermalinkWYSIWYGType')]
     protected $PermalinkWYSIWYGType = null;
 
     /**
      * When specified in POST or PUT, copy data from this newsletter.
-     * @SerializedName("SourceNewsLetterID")
      */
+    #[SerializedName('SourceNewsLetterID')]
     protected $SourceNewsLetterID = null;
 
     /**
      * Status of the newsletter template
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**

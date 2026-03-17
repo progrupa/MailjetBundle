@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,134 +19,134 @@ class User extends AbstractModel
 
     /**
      * Reference to administrator assigned to this user
-     * @SerializedName("ACL")
      */
+    #[SerializedName('ACL')]
     protected $ACL = null;
 
     /**
      * Email address of user
-     * @SerializedName("$Email")
      */
+    #[SerializedName('$Email')]
     protected $Email = null;
 
     /**
      * Is the user activated
-     * @SerializedName("$IsActivated")
      */
+    #[SerializedName('$IsActivated')]
     protected $IsActivated = false;
 
     /**
      * Is the user banned ?
-     * @SerializedName("$IsBanned")
      */
+    #[SerializedName('$IsBanned')]
     protected $IsBanned = false;
 
     /**
      * Is the user part of the Beta testers [?]
-     * @SerializedName("$IsBeta")
      */
+    #[SerializedName('$IsBeta')]
     protected $IsBeta = false;
 
     /**
      * Is the user allowed to pay cash ?
-     * @SerializedName("$IsCashAllowed")
      */
+    #[SerializedName('$IsCashAllowed')]
     protected $IsCashAllowed = false;
 
     /**
      * Is the user information complete ?
-     * @SerializedName("$IsCompleted")
      */
+    #[SerializedName('$IsCompleted')]
     protected $IsCompleted = false;
 
     /**
      * Is the user profile complete ?
-     * @SerializedName("$IsProfileCompleted")
      */
+    #[SerializedName('$IsProfileCompleted')]
     protected $IsProfileCompleted = false;
 
     /**
      * Has the user accepted the Mailjet Rules ?
-     * @SerializedName("$IsRulesAccepted")
      */
+    #[SerializedName('$IsRulesAccepted')]
     protected $IsRulesAccepted = false;
 
     /**
      * Has the user been temporarily blocked ?
-     * @SerializedName("$IsTemporaryBlocked")
      */
+    #[SerializedName('$IsTemporaryBlocked')]
     protected $IsTemporaryBlocked = false;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("$LastIp")
      */
+    #[SerializedName('$LastIp')]
     protected $LastIp = null;
 
     /**
      * Timestamp when user last logged in.
-     * @SerializedName("$LastLoginAt")
      */
+    #[SerializedName('$LastLoginAt')]
     protected $LastLoginAt = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("$Locale")
      */
+    #[SerializedName('$Locale')]
     protected $Locale = null;
 
     /**
      * Maximum number of API keys the user is allowed to have.
-     * @SerializedName("$MaxAllowedAPIKeys")
      */
+    #[SerializedName('$MaxAllowedAPIKeys')]
     protected $MaxAllowedAPIKeys = null;
 
     /**
      * Timestamp when user data was last modified.
-     * @SerializedName("$ModifiedAt")
      */
+    #[SerializedName('$ModifiedAt')]
     protected $ModifiedAt = null;
 
     /**
      * New email in case of email change
-     * @SerializedName("$NewEmail")
      */
+    #[SerializedName('$NewEmail')]
     protected $NewEmail = null;
 
     /**
      * Timestamp when new password was requested.
-     * @SerializedName("$NewPasswordRequestedAt")
      */
+    #[SerializedName('$NewPasswordRequestedAt')]
     protected $NewPasswordRequestedAt = null;
 
     /**
      * Timezone for this user
-     * @SerializedName("$Timezone")
      */
+    #[SerializedName('$Timezone')]
     protected $Timezone = null;
 
     /**
      * User's Last UMP score
-     * @SerializedName("$UMPScoreLast")
      */
+    #[SerializedName('$UMPScoreLast')]
     protected $UMPScoreLast = null;
 
     /**
      * User's original UMP score
-     * @SerializedName("$UMPScoreOrig")
      */
+    #[SerializedName('$UMPScoreOrig')]
     protected $UMPScoreOrig = null;
 
     /**
      * User name
-     * @SerializedName("$Username")
      */
+    #[SerializedName('$Username')]
     protected $Username = null;
 
     /**
      * Timestamp when user was last warned about hitting his rate limit.
-     * @SerializedName("$WarnedRatelimitAt")
      */
+    #[SerializedName('$WarnedRatelimitAt')]
     protected $WarnedRatelimitAt = null;
 
     /**

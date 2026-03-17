@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class CampaignGraphStatistics implements ModelInterface
@@ -14,38 +14,38 @@ class CampaignGraphStatistics implements ModelInterface
 
     /**
      * Number of clicks
-     * @SerializedName("Clickcount")
      */
+    #[SerializedName('Clickcount')]
     protected $Clickcount = null;
 
     /**
      * Unique ID of the object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Number of opened messaged
-     * @SerializedName("Opencount")
      */
+    #[SerializedName('Opencount')]
     protected $Opencount = null;
 
     /**
      * Number of spam reports
-     * @SerializedName("Spamcount")
      */
+    #[SerializedName('Spamcount')]
     protected $Spamcount = null;
 
     /**
      * The resolution for the statistics. Start of campaign=0, steps of 15 or 30 mins
-     * @SerializedName("Tick")
      */
+    #[SerializedName('Tick')]
     protected $Tick = null;
 
     /**
      * Number of unsubscribed contacts
-     * @SerializedName("Unsubcount")
      */
+    #[SerializedName('Unsubcount')]
     protected $Unsubcount = null;
 
     /**

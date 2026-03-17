@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,14 +19,14 @@ class Manycontacts implements ModelInterface
 
     /**
      * A JSON Array with properties ListID - valid list_id and Action - one of the values "addforce", "addnoforce", "remove", "unsub".
-     * @SerializedName("ContactsLists")
      */
+    #[SerializedName('ContactsLists')]
     protected $ContactsLists;
 
     /**
      * A JSON array. Each contact is represented by its Email, Name and Properties - a JSON object containing properties values for this contact
-     * @SerializedName("Contacts")
      */
+    #[SerializedName('Contacts')]
     protected $Contacts;
 
     /**

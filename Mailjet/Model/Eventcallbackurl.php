@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,56 +19,56 @@ class Eventcallbackurl implements ModelInterface
 
     /**
      * API Key for which the callback URL is registered.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $APIKeyID = null;
 
     /**
      * API Key for which the callback URL is registered.
-     * @SerializedName("APIKeyALT")
      */
+    #[SerializedName('APIKeyALT')]
     protected $APIKeyALT = null;
 
     /**
      * Numerical event type.
-     * @SerializedName("EventType")
      */
+    #[SerializedName('EventType')]
     protected $EventType = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Is this a backup URL ?
-     * @SerializedName("IsBackup")
      */
+    #[SerializedName('IsBackup')]
     protected $IsBackup = false;
 
     /**
      * Status of the event
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**
      * Timestamp indicating when this object was last modified.
-     * @SerializedName("UpdatedAt")
      */
+    #[SerializedName('UpdatedAt')]
     protected $UpdatedAt = null;
 
     /**
      * URL to use
-     * @SerializedName("Url")
      */
+    #[SerializedName('Url')]
     protected $Url = null;
 
     /**
      * Event API version for which this URL is valid.
-     * @SerializedName("Version")
      */
+    #[SerializedName('Version')]
     protected $Version = null;
 
     /**

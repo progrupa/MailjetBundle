@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,44 +19,44 @@ class Widgetcustomvalue implements ModelInterface
 
     /**
      * APIKey to which the widget and custom value belongs
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $APIKeyID = null;
 
     /**
      * APIKey to which the widget and custom value belongs
-     * @SerializedName("APIKeyALT")
      */
+    #[SerializedName('APIKeyALT')]
     protected $APIKeyALT = null;
 
     /**
      * Should the value be displayed
-     * @SerializedName("Display")
      */
+    #[SerializedName('Display')]
     protected $Display = false;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Name of the custom value
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Value of the custom value
-     * @SerializedName("Value")
      */
+    #[SerializedName('Value')]
     protected $Value = null;
 
     /**
      * Widget for which the value is registered.
-     * @SerializedName("WidgetID")
      */
+    #[SerializedName('WidgetID')]
     protected $WidgetID = null;
 
     /**

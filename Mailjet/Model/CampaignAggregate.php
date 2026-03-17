@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class CampaignAggregate implements ModelInterface
@@ -14,80 +14,80 @@ class CampaignAggregate implements ModelInterface
 
     /**
      * Array of campaign id’s
-     * @SerializedName("CampaignIDS")
      */
+    #[SerializedName('CampaignIDS')]
     protected $CampaignIDS = null;
 
     /**
      * ID reference to ContactFilter
-     * @SerializedName("ContactFilterID")
      */
+    #[SerializedName('ContactFilterID')]
     protected $ContactFilterID = null;
 
     /**
      * Value of the Name field of the related ContactFilter resource
-     * @SerializedName("ContactFilterALT")
      */
+    #[SerializedName('ContactFilterALT')]
     protected $ContactFilterALT = null;
 
     /**
      * ID reference to ContactsList
-     * @SerializedName("ContactListID")
      */
+    #[SerializedName('ContactListID')]
     protected $ContactListID = null;
 
     /**
      * Value of the Address field of the related ContactsList resource
-     * @SerializedName("ContactListALT")
      */
+    #[SerializedName('ContactListALT')]
     protected $ContactListALT = null;
 
     /**
      * Need to recalculate aggregates or not
-     * @SerializedName("Final")
      */
+    #[SerializedName('Final')]
     protected $Final = null;
 
     /**
      * Filter campaigns on start date
-     * @SerializedName("FromDate")
      */
+    #[SerializedName('FromDate')]
     protected $FromDate = null;
 
     /**
      * Unique ID of the object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Filter campaigns on keyword in subject
-     * @SerializedName("Keyword")
      */
+    #[SerializedName('Keyword')]
     protected $Keyword = null;
 
     /**
      * Name of the aggregate
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * ID reference to Sender
-     * @SerializedName("SenderID")
      */
+    #[SerializedName('SenderID')]
     protected $SenderID = null;
 
     /**
      * Value of the Email field of the related Sender resource
-     * @SerializedName("SenderALT")
      */
+    #[SerializedName('SenderALT')]
     protected $SenderALT = null;
 
     /**
      * Filter campaigns on end date
-     * @SerializedName("ToDate")
      */
+    #[SerializedName('ToDate')]
     protected $ToDate = null;
 
     /**

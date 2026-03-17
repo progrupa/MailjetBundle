@@ -2,23 +2,17 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\SerializerInterface;
 use Progrupa\MailjetBundle\Mailjet\Model\ModelInterface;
 
 class Result extends AbstractResult
 {
-    /**
-     * @SerializedName("Count")
-     */
+    #[SerializedName('Count')]
     private $count;
-    /**
-     * @SerializedName("Total")
-     */
+    #[SerializedName('Total')]
     private $total;
-    /**
-     * @SerializedName("Data")
-     */
+    #[SerializedName('Data')]
     private $data;
     /** @var  array */
     private $objects;

@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,69 +19,69 @@ class Metadata implements ModelInterface
 
     /**
      * A list of the supported actions
-     * @SerializedName("Actions")
      */
+    #[SerializedName('Actions')]
     protected $Actions = null;
 
     /**
      * Current API version
-     * @SerializedName("APIVersion")
      */
+    #[SerializedName('APIVersion')]
     protected $APIVersion = null;
 
     /**
      * Description of resource.
-     * @SerializedName("Description")
      */
+    #[SerializedName('Description')]
     protected $Description = null;
 
     /**
      * Applicable filters for this resource
-     * @SerializedName("Filters")
      */
+    #[SerializedName('Filters')]
     protected $Filters = null;
 
     /**
      * Is the resource inherently read-only
-     * @SerializedName("IsReadOnly")
      */
+    #[SerializedName('IsReadOnly')]
     protected $IsReadOnly = false;
 
     /**
      * Unique name of the resource
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * List of allowed operations in private API
-     * @SerializedName("PrivateOperations")
      */
+    #[SerializedName('PrivateOperations')]
     protected $PrivateOperations = null;
 
     /**
      * List of properties for this resource.
-     * @SerializedName("Properties")
      */
+    #[SerializedName('Properties')]
     protected $Properties = null;
 
     /**
      * List of allowed operations in public API
-     * @SerializedName("PublicOperations")
      */
+    #[SerializedName('PublicOperations')]
     protected $PublicOperations = null;
 
     /**
      * Information about the fields on which a list of this resource can be sorted.
-     * @SerializedName("SortInfo")
      */
+    #[SerializedName('SortInfo')]
     protected $SortInfo = null;
 
     /**
      * Name of the property which can be used as an alternative unique key in the URL
      * (other than the ID)
-     * @SerializedName("UniqueKey")
      */
+    #[SerializedName('UniqueKey')]
     protected $UniqueKey = null;
 
     /**

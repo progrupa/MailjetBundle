@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,146 +19,146 @@ class Message implements ModelInterface
 
     /**
      * Timestamp indicated when the message arrived at Mailjet
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $ArrivedAt = null;
 
     /**
      * Number of attachments detected in the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $AttachmentCount = null;
 
     /**
      * Number of attempts made to deliver the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $AttemptCount = null;
 
     /**
      * Reference to campaign in which this message is delivered.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $CampaignID = null;
 
     /**
      * Reference to campaign in which this message is delivered.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $CampaignALT = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $ContactALT = null;
 
     /**
      * Delay between arrival and delivery [?]
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $Delay = null;
 
     /**
      * Reference to destination domain
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $Destination = null;
 
     /**
      * Time spent processing the text of the message (milliseconds)
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $FilterTime = null;
 
     /**
      * Reference to the sender of the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $FromID = null;
 
     /**
      * Reference to the sender of the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $FromALT = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $ID = null;
 
     /**
      * Was click tracking requested for this message ?
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $IsClickTracked = false;
 
     /**
      * Did the message contain a HTML part ?
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $IsHTMLPartIncluded = false;
 
     /**
      * Was open tracking requested for this message ?
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $IsOpenTracked = false;
 
     /**
      * Did the message contain a text part ?
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $IsTextPartIncluded = false;
 
     /**
      * Was unsubscription tracking requested for this message ?
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $IsUnsubTracked = false;
 
     /**
      * Size of the message (in bytes)
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $MessageSize = null;
 
     /**
      * Spam assassin score for this message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $SpamassassinScore = null;
 
     /**
      * Matched spam assassin rules.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $SpamassRules = null;
 
     /**
      * Current state of the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $StateID = null;
 
     /**
      * Is the state of the message permanent (i.e. will no longer change)
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $StatePermanent = false;
 
     /**
      * Status of the message.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $Status = null;
 
     /**

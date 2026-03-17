@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,14 +19,14 @@ class Messagehistory implements ModelInterface
 
     /**
      * More details for the message
-     * @SerializedName("Comment")
      */
+    #[SerializedName('Comment')]
     protected $Comment = null;
 
     /**
      * Timestamp when event was registered.
-     * @SerializedName("EventAt")
      */
+    #[SerializedName('EventAt')]
     protected $EventAt = null;
 
     /**
@@ -38,20 +38,20 @@ class Messagehistory implements ModelInterface
      * - bounced
      * - blocked
      * - unsub
-     * @SerializedName("EventType")
      */
+    #[SerializedName('EventType')]
     protected $EventType = 'sent';
 
     /**
      * The state of the message
-     * @SerializedName("State")
      */
+    #[SerializedName('State')]
     protected $State = null;
 
     /**
      * Useragent used to trigger the event (when applicable)
-     * @SerializedName("Useragent")
      */
+    #[SerializedName('Useragent')]
     protected $Useragent = null;
 
     /**

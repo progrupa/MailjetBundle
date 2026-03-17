@@ -3,23 +3,17 @@
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
-use Symfony\Component\Serializer\Annotation\Ignore;
+use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Serializer\Attribute\Ignore;
 
 class Attachment
 {
-    /**
-     * @SerializedName("Content-type")
-     */
+    #[SerializedName('Content-type')]
     private $contentType;
-    /**
-     * @SerializedName("Filename")
-     */
+    #[SerializedName('Filename')]
     private $filename;
-    /**
-     * @var  string File path
-     *@Ignore
-     */
+    /** @var string File path */
+    #[Ignore]
     private $file;
 
     public function __construct($file = null, $fileName = null)
@@ -85,10 +79,7 @@ class Attachment
         return $this;
     }
 
-    /**
-     * 
-     * @SerializedName("content")
-     */
+    #[SerializedName('content')]
     public function getContent()
     {
         return base64_encode(file_get_contents($this->file));

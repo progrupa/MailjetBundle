@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,50 +19,50 @@ class Clickstatistics implements ModelInterface
 
     /**
      * Timestamp of registration of click.
-     * @SerializedName("ClickedAt")
      */
+    #[SerializedName('ClickedAt')]
     protected $ClickedAt = null;
 
     /**
      * Delay between registration of click and sending of message.
-     * @SerializedName("ClickedDelay")
      */
+    #[SerializedName('ClickedDelay')]
     protected $ClickedDelay = null;
 
     /**
      * Contact for which click was registered.
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Contact for which click was registered.
-     * @SerializedName("ContactALT")
      */
+    #[SerializedName('ContactALT')]
     protected $ContactALT = null;
 
     /**
      * Unique numerical ID for the click event
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Reference to Message for which click was registered.
-     * @SerializedName("MessageID")
      */
+    #[SerializedName('MessageID')]
     protected $MessageID = null;
 
     /**
      * URL that was clicked
-     * @SerializedName("Url")
      */
+    #[SerializedName('Url')]
     protected $Url = null;
 
     /**
      * User agent that was used to open the URL.
-     * @SerializedName("UserAgent")
      */
+    #[SerializedName('UserAgent')]
     protected $UserAgent = null;
 
     /**

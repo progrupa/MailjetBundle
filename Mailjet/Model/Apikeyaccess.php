@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,80 +19,80 @@ class Apikeyaccess extends AbstractModel
 
     /**
      * JSON describing access rights.
-     * @SerializedName("AllowedAccess")
      */
+    #[SerializedName('AllowedAccess')]
     protected $AllowedAccess = null;
 
     /**
      * API key for which the rights are descibed.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $APIKeyID = null;
 
     /**
      * API key for which the rights are descibed.
-     * @SerializedName("APIKeyALT")
      */
+    #[SerializedName('APIKeyALT')]
     protected $APIKeyALT = null;
 
     /**
      * Custom name for this set of rights
-     * @SerializedName("CustomName")
      */
+    #[SerializedName('CustomName')]
     protected $CustomName = null;
 
     /**
      * Is this object active (rights enforced) or not
-     * @SerializedName("IsActive")
      */
+    #[SerializedName('IsActive')]
     protected $IsActive = false;
 
     /**
      * Timestamp of last registered activity for this API Key
-     * @SerializedName("LastActivityAt")
      */
+    #[SerializedName('LastActivityAt')]
     protected $LastActivityAt = null;
 
     /**
      * Reference to Real user
-     * @SerializedName("RealUserID")
      */
+    #[SerializedName('RealUserID')]
     protected $RealUserID = null;
 
     /**
      * Reference to Real user
-     * @SerializedName("RealUserALT")
      */
+    #[SerializedName('RealUserALT')]
     protected $RealUserALT = null;
 
     /**
      * Reference to subaccount
-     * @SerializedName("SubaccountID")
      */
+    #[SerializedName('SubaccountID')]
     protected $SubaccountID = null;
 
     /**
      * Unique Token used to retrieve these access rights.
-     * @SerializedName("Token")
      */
+    #[SerializedName('Token')]
     protected $Token = null;
 
     /**
      * Timestamp when object was last updated in database.
-     * @SerializedName("UpdatedAt")
      */
+    #[SerializedName('UpdatedAt')]
     protected $UpdatedAt = null;
 
     /**
      * Reference to user for whom access is described.
-     * @SerializedName("UserID")
      */
+    #[SerializedName('UserID')]
     protected $UserID = null;
 
     /**
      * Reference to user for whom access is described.
-     * @SerializedName("UserALT")
      */
+    #[SerializedName('UserALT')]
     protected $UserALT = null;
 
     /**

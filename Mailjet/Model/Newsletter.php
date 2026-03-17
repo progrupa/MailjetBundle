@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,243 +19,243 @@ class Newsletter extends AbstractModel
 
     /**
      * Fraction of AXTesting in percentage. Zero means remainder
-     * @SerializedName("AXFraction")
      */
+    #[SerializedName('AXFraction')]
     protected $AXFraction = null;
 
     /**
      * Display name for the fraction
-     * @SerializedName("AXFractionName ")
      */
+    #[SerializedName('AXFractionName ')]
     protected $AXFractionName = null;
 
     /**
      * A reference to AXTesting object
-     * @SerializedName("AXTesting")
      */
+    #[SerializedName('AXTesting')]
     protected $AXTesting = null;
 
     /**
      * Callback URL
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $Callback = null;
 
     /**
      * Reference to campaign created for this newsletter.
-     * @SerializedName("CampaignID")
      */
+    #[SerializedName('CampaignID')]
     protected $CampaignID = null;
 
     /**
      * Reference to campaign created for this newsletter.
-     * @SerializedName("CampaignALT")
      */
+    #[SerializedName('CampaignALT')]
     protected $CampaignALT = null;
 
     /**
      * Reference to contacts list to which newsletter will be sent.
-     * @SerializedName("ContactsListID")
      */
+    #[SerializedName('ContactsListID')]
     protected $ContactsListID = null;
 
     /**
      * Reference to contacts list to which newsletter will be sent.
-     * @SerializedName("ContactsListALT")
      */
+    #[SerializedName('ContactsListALT')]
     protected $ContactsListALT = null;
 
     /**
      * When the newsletter was delivered.
-     * @SerializedName("DeliveredAt")
      */
+    #[SerializedName('DeliveredAt')]
     protected $DeliveredAt = null;
 
     /**
      * Edit mode for newsletter
-     * @SerializedName("EditMode")
      */
+    #[SerializedName('EditMode')]
     protected $EditMode = null;
 
     /**
      * Edit type
-     * @SerializedName("EditType")
      */
+    #[SerializedName('EditType')]
     protected $EditType = null;
 
     /**
      * Footer type to generate.
-     * @SerializedName("Footer")
      */
+    #[SerializedName('Footer')]
     protected $Footer = null;
 
     /**
      * Address to use in footer.
-     * @SerializedName("FooterAddress")
      */
+    #[SerializedName('FooterAddress')]
     protected $FooterAddress = null;
 
     /**
      * What kind of footer to generate.
-     * @SerializedName("FooterWYSIWYGType")
      */
+    #[SerializedName('FooterWYSIWYGType')]
     protected $FooterWYSIWYGType = null;
 
     /**
      * Filename to use in header
-     * @SerializedName("HeaderFilename")
      */
+    #[SerializedName('HeaderFilename')]
     protected $HeaderFilename = null;
 
     /**
      * Link used in header
-     * @SerializedName("HeaderLink")
      */
+    #[SerializedName('HeaderLink')]
     protected $HeaderLink = null;
 
     /**
      * Text of header
-     * @SerializedName("HeaderText")
      */
+    #[SerializedName('HeaderText')]
     protected $HeaderText = null;
 
     /**
      * URL used in header
-     * @SerializedName("HeaderUrl")
      */
+    #[SerializedName('HeaderUrl')]
     protected $HeaderUrl = null;
 
     /**
      * IP address used to create newsletter
-     * @SerializedName("Ip")
      */
+    #[SerializedName('Ip')]
     protected $Ip = null;
 
     /**
      * Has the newsletter been handled by Mailjet ?
-     * @SerializedName("IsHandled")
      */
+    #[SerializedName('IsHandled')]
     protected $IsHandled = false;
 
     /**
      * Is this a starred newsletter ?
-     * @SerializedName("IsStarred")
      */
+    #[SerializedName('IsStarred')]
     protected $IsStarred = false;
 
     /**
      * Does the newsletter include a text version ?
-     * @SerializedName("IsTextPartIncluded")
      */
+    #[SerializedName('IsTextPartIncluded')]
     protected $IsTextPartIncluded = false;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("Locale")
      */
+    #[SerializedName('Locale')]
     protected $Locale = null;
 
     /**
      * Timestamp when newsletter content was last modified.
-     * @SerializedName("ModifiedAt")
      */
+    #[SerializedName('ModifiedAt')]
     protected $ModifiedAt = null;
 
     /**
      * Type of permalink that should be added to the newsletter.
-     * @SerializedName("Permalink")
      */
+    #[SerializedName('Permalink')]
     protected $Permalink = null;
 
     /**
      * Host for the permalink
-     * @SerializedName("PermalinkHost")
      */
+    #[SerializedName('PermalinkHost')]
     protected $PermalinkHost = null;
 
     /**
      * ?
-     * @SerializedName("PermalinkWYSIWYGType")
      */
+    #[SerializedName('PermalinkWYSIWYGType')]
     protected $PermalinkWYSIWYGType = null;
 
     /**
      * ?
-     * @SerializedName("PolitenessMode")
      */
+    #[SerializedName('PolitenessMode')]
     protected $PolitenessMode = null;
 
     /**
      * Reply-To address for the mail.
-     * @SerializedName("ReplyEmail")
      */
+    #[SerializedName('ReplyEmail')]
     protected $ReplyEmail = null;
 
     /**
      * ID reference to ContactFilter
-     * @SerializedName("SegmentationID")
      */
+    #[SerializedName('SegmentationID')]
     protected $SegmentationID = null;
 
     /**
      * Value of the Name field of the related ContactFilter resource
-     * @SerializedName("SegmentationALT")
      */
+    #[SerializedName('SegmentationALT')]
     protected $SegmentationALT = null;
 
     /**
      * Sender
-     * @SerializedName("Sender")
      */
+    #[SerializedName('Sender')]
     protected $Sender = null;
 
     /**
      * Sender email address in headers
-     * @SerializedName("SenderEmail")
      */
+    #[SerializedName('SenderEmail')]
     protected $SenderEmail = null;
 
     /**
      * Name of the sender in Sender headers
-     * @SerializedName("SenderName")
      */
+    #[SerializedName('SenderName')]
     protected $SenderName = null;
 
     /**
      * Status of the newsletter
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**
      * Newsletter subject
-     * @SerializedName("Subject")
      */
+    #[SerializedName('Subject')]
     protected $Subject = null;
 
     /**
      * Template from which this newsletter was generated, or as which it was last
      * saved.
-     * @SerializedName("TemplateID")
      */
+    #[SerializedName('TemplateID')]
     protected $TemplateID = null;
 
     /**
      * Address used for testing
-     * @SerializedName("TestAddress")
      */
+    #[SerializedName('TestAddress')]
     protected $TestAddress = null;
 
     /**
      * Newsletter title
-     * @SerializedName("Title")
      */
+    #[SerializedName('Title')]
     protected $Title = null;
 
     /**
      * URL where an online version of the newsletter can be found [?]
-     * @SerializedName("Url")
      */
+    #[SerializedName('Url')]
     protected $Url = null;
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,134 +19,134 @@ class Myprofile implements ModelInterface
 
     /**
      * City part of address
-     * @SerializedName("AddressCity")
 	 */
+    #[SerializedName('AddressCity')]
     protected $AddressCity = null;
 
     /**
      * Country part of address
-     * @SerializedName("AddressCountry")
 	 */
+    #[SerializedName('AddressCountry')]
     protected $AddressCountry = null;
 
     /**
      * Postal code of address (ZIP)
-     * @SerializedName("AddressPostalCode")
 	 */
+    #[SerializedName('AddressPostalCode')]
     protected $AddressPostalCode = null;
 
     /**
      * Street and house number
-     * @SerializedName("AddressStreet")
 	 */
+    #[SerializedName('AddressStreet')]
     protected $AddressStreet = null;
 
     /**
      * Billing email address
-     * @SerializedName("BillingEmail")
 	 */
+    #[SerializedName('BillingEmail')]
     protected $BillingEmail = null;
 
     /**
      * User's birthday
-     * @SerializedName("BirthdayAt")
 	 */
+    #[SerializedName('BirthdayAt')]
     protected $BirthdayAt = null;
 
     /**
      * Name of the company
-     * @SerializedName("CompanyName")
 	 */
+    #[SerializedName('CompanyName')]
     protected $CompanyName = null;
 
     /**
      * EU name of the company
-     * @SerializedName("CompanyNameEu")
 	 */
+    #[SerializedName('CompanyNameEu')]
     protected $CompanyNameEu = null;
 
     /**
      * Contact telephone
-     * @SerializedName("ContactPhone")
 	 */
+    #[SerializedName('ContactPhone')]
     protected $ContactPhone = null;
 
     /**
      * Estimated volume of messages
-     * @SerializedName("EstimatedVolume")
 	 */
+    #[SerializedName('EstimatedVolume')]
     protected $EstimatedVolume = null;
 
     /**
      * ?
-     * @SerializedName("Features")
 	 */
+    #[SerializedName('Features')]
     protected $Features = null;
 
     /**
      * Contact person's first name
-     * @SerializedName("Firstname")
 	 */
+    #[SerializedName('Firstname')]
     protected $Firstname = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
 	 */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Industry in which user works.
-     * @SerializedName("Industry")
 	 */
+    #[SerializedName('Industry')]
     protected $Industry = null;
 
     /**
      * Contact person's last name
-     * @SerializedName("Lastname")
 	 */
+    #[SerializedName('Lastname')]
     protected $Lastname = null;
 
     /**
      * Reference to user
-     * @SerializedName("UserID")
 	 */
+    #[SerializedName('UserID')]
     protected $UserID = null;
 
     /**
      * Reference to user
-     * @SerializedName("UserALT")
 	 */
+    #[SerializedName('UserALT')]
     protected $UserALT = null;
 
     /**
      * VAT rate for this user.
-     * @SerializedName("VAT")
 	 */
+    #[SerializedName('VAT')]
     protected $VAT = null;
 
     /**
      * User supplied VAT number.
-     * @SerializedName("VATNumber")
 	 */
+    #[SerializedName('VATNumber')]
     protected $VATNumber = null;
 
     /**
      * Status of VAT number checking.
-     * @SerializedName("VATNumberStatus")
 	 */
+    #[SerializedName('VATNumberStatus')]
     protected $VATNumberStatus = null;
 
     /**
      * Mailjet determined VAT number
-     * @SerializedName("VATNumberTrusted")
 	 */
+    #[SerializedName('VATNumberTrusted')]
     protected $VATNumberTrusted = null;
 
     /**
      * URL of user's website
-     * @SerializedName("Website")
 	 */
+    #[SerializedName('Website')]
     protected $Website = null;
 
     /**

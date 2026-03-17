@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -17,8 +17,8 @@ class NewsletterTest implements ModelInterface
 
     /**
      * Access rights of this token, in serialized PHP.
-     * @SerializedName("Recipients")
      */
+    #[SerializedName('Recipients')]
     protected $Recipients = array();
 
     /**

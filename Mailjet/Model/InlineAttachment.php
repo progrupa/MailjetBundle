@@ -3,23 +3,19 @@
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
-use Symfony\Component\Serializer\Annotation\Ignore;
+use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Serializer\Attribute\Ignore;
 
 class InlineAttachment
 {
-    /**
-     * @SerializedName("Content-type")
-     */
+    #[SerializedName('Content-type')]
     private $contentType;
-    /**
-     * @SerializedName("Filename")
-     */
+    #[SerializedName('Filename')]
     private $filename;
     /**
      * @var string
-     * @Ignore()
      */
+    #[Ignore]
     private $content;
 
     public function __construct($filename, $content, $contentType = null)
@@ -80,10 +76,7 @@ class InlineAttachment
         return $this;
     }
 
-    /**
-     * 
-     * @SerializedName("content")
-     */
+    #[SerializedName('content')]
     public function getEncodedContent()
     {
         return base64_encode($this->content);

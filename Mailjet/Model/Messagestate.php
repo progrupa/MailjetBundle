@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -20,20 +20,20 @@ class Messagestate implements ModelInterface
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Reason for this state
-     * @SerializedName("RelatedTo")
      */
+    #[SerializedName('RelatedTo')]
     protected $RelatedTo = null;
 
     /**
      * Description of the message state
-     * @SerializedName("State")
      */
+    #[SerializedName('State')]
     protected $State = null;
 
     /**

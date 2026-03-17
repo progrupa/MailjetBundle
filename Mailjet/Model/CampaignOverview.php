@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class CampaignOverview implements ModelInterface
@@ -14,74 +14,74 @@ class CampaignOverview implements ModelInterface
 
     /**
      * Clicked count
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Edit mode
-     * @SerializedName("EditMode")
      */
+    #[SerializedName('EditMode')]
     protected $EditMode = null;
 
     /**
      * Edit type
-     * @SerializedName("EditType")
      */
+    #[SerializedName('EditType')]
     protected $EditType = null;
 
     /**
      * Unique numerical ID for this object.
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Campaign, AX campaign or newsletter
-     * @SerializedName("IDType")
      */
+    #[SerializedName('IDType')]
     protected $IDType = null;
 
     /**
      * Opened count
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * How many items are processed
-     * @SerializedName("ProcessedCount")
      */
+    #[SerializedName('ProcessedCount')]
     protected $ProcessedCount = null;
 
     /**
      * How many items are processed
-     * @SerializedName("SendTimeStart")
      */
+    #[SerializedName('SendTimeStart')]
     protected $SendTimeStart = null;
 
     /**
      * Starred
-     * @SerializedName("Starred")
      */
+    #[SerializedName('Starred')]
     protected $Starred = null;
 
     /**
      * Status of the campaign
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**
      * Status of the campaign
-     * @SerializedName("Subject")
      */
+    #[SerializedName('Subject')]
     protected $Subject = null;
 
     /**
      * Title of the campaign
-     * @SerializedName("Title")
      */
+    #[SerializedName('Title')]
     protected $Title = null;
 
     /**

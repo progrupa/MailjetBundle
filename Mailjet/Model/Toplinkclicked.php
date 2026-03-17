@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,26 +19,26 @@ class Toplinkclicked implements ModelInterface
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Unique ID for the link.
-     * @SerializedName("LinkId")
      */
+    #[SerializedName('LinkId')]
     protected $LinkId = null;
 
     /**
      * Actual link clicked
-     * @SerializedName("Url")
      */
+    #[SerializedName('Url')]
     protected $Url = null;
 
     /**

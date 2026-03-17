@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,32 +19,32 @@ class Newslettertemplatecategory implements ModelInterface
 
     /**
      * Category description (localized)
-     * @SerializedName("Description")
      */
+    #[SerializedName('Description')]
     protected $Description = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("Locale")
      */
+    #[SerializedName('Locale')]
     protected $Locale = null;
 
     /**
      * Parent category reference.
-     * @SerializedName("ParentCategoryID")
      */
+    #[SerializedName('ParentCategoryID')]
     protected $ParentCategoryID = null;
 
     /**
      * Category name.
-     * @SerializedName("Value")
      */
+    #[SerializedName('Value')]
     protected $Value = null;
 
     /**

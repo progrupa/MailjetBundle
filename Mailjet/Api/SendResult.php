@@ -3,14 +3,12 @@
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class SendResult extends AbstractResult
 {
-    /**
-     * @SerializedName("Sent")
-     */
+    #[SerializedName('Sent')]
     private $sent;
 
     /**

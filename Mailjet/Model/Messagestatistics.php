@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,92 +19,92 @@ class Messagestatistics implements ModelInterface
 
     /**
      * Average delay (in seconds) between the open and click.
-     * @SerializedName("AverageClickDelay")
      */
+    #[SerializedName('AverageClickDelay')]
     protected $AverageClickDelay = null;
 
     /**
      * Average number of times a click was registered for a message.
-     * @SerializedName("AverageClickedCount")
      */
+    #[SerializedName('AverageClickedCount')]
     protected $AverageClickedCount = null;
 
     /**
      * Average delay between message delivery and first message open.
-     * @SerializedName("AverageOpenDelay")
      */
+    #[SerializedName('AverageOpenDelay')]
     protected $AverageOpenDelay = null;
 
     /**
      * Average number of times a recipient opens the message.
-     * @SerializedName("AverageOpenedCount")
      */
+    #[SerializedName('AverageOpenedCount')]
     protected $AverageOpenedCount = null;
 
     /**
      * Number of blocked messages.
-     * @SerializedName("BlockedCount")
      */
+    #[SerializedName('BlockedCount')]
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @SerializedName("BouncedCount")
      */
+    #[SerializedName('BouncedCount')]
     protected $BouncedCount = null;
 
     /**
      * Number of distinct campaigns
-     * @SerializedName("CampaignCount")
      */
+    #[SerializedName('CampaignCount')]
     protected $CampaignCount = null;
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $DeliveredCount = null;
 
     /**
      * Number of message open registrations.
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
-     * @SerializedName("ProcessedCount")
      */
+    #[SerializedName('ProcessedCount')]
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @SerializedName("QueuedCount")
      */
+    #[SerializedName('QueuedCount')]
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
-     * @SerializedName("SpamComplaintCount")
      */
+    #[SerializedName('SpamComplaintCount')]
     protected $SpamComplaintCount = null;
 
     /**
      * Number of transactional mails.
-     * @SerializedName("TransactionalCount")
      */
+    #[SerializedName('TransactionalCount')]
     protected $TransactionalCount = null;
 
     /**
      * Number of registered unsubscribe requests.
-     * @SerializedName("UnsubscribedCount")
      */
+    #[SerializedName('UnsubscribedCount')]
     protected $UnsubscribedCount = null;
 
     /**

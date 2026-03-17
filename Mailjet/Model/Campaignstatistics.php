@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,116 +19,116 @@ class Campaignstatistics implements ModelInterface
 
     /**
      * A reference to AXtesting object
-     * @SerializedName("AXTesting")
      */
+    #[SerializedName('AXTesting')]
     protected $AXTesting = null;
 
     /**
      * Number of blocked messages.
-     * @SerializedName("BlockedCount")
      */
+    #[SerializedName('BlockedCount')]
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @SerializedName("BouncedCount")
      */
+    #[SerializedName('BouncedCount')]
     protected $BouncedCount = null;
 
     /**
      * ID reference to Campaign
-     * @SerializedName("CampaignID")
      */
+    #[SerializedName('CampaignID')]
     protected $CampaignID = null;
 
     /**
      * Value of the CustomValue field of the related Campaign resource
-     * @SerializedName("CampaignALT")
      */
+    #[SerializedName('CampaignALT')]
     protected $CampaignALT = null;
 
     /**
      * True if the campaign is starred
-     * @SerializedName("CampaignIsStarred")
      */
+    #[SerializedName('CampaignIsStarred')]
     protected $CampaignIsStarred = null;
 
     /**
      * When the campaign is started
-     * @SerializedName("CampaignSendStartAt")
      */
+    #[SerializedName('CampaignSendStartAt')]
     protected $CampaignSendStartAt = null;
 
     /**
      * The subject of the campaign
-     * @SerializedName("CampaignSubject")
      */
+    #[SerializedName('CampaignSubject')]
     protected $CampaignSubject = null;
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * The name of the contact list where the campaign is sent. Available if ShowExtraData filter is True
-     * @SerializedName("ContactListName")
      */
+    #[SerializedName('ContactListName')]
     protected $ContactListName = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $DeliveredCount = null;
 
     /**
      * Timestamp of last registered activity for this Campaign
-     * @SerializedName("LastActivityAt")
      */
+    #[SerializedName('LastActivityAt')]
     protected $LastActivityAt = null;
 
     /**
      * Only retrieve campaign statistics for the given NewsLetter ID.
-     * @SerializedName("NewsLetterID")
      */
+    #[SerializedName('NewsLetterID')]
     protected $NewsLetterID = null;
 
     /**
      * Number of message open registrations.
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
-     * @SerializedName("ProcessedCount")
      */
+    #[SerializedName('ProcessedCount')]
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @SerializedName("QueuedCount")
      */
+    #[SerializedName('QueuedCount')]
     protected $QueuedCount = null;
 
     /**
      * The name of the contact filter which is applied for this campaign. Available if ShowExtraData filter is True
-     * @SerializedName("SegmentName")
      */
+    #[SerializedName('SegmentName')]
     protected $SegmentName = null;
 
     /**
      * Number of spam complaints
-     * @SerializedName("SpamComplaintCount")
      */
+    #[SerializedName('SpamComplaintCount')]
     protected $SpamComplaintCount = null;
 
     /**
      * The count of unsubscribed emails as result of this campaign
-     * @SerializedName("UnsubscribedCount")
      */
+    #[SerializedName('UnsubscribedCount')]
     protected $UnsubscribedCount = null;
 
     /**

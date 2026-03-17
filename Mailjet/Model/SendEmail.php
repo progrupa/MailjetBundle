@@ -2,8 +2,8 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
-use Symfony\Component\Serializer\Annotation\Ignore;
+use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Serializer\Attribute\Ignore;
 
 
 /**
@@ -11,110 +11,47 @@ use Symfony\Component\Serializer\Annotation\Ignore;
  */
 class SendEmail
 {
-    /**
-     * 
-     * @SerializedName("FromName")
-     */
+    #[SerializedName('FromName')]
     private $fromName = null;
-    /**
-     * 
-     * @SerializedName("FromEmail")
-     */
+    #[SerializedName('FromEmail')]
     private $fromEmail = null;
-    /**
-     * 
-     * @SerializedName("Sender")
-     */
+    #[SerializedName('Sender')]
     private $sender = null;
-    /**
-     * 
-     * @SerializedName("Recipients")
-     */
+    #[SerializedName('Recipients')]
     private $recipients = null;
-    /**
-     * 
-     * @SerializedName("To")
-     */
+    #[SerializedName('To')]
     private $to = null;
-    /**
-     * 
-     * @SerializedName("Cc")
-     */
+    #[SerializedName('Cc')]
     private $cc = null;
-    /**
-     * 
-     * @SerializedName("Bcc")
-     */
+    #[SerializedName('Bcc')]
     private $bcc = null;
-    /**
-     * 
-     * @SerializedName("Subject")
-     */
+    #[SerializedName('Subject')]
     private $subject = null;
-    /**
-     * 
-     * @SerializedName("Text-part")
-     */
+    #[SerializedName('Text-part')]
     private $text = null;
-    /**
-     * 
-     * @SerializedName("Html-part")
-     */
+    #[SerializedName('Html-part')]
     private $html = null;
-    /**
-     * 
-     * @SerializedName("Attachments")
-     */
+    #[SerializedName('Attachments')]
     private $attachments = null;
-    /**
-     * 
-     * @SerializedName("Inline-attachments")
-     */
+    #[SerializedName('Inline-attachments')]
     private $inlineAttachments = null;
-    /**
-     * 
-     * @SerializedName("Headers")
-     */
+    #[SerializedName('Headers')]
     private $headers = null;
-    /**
-     * 
-     * @SerializedName("Vars")
-     */
+    #[SerializedName('Vars')]
     private $vars = null;
-    /**
-     * 
-     * @SerializedName("Mj-prio")
-     */
+    #[SerializedName('Mj-prio')]
     private $mjPrio = 2;
-    /**
-     * 
-     * @SerializedName("Mj-campaign")
-     */
+    #[SerializedName('Mj-campaign')]
     private $mjCampaign = null;
-    /**
-     * 
-     * @SerializedName("Mj-deduplicatecampaign")
-     */
+    #[SerializedName('Mj-deduplicatecampaign')]
     private $mjDeduplicateCampaign = null;
-    /**
-     * 
-     * @SerializedName("Mj-trackopen")
-     */
+    #[SerializedName('Mj-trackopen')]
     private $mjTrackOpen = null;
-    /**
-     * 
-     * @SerializedName("Mj-trackclick")
-     */
+    #[SerializedName('Mj-trackclick')]
     private $mjTrackClick = null;
-    /**
-     * 
-     * @SerializedName("Mj-customid")
-     */
+    #[SerializedName('Mj-customid')]
     private $mjCustomId = null;
-    /**
-     * 
-     * @SerializedName("Mj-eventpayload")
-     */
+    #[SerializedName('Mj-eventpayload')]
     private $mjEventPayload = null;
 
     /**

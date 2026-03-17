@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -17,8 +17,8 @@ class NewsletterSchedule implements ModelInterface
 
     /**
      * Timestamp when object was created in database
-     * @SerializedName("Date")
      */
+    #[SerializedName('Date')]
     protected $Date = null;
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -17,63 +17,61 @@ class Apikey extends AbstractModel
         return 'apikey';
     }
 
-    /**
-     * @SerializedName("ACL")
-     */
+    #[SerializedName('ACL')]
     protected $ACL = null;
 
     /**
      * The unique key for this API Key
-     * @SerializedName("APIKey")
      */
+    #[SerializedName('APIKey')]
     protected $APIKey = null;
 
     /**
      * Is this API Key active ?
-     * @SerializedName("IsActive")
      */
+    #[SerializedName('IsActive')]
     protected $IsActive = false;
 
     /**
      * Is this API Key the master key for the user
-     * @SerializedName("IsMaster")
      */
+    #[SerializedName('IsMaster')]
     protected $IsMaster = false;
 
     /**
      * User readable name for this API Key
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * QuarantineValue
-     * @SerializedName("QuarantineValue")
      */
+    #[SerializedName('QuarantineValue')]
     protected $QuarantineValue = null;
 
     /**
      * Runlevel, used to indicate data is migrated and reduced performance is expected.
-     * @SerializedName("Runlevel")
      */
+    #[SerializedName('Runlevel')]
     protected $Runlevel = 'Normal';
 
     /**
      * Secret key for this API Key (equivalent to password).
-     * @SerializedName("SecretKey")
      */
+    #[SerializedName('SecretKey')]
     protected $SecretKey = '';
 
     /**
      * Host to be used when tracking clicks, opens, unsub requests for this API Key.
-     * @SerializedName("TrackHost")
      */
+    #[SerializedName('TrackHost')]
     protected $TrackHost = '';
 
     /**
      * User ID for this API key
-     * @SerializedName("UserID")
      */
+    #[SerializedName('UserID')]
     protected $UserID = null;
 
     /**

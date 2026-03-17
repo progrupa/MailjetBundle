@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,74 +19,74 @@ class Messageinformation extends AbstractModel
 
     /**
      * reference to Campaign to which message belongs.
-     * @SerializedName("CampaignID")
      */
+    #[SerializedName('CampaignID')]
     protected $CampaignID = null;
 
     /**
      * reference to Campaign to which message belongs.
-     * @SerializedName("CampaignALT")
      */
+    #[SerializedName('CampaignALT')]
     protected $CampaignALT = null;
 
     /**
      * Number of click track requests.
-     * @SerializedName("ClickTrackedCount")
      */
+    #[SerializedName('ClickTrackedCount')]
     protected $ClickTrackedCount = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("ContactALT")
      */
+    #[SerializedName('ContactALT')]
     protected $ContactALT = null;
 
     /**
      * Size of the message.
-     * @SerializedName("MessageSize")
      */
+    #[SerializedName('MessageSize')]
     protected $MessageSize = null;
 
     /**
      * Number of open track requests.
-     * @SerializedName("OpenTrackedCount")
      */
+    #[SerializedName('OpenTrackedCount')]
     protected $OpenTrackedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @SerializedName("QueuedCount")
      */
+    #[SerializedName('QueuedCount')]
     protected $QueuedCount = null;
 
     /**
      * Timestamp indicating when last message was sent for the campaign.
-     * @SerializedName("SendEndAt")
      */
+    #[SerializedName('SendEndAt')]
     protected $SendEndAt = null;
 
     /**
      * Number of actual sent attempts.
-     * @SerializedName("SentCount")
      */
+    #[SerializedName('SentCount')]
     protected $SentCount = null;
 
     /**
      * Matched spam assassin rules.
-     * @SerializedName("SpamAssassinRules")
      */
+    #[SerializedName('SpamAssassinRules')]
     protected $SpamAssassinRules = null;
 
     /**
      * Spam assassin score for this message.
-     * @SerializedName("SpamAssassinScore")
      */
+    #[SerializedName('SpamAssassinScore')]
     protected $SpamAssassinScore = null;
 
     /**

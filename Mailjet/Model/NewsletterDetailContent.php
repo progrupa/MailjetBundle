@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -17,14 +17,14 @@ class NewsletterDetailContent implements ModelInterface
 
     /**
      * The html-formatted part of the message
-     * @SerializedName("Html-part")
      */
+    #[SerializedName('Html-part')]
     protected $HtmlPart = null;
 
     /**
      *  The plain text part of the message
-     * @SerializedName("Text-part")
      */
+    #[SerializedName('Text-part')]
     protected $TextPart  = null;
 
     /**

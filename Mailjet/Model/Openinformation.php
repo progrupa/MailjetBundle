@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,62 +19,62 @@ class Openinformation implements ModelInterface
 
     /**
      * Timestamp indicating when the message arrived.
-     * @SerializedName("ArrivedAt")
      */
+    #[SerializedName('ArrivedAt')]
     protected $ArrivedAt = null;
 
     /**
      * Reference to Campaign in which message is sent
-     * @SerializedName("CampaignID")
      */
+    #[SerializedName('CampaignID')]
     protected $CampaignID = null;
 
     /**
      * Reference to Campaign in which message is sent
-     * @SerializedName("CampaignALT")
      */
+    #[SerializedName('CampaignALT')]
     protected $CampaignALT = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Reference to contact to which message was sent.
-     * @SerializedName("ContactALT")
      */
+    #[SerializedName('ContactALT')]
     protected $ContactALT = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("MessageID")
      */
+    #[SerializedName('MessageID')]
     protected $MessageID = null;
 
     /**
      * Timestamp when message open registration was received.
-     * @SerializedName("OpenedAt")
      */
+    #[SerializedName('OpenedAt')]
     protected $OpenedAt = null;
 
     /**
      * Useragent used to view the message.
-     * @SerializedName("UserAgent")
      */
+    #[SerializedName('UserAgent')]
     protected $UserAgent = null;
 
     /**
      * Useragent used to view the message.
-     * @SerializedName("UserAgentFull")
      */
+    #[SerializedName('UserAgentFull')]
     protected $UserAgentFull = null;
 
     /**

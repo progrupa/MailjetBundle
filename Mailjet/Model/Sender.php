@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,51 +19,51 @@ class Sender extends AbstractModel
 
     /**
      * Key used when confirming validity of this sender.
-     * @SerializedName("ConfirmKey")
      */
+    #[SerializedName('ConfirmKey')]
     protected $ConfirmKey = null;
 
     /**
      * DNS domain to which sender belongs.
-     * @SerializedName("DNS")
      */
+    #[SerializedName('DNS')]
     protected $DNS = null;
 
     /**
      * Email Address of this sender
-     * @SerializedName("Email")
      */
+    #[SerializedName('Email')]
     protected $Email = null;
 
     /**
      * Type of emails that can be sent from this address
-     * @SerializedName("EmailType")
      */
+    #[SerializedName('EmailType')]
     protected $EmailType = null;
 
     /**
      * Filename expected on the domain name webserver, used for verifying the domain in
      * case of a catch-all address.
-     * @SerializedName("Filename")
      */
+    #[SerializedName('Filename')]
     protected $Filename = null;
 
     /**
      * Is this the default sender for this API key ?
-     * @SerializedName("ACL")
      */
+    #[SerializedName('ACL')]
     protected $IsDefaultSender = false;
 
     /**
      * User-provided name for this sender
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Status of the sender
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = 'Inactive';
 
     /**

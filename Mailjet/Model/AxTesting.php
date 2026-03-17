@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -17,20 +17,20 @@ class AxTesting extends AbstractModel
 
     /**
      * ID reference to ContactsList
-     * @SerializedName("ContactListID")
      */
+    #[SerializedName('ContactListID')]
     protected $ContactListID = null;
 
     /**
      * Value of the Address field of the related ContactsList resource
-     * @SerializedName("ContactListALT")
      */
+    #[SerializedName('ContactListALT')]
     protected $ContactListALT = null;
 
     /**
      * Is the object deleted?
-     * @SerializedName("Deleted")
      */
+    #[SerializedName('Deleted')]
     protected $Deleted = null;
 
     /**
@@ -38,80 +38,80 @@ class AxTesting extends AbstractModel
      * Allowed values:
      * - automatic
      * - manual
-     * @SerializedName("Mode")
      */
+    #[SerializedName('Mode')]
     protected $Mode = null;
 
     /**
      * Display name for the testing object
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Percentage of contact list
-     * @SerializedName("Percentage")
      */
+    #[SerializedName('Percentage')]
     protected $Percentage = null;
 
     /**
      * Time to decide the winner version
-     * @SerializedName("RemainderAt")
      */
+    #[SerializedName('RemainderAt')]
     protected $RemainderAt = null;
 
     /**
      * ID reference to ContactFilter
-     * @SerializedName("SegmentationID")
      */
+    #[SerializedName('SegmentationID')]
     protected $SegmentationID = null;
 
     /**
      * Value of the Name field of the related ContactFilter resource
-     * @SerializedName("SegmentationALT")
      */
+    #[SerializedName('SegmentationALT')]
     protected $SegmentationALT = null;
 
     /**
      * Is the object starred?
-     * @SerializedName("Starred")
      */
+    #[SerializedName('Starred')]
     protected $Starred = null;
 
     /**
      * Timestamp when to start
-     * @SerializedName("StartAt")
      */
+    #[SerializedName('StartAt')]
     protected $StartAt = null;
 
     /**
      * Status of the AXTesting object
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**
      * More detailed status code.
-     * @SerializedName("StatusCode")
      */
+    #[SerializedName('StatusCode')]
     protected $StatusCode = null;
 
     /**
      * Localized string for Status code explanation
-     * @SerializedName("StatusString")
      */
+    #[SerializedName('StatusString')]
     protected $StatusString = null;
 
     /**
      * Click rate used to decide winning NL version
-     * @SerializedName("WinnerClickRate")
      */
+    #[SerializedName('WinnerClickRate')]
     protected $WinnerClickRate = null;
 
     /**
      * ID of newsletter that won
-     * @SerializedName("WinnerID")
      */
+    #[SerializedName('WinnerID')]
     protected $WinnerID = null;
 
     /**
@@ -122,25 +122,25 @@ class AxTesting extends AbstractModel
      * - SpamRate
      * - UnsubRate
      * - MJScore
-     * @SerializedName("WinnerMethod")
      */
+    #[SerializedName('WinnerMethod')]
     protected $WinnerMethod = null;
 
     /**
      * Open rate used to decide winning NL version
-     * @SerializedName("WinnerOpenRate")
      */
+    #[SerializedName('WinnerOpenRate')]
     protected $WinnerOpenRate = null;
 
     /**
      * Spam rate used to decide winning NL version
-     * @SerializedName("WinnerSpamRate")
      */
+    #[SerializedName('WinnerSpamRate')]
     protected $WinnerSpamRate = null;
 
     /**
      * Unsub rate used to decide winning NL version
-     * @SerializedName("WinnerUnsubRate")
      */
+    #[SerializedName('WinnerUnsubRate')]
     protected $WinnerUnsubRate = null;
 }

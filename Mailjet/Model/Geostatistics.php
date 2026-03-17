@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,20 +19,20 @@ class Geostatistics implements ModelInterface
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Country
-     * @SerializedName("Country")
      */
+    #[SerializedName('Country')]
     protected $Country = null;
 
     /**
      * Number of message open registrations.
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**

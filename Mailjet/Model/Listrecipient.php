@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,44 +19,44 @@ class Listrecipient extends AbstractModel
 
     /**
      * Reference to contact which is suscribed to the contactslist.
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Reference to contact which is suscribed to the contactslist.
-     * @SerializedName("ContactALT")
      */
+    #[SerializedName('ContactALT')]
     protected $ContactALT = null;
 
     /**
      * Is this subscription active
-     * @SerializedName("IsActive")
      */
+    #[SerializedName('IsActive')]
     protected $IsActive = false;
 
     /**
      * Has the contact been unsubscribed from the list ?
-     * @SerializedName("IsUnsubscribed")
      */
+    #[SerializedName('IsUnsubscribed')]
     protected $IsUnsubscribed = false;
 
     /**
      * Contacts list to which contact is subscribed
-     * @SerializedName("ListID")
      */
+    #[SerializedName('ListID')]
     protected $ListID = null;
 
     /**
      * Contacts list to which contact is subscribed
-     * @SerializedName("ListALT")
      */
+    #[SerializedName('ListALT')]
     protected $ListALT = null;
 
     /**
      * Timestamp when unsubscription was registered.
-     * @SerializedName("UnsubscribedAt")
      */
+    #[SerializedName('UnsubscribedAt')]
     protected $UnsubscribedAt = null;
 
     /**

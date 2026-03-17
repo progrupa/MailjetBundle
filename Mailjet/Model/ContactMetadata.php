@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class ContactMetadata implements ModelInterface
@@ -19,26 +19,26 @@ class ContactMetadata implements ModelInterface
      * - int
      * - float
      * - bool
-     * @SerializedName("Datatype")
      */
+    #[SerializedName('Datatype')]
     protected $Datatype = null;
 
     /**
      * ID of this definition.
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * The name of the data. The name must be unique within a namespace.
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * The namespace for this data. There are 2 possible values: static and historic.
-     * @SerializedName("NameSpace")
      */
+    #[SerializedName('NameSpace')]
     protected $NameSpace = null;
 
     /**

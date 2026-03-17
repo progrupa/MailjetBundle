@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,56 +19,56 @@ class Bouncestatistics implements ModelInterface
 
     /**
      * Timestamp of bounce
-     * @SerializedName("BouncedAt")
      */
+    #[SerializedName('BouncedAt')]
     protected $BouncedAt = null;
 
     /**
      * Reference to Campaign for which bounce occurred
-     * @SerializedName("CampaignID")
      */
+    #[SerializedName('CampaignID')]
     protected $CampaignID = null;
 
     /**
      * Reference to Campaign for which bounce occurred
-     * @SerializedName("CampaignALT")
      */
+    #[SerializedName('CampaignALT')]
     protected $CampaignALT = null;
 
     /**
      * Reference to Contact for which bounce occurred
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Reference to Contact for which bounce occurred
-     * @SerializedName("ContactALT")
      */
+    #[SerializedName('ContactALT')]
     protected $ContactALT = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * Is contact blocked
-     * @SerializedName("IsBlocked")
      */
+    #[SerializedName('IsBlocked')]
     protected $IsBlocked = false;
 
     /**
      * Is this a permanent bounce
-     * @SerializedName("IsStatePermanent")
      */
+    #[SerializedName('IsStatePermanent')]
     protected $IsStatePermanent = false;
 
     /**
      * Current state of the message causing the bounce
-     * @SerializedName("StateID")
      */
+    #[SerializedName('StateID')]
     protected $StateID = null;
 
     /**

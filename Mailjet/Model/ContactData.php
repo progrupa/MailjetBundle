@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class ContactData implements ModelInterface
@@ -14,20 +14,20 @@ class ContactData implements ModelInterface
 
     /**
      * Access rights of this token, in serialized PHP.
-     * @SerializedName("ContactID")
      */
+    #[SerializedName('ContactID')]
     protected $ContactID = null;
 
     /**
      * Access rights of this token, in serialized PHP.
-     * @SerializedName("Data")
      */
+    #[SerializedName('Data')]
     protected $Data = null;
 
     /**
      * Access rights of this token, in serialized PHP.
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**

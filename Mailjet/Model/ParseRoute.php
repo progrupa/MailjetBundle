@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 class ParseRoute implements ModelInterface
@@ -14,32 +14,32 @@ class ParseRoute implements ModelInterface
 
     /**
      * Reference to API Key to which this token belongs.
-     * @SerializedName("APIKeyID")
      */
+    #[SerializedName('APIKeyID')]
     protected $APIKeyID = null;
 
     /**
      * Reference to API Key to which this token belongs.
-     * @SerializedName("APIKeyALT")
      */
+    #[SerializedName('APIKeyALT')]
     protected $APIKeyALT = null;
 
     /**
      * Reference to API Key to which this token belongs.
-     * @SerializedName("Email")
      */
+    #[SerializedName('Email')]
     protected $Email = null;
 
     /**
      * User readable name for this API Key
-     * @SerializedName("ID")
      */
+    #[SerializedName('ID')]
     protected $ID = null;
 
     /**
      * User readable name for this API Key
-     * @SerializedName("Url")
      */
+    #[SerializedName('Url')]
     protected $Url = null;
 
     /**

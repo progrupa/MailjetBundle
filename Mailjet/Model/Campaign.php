@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,146 +19,146 @@ class Campaign extends AbstractModel
 
     /**
      * Type of campaign (transactional, campaign)
-     * @SerializedName("CampaignType")
      */
+    #[SerializedName('CampaignType')]
     protected $CampaignType = null;
 
     /**
      * Number of messages for which click tracking is requested.
-     * @SerializedName("ClickTracked")
      */
+    #[SerializedName('ClickTracked')]
     protected $ClickTracked = null;
 
     /**
      * Custom tag for this campaign, must be unique.
-     * @SerializedName("CustomValue")
      */
+    #[SerializedName('CustomValue')]
     protected $CustomValue = null;
 
     /**
      * Unique numerical ID for this object
-     * @SerializedName("FirstMessageID")
      */
+    #[SerializedName('FirstMessageID')]
     protected $FirstMessageID = null;
 
     /**
      * Sender of the campaign
-     * @SerializedName("FromID")
      */
+    #[SerializedName('FromID')]
     protected $FromID = null;
 
     /**
      * Sender of the campaign
-     * @SerializedName("FromALT")
      */
+    #[SerializedName('FromALT')]
     protected $FromALT = null;
 
     /**
      * Sender email address for the campaign
-     * @SerializedName("FromEmail")
      */
+    #[SerializedName('FromEmail')]
     protected $FromEmail = null;
 
     /**
      * Sender name for the campaign
-     * @SerializedName("FromName")
      */
+    #[SerializedName('FromName')]
     protected $FromName = null;
 
     /**
      * Number of messages containing HTML in this campaign.
-     * @SerializedName("HasHtmlCount")
      */
+    #[SerializedName('HasHtmlCount')]
     protected $HasHtmlCount = null;
 
     /**
      * Number of messages containing HTML in this campaign.
-     * @SerializedName("HasTxtCount")
      */
+    #[SerializedName('HasTxtCount')]
     protected $HasTxtCount = null;
 
     /**
      * Has the campaign been deleted by the user.
-     * @SerializedName("IsDeleted")
      */
+    #[SerializedName('IsDeleted')]
     protected $IsDeleted = false;
 
     /**
      * Is this campaign marked as starred?
-     * @SerializedName("IsStarred")
      */
+    #[SerializedName('IsStarred')]
     protected $IsStarred = false;
 
     /**
      * Reference to contactslist to which campaign is sent.
-     * @SerializedName("ListID")
      */
+    #[SerializedName('ListID')]
     protected $ListID = null;
 
     /**
      * Reference to contactslist to which campaign is sent.
-     * @SerializedName("ListALT")
      */
+    #[SerializedName('ListALT')]
     protected $ListALT = null;
 
     /**
      * Newletter ID for which the campaign was created.
-     * @SerializedName("NewsLetterID")
      */
+    #[SerializedName('NewsLetterID')]
     protected $NewsLetterID = null;
 
     /**
      * Number of messages for which open tracking is requested.
-     * @SerializedName("OpenTracked")
      */
+    #[SerializedName('OpenTracked')]
     protected $OpenTracked = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @SerializedName("SegmentationID")
      */
+    #[SerializedName('SegmentationID')]
     protected $SegmentationID = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @SerializedName("SegmentationALT")
      */
+    #[SerializedName('SegmentationALT')]
     protected $SegmentationALT = null;
 
     /**
      * Timestamp indicating when last message in this campaign was sent.
-     * @SerializedName("SendEndAt")
      */
+    #[SerializedName('SendEndAt')]
     protected $SendEndAt = null;
 
     /**
      * Timestamp indicating when first message in this campaign was sent.
-     * @SerializedName("SendStartAt")
      */
+    #[SerializedName('SendStartAt')]
     protected $SendStartAt = null;
 
     /**
      * Spam Assassin score for this campaign.
-     * @SerializedName("SpamassScore")
      */
+    #[SerializedName('SpamassScore')]
     protected $SpamassScore = null;
 
     /**
      * Status of this campaign
-     * @SerializedName("Status")
      */
+    #[SerializedName('Status')]
     protected $Status = null;
 
     /**
      * Campaign subject
-     * @SerializedName("Subject")
      */
+    #[SerializedName('Subject')]
     protected $Subject = null;
 
     /**
      * Number of messages for which unsubscribe tracking is requested.
-     * @SerializedName("UnsubscribeTrackedCount")
      */
+    #[SerializedName('UnsubscribeTrackedCount')]
     protected $UnsubscribeTrackedCount = null;
 
     /**

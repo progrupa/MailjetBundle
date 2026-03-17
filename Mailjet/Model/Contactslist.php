@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,26 +19,26 @@ class Contactslist extends AbstractModel
 
     /**
      * Email address at which this contacts of this list can be reached.
-     * @SerializedName("Address")
      */
+    #[SerializedName('Address')]
     protected $Address = null;
 
     /**
      * Has this list been deleted or not.
-     * @SerializedName("IsDeleted")
      */
+    #[SerializedName('IsDeleted')]
     protected $IsDeleted = false;
 
     /**
      * User-specified name for this contact list (must be unique)
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Number of subscribers for this list.
-     * @SerializedName("SubscriberCount")
      */
+    #[SerializedName('SubscriberCount')]
     protected $SubscriberCount = null;
 
     /**

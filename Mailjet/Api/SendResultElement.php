@@ -3,16 +3,12 @@
 namespace Progrupa\MailjetBundle\Mailjet\Api;
 
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 class SendResultElement {
-    /**
-     * @SerializedName("Email")
-     */
+    #[SerializedName('Email')]
     private $email;
-    /**
-     * @SerializedName("MessageID")
-     */
+    #[SerializedName('MessageID')]
     private $messageId;
 
     /**

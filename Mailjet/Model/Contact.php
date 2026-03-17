@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,56 +19,56 @@ class Contact extends AbstractModel
 
     /**
      * Number of messages delivered to this contact.
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $DeliveredCount = null;
 
     /**
      * Email address of this contact
-     * @SerializedName("Email")
      */
+    #[SerializedName('Email')]
     protected $Email = null;
 
     /**
      * Is an opt-in for a contactslist subscription pending ?
-     * @SerializedName("IsOptInPending")
      */
+    #[SerializedName('IsOptInPending')]
     protected $IsOptInPending = false;
 
     /**
      * Is this contact complaining of spam ?
-     * @SerializedName("IsSpamComplaining")
      */
+    #[SerializedName('IsSpamComplaining')]
     protected $IsSpamComplaining = false;
 
     /**
      * Timestamp of last registered activity for this contact
-     * @SerializedName("LastActivityAt")
      */
+    #[SerializedName('LastActivityAt')]
     protected $LastActivityAt = null;
 
     /**
      * Timestamp of last update of this contact
-     * @SerializedName("LastUpdateAt")
      */
+    #[SerializedName('LastUpdateAt')]
     protected $LastUpdateAt = null;
 
     /**
      * User-provided name for this contact
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Timestamp of last unsubscribe request.
-     * @SerializedName("UnsubscribedAt")
      */
+    #[SerializedName('UnsubscribedAt')]
     protected $UnsubscribedAt = null;
 
     /**
      * Description of who initiated the unsubscribe request.
-     * @SerializedName("UnsubscribedBy")
      */
+    #[SerializedName('UnsubscribedBy')]
     protected $UnsubscribedBy = null;
 
     /**

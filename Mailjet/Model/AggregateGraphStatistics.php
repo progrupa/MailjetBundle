@@ -12,113 +12,113 @@ class AggregateGraphStatistics implements ModelInterface
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("BlockedCount")
      */
+    #[SerializedName('BlockedCount')]
     protected $BlockedCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("BlockedStdDev")
      */
+    #[SerializedName('BlockedStdDev')]
     protected $BlockedStdDev = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("BouncedCount")
      */
+    #[SerializedName('BouncedCount')]
     protected $BouncedCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("BouncedStdDev")
      */
+    #[SerializedName('BouncedStdDev')]
     protected $BouncedStdDev = null;
 
     /**
      * Number of clicks
      * @Type("integer")
-     * @SerializedName("CampaignAggregateID")
      */
+    #[SerializedName('CampaignAggregateID')]
     protected $CampaignAggregateID = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("ClickedStdDev")
      */
+    #[SerializedName('ClickedStdDev')]
     protected $ClickedStdDev = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("OpenedStdDev")
      */
+    #[SerializedName('OpenedStdDev')]
     protected $OpenedStdDev = null;
 
     /**
      * Number of clicks
      * @Type("integer")
-     * @SerializedName("RefTimestamp")
      */
+    #[SerializedName('RefTimestamp')]
     protected $RefTimestamp = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("SentCount")
      */
+    #[SerializedName('SentCount')]
     protected $SentCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("SentStdDev")
      */
+    #[SerializedName('SentStdDev')]
     protected $SentStdDev = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("SpamComplaintCount")
      */
+    #[SerializedName('SpamComplaintCount')]
     protected $SpamComplaintCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("SpamcomplaintStdDev")
      */
+    #[SerializedName('SpamcomplaintStdDev')]
     protected $SpamcomplaintStdDev = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("UnsubscribedCount")
      */
+    #[SerializedName('UnsubscribedCount')]
     protected $UnsubscribedCount = null;
 
     /**
      * Number of clicks
      * @Type("float")
-     * @SerializedName("UnsubscribedStdDev")
      */
+    #[SerializedName('UnsubscribedStdDev')]
     protected $UnsubscribedStdDev = null;
 
     /**

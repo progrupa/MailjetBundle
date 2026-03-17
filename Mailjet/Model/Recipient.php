@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -12,13 +12,13 @@ class Recipient
 {
     /**
      * Recipient email address
-     * @SerializedName("Email")
      */
+    #[SerializedName('Email')]
     protected $Email = null;
     /**
      * Recipient name
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     public function __construct($Email, $Name = null)

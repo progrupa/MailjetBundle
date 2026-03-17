@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,62 +19,62 @@ class Listrecipientstatistics implements ModelInterface
 
     /**
      * Number of blocked messages.
-     * @SerializedName("BlockedCount")
      */
+    #[SerializedName('BlockedCount')]
     protected $BlockedCount = null;
 
     /**
      * Number of bounced messages.
-     * @SerializedName("BouncedCount")
      */
+    #[SerializedName('BouncedCount')]
     protected $BouncedCount = null;
 
     /**
      * Number of registered clicks.
-     * @SerializedName("ClickedCount")
      */
+    #[SerializedName('ClickedCount')]
     protected $ClickedCount = null;
 
     /**
      * Number of messages delivered to their destination.
-     * @SerializedName("DeliveredCount")
      */
+    #[SerializedName('DeliveredCount')]
     protected $DeliveredCount = null;
 
     /**
      * Timestamp of last registered activity for this contact
-     * @SerializedName("LastActivityAt")
      */
+    #[SerializedName('LastActivityAt')]
     protected $LastActivityAt = null;
 
     /**
      * Listrecipient for which the statistics are shown.
-     * @SerializedName("ListRecipient")
      */
+    #[SerializedName('ListRecipient')]
     protected $ListRecipient = null;
 
     /**
      * Number of message open registrations.
-     * @SerializedName("OpenedCount")
      */
+    #[SerializedName('OpenedCount')]
     protected $OpenedCount = null;
 
     /**
      * Total number of messages processed by Mailjet
-     * @SerializedName("ProcessedCount")
      */
+    #[SerializedName('ProcessedCount')]
     protected $ProcessedCount = null;
 
     /**
      * Number of messages waiting in send queue
-     * @SerializedName("QueuedCount")
      */
+    #[SerializedName('QueuedCount')]
     protected $QueuedCount = null;
 
     /**
      * Number of spam complaints
-     * @SerializedName("SpamComplaintCount")
      */
+    #[SerializedName('SpamComplaintCount')]
     protected $SpamComplaintCount = null;
 
     /**

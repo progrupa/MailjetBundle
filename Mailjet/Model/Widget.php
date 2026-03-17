@@ -2,7 +2,7 @@
 
 namespace Progrupa\MailjetBundle\Mailjet\Model;
 
-use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 
 /**
@@ -19,68 +19,68 @@ class Widget extends AbstractModel
 
     /**
      * Reference to Sender address for this widget
-     * @SerializedName("FromID")
      */
+    #[SerializedName('FromID')]
     protected $FromID = null;
 
     /**
      * Reference to Sender address for this widget
-     * @SerializedName("FromALT")
      */
+    #[SerializedName('FromALT')]
     protected $FromALT = null;
 
     /**
      * Is thewidget still active.
-     * @SerializedName("IsActive")
      */
+    #[SerializedName('IsActive')]
     protected $IsActive = false;
 
     /**
      * Contactslist for which this widget handles subscriptions.
-     * @SerializedName("ListID")
      */
+    #[SerializedName('ListID')]
     protected $ListID = null;
 
     /**
      * Contactslist for which this widget handles subscriptions.
-     * @SerializedName("ListALT")
      */
+    #[SerializedName('ListALT')]
     protected $ListALT = null;
 
     /**
      * Locale in which the information in this record is recorded.
-     * @SerializedName("Locale")
      */
+    #[SerializedName('Locale')]
     protected $Locale = null;
 
     /**
      * Name for this widget
-     * @SerializedName("Name")
      */
+    #[SerializedName('Name')]
     protected $Name = null;
 
     /**
      * Reply To email address for this widhet
-     * @SerializedName("Replyto")
      */
+    #[SerializedName('Replyto')]
     protected $Replyto = null;
 
     /**
      * Sender name for this widget
-     * @SerializedName("Sendername")
      */
+    #[SerializedName('Sendername')]
     protected $Sendername = null;
 
     /**
      * Subject for this widget
-     * @SerializedName("Subject")
      */
+    #[SerializedName('Subject')]
     protected $Subject = null;
 
     /**
      * Message to send when sending mail for this widget
-     * @SerializedName("Template")
      */
+    #[SerializedName('Template')]
     protected $Template = null;
 
     /**
